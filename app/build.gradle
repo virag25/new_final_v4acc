@@ -1,15 +1,19 @@
 apply plugin: 'com.android.application'
 
 
-android {
+android
+        {
     compileSdkVersion 22
     buildToolsVersion '22.0.1'
 
     defaultConfig
             {
+
                 applicationId "amigoinn.example.v4sales"
                 minSdkVersion 15
                 targetSdkVersion 22
+                multiDexEnabled true
+
             }
 
     buildTypes {
@@ -35,7 +39,8 @@ dependencies
             compile files('libs/listviewanimations_lib-manipulation_3.1.0.jar')
             //    compile files('libs/nineoldandroids-2.4.0.jar')
             compile files('libs/universal-image-loader-1.9.3.jar')
-
+            compile 'com.google.android.gms:play-services-location:8.3.0'
+            compile 'com.android.support:multidex:1.0.0'
             //apply plugin: 'com.google.gms.google-services'
             compile('com.github.ganfra:material-spinner:1.1.0')
                     {
@@ -43,15 +48,16 @@ dependencies
                         exclude group: 'com.android.support', module: 'appcompat-v7'
                     }
 
-            compile 'com.google.android.gms:play-services:8.1.0'
+
             compile 'com.android.support:appcompat-v7:22.1.1'
             compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
             compile 'com.github.PhilJay:MPAndroidChart:v2.1.4'
             compile 'com.android.support:support-v4:22.1.1'
-            compile 'com.google.android.gms:play-services:8.1.0'
+
             compile 'com.hudomju:swipe-to-dismiss-undo:1.0'
             compile 'com.squareup.retrofit:retrofit:1.9.0'
             compile 'com.google.android.gms:play-services-gcm:8.1.0'
+            compile 'com.google.android.gms:play-services-maps:8.1.0'
             compile 'com.github.flavienlaurent.datetimepicker:library:0.0.2'
             compile 'com.github.ganfra:material-spinner:1.1.0'
             compile 'se.emilsjolander:stickylistheaders:2.6.0'

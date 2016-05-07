@@ -2,6 +2,7 @@ package amigoinn.example.v4sales;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import amigoinn.activerecordbase.ActiveRecordBase;
@@ -28,6 +29,11 @@ public class AccountApplication extends Application {
         return client_code;
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
     public static void setClient_code(String client_code) {
         AccountApplication.client_code = client_code;
     }
@@ -35,7 +41,8 @@ public class AccountApplication extends Application {
     private static String client_code;
 
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
         super.onCreate();
         DatabaseBuilder builder = new DatabaseBuilder(Const.DATABASE_NAME);
         builder.addClass(UserInfo.class);

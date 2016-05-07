@@ -608,9 +608,11 @@ public class LeftMenusActivity extends ActionBarActivity
 
 				try
 				{
-					Fragment fragment12345 = new FragmentReportChart();//.newInstance();
-					commitFragment(fragment12345);
-					setTitle("Report");
+					Intent ina=new Intent(this,AndroidDatabaseManager.class);
+					startActivity(ina);
+//					Fragment fragment12345 = new FragmentReportChart();//.newInstance();
+//					commitFragment(fragment12345);
+//					setTitle("Report");
 					break;
 
 				}catch(Exception ex)

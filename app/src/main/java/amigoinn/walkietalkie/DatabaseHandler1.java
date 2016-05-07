@@ -12,6 +12,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import amigoinn.activerecordbase.Database;
+import amigoinn.db_model.ProductInfo;
 import amigoinn.models.TaskDetails;
 
 public class DatabaseHandler1 extends SQLiteOpenHelper
@@ -88,6 +89,39 @@ public class DatabaseHandler1 extends SQLiteOpenHelper
                 while (cursor.moveToNext());
             }
         return category;
+        } catch (Exception e) {
+            Log.e("Error",e.toString());
+        }
+        return category;
+    }
+
+    public ArrayList<ProductInfo> getproductforItemgroups(String selecteditemgroup)
+    {
+        ArrayList<ProductInfo> category=new ArrayList<>();
+        try
+        {
+
+//            Database m_database=Database.createInstance(v.getContext(),"vact.db",1);
+            SQLiteDatabase db = this.getWritableDatabase();
+            String querystring="select PRODUCT_INFO.STOCK_NO,PRODUCT_INFO.MODEL,PRODUCT_INFO.BRAND,PRODUCT_INFO.ITEM_DESC,PRODUCT_INFO.RETAILPRICE from GEN_LOOK_INFO inner join ClASS_COMB_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE inner join PRODUCT_INFO on ClASS_COMB_INFO.PRODUCT = PRODUCT_INFO.Brand where GEN_LOOK_INFO.RECID='66' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+            //String querystring="SELECT distinct itemgroup FROM PRODUCT_INFO order by itemgroup asc";
+            Cursor cursor = db.rawQuery(querystring, null);
+
+            if (cursor.moveToFirst())
+            {
+                do
+                {
+                    ProductInfo product=new ProductInfo();
+                    product.StockNo=cursor.getString(0);
+                    product.model=cursor.getString(1);
+                    product.brand=cursor.getString(2);
+                    product.ItemDesc=cursor.getString(3);
+                    product.Retail_Price=cursor.getString(4);
+                    category.add(product);
+                }
+                while (cursor.moveToNext());
+            }
+            return category;
         } catch (Exception e) {
             Log.e("Error",e.toString());
         }

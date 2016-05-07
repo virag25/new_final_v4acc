@@ -56,6 +56,7 @@ import amigoinn.adapters.Custom_Home_tasks;
 import amigoinn.db_model.ClassCombInfo;
 import amigoinn.db_model.GenLookInfo;
 import amigoinn.db_model.ModelDelegates;
+import amigoinn.db_model.ProductInfo;
 import amigoinn.db_model.UserInfo;
 import amigoinn.modallist.Combo12;
 import amigoinn.modallist.GenLookup;
@@ -179,15 +180,20 @@ public class FragmentCategoryItem extends Fragment
            }
 
 
+try {
+    ArrayList<ProductInfo> products = handler1.getproductforItemgroups("Home Care");
+}catch (Exception ex)
+{
 
-
+}
         return view;
     }
 
     public void loadGENLOOKUPS()
     {
      //   showProgress();
-        GenLookup.Instance().DoProductCall(new ModelDelegates.ModelDelegate<GenLookInfo>() {
+        GenLookup.Instance().DoProductCall(new ModelDelegates.ModelDelegate<GenLookInfo>()
+        {
             @Override
             public void ModelLoaded(ArrayList<GenLookInfo> list)
             {

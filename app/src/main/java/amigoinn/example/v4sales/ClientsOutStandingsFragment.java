@@ -21,7 +21,8 @@ import amigoinn.db_model.ClientOrderInfo;
 import amigoinn.db_model.ModelDelegates;
 import amigoinn.modallist.ClientOrderList;
 
-public class ClientsOutStandingsFragment extends BaseFragment {
+public class ClientsOutStandingsFragment extends BaseFragment
+{
 
     ListView listView2;
     ListViewCustomAdapter adateer;
