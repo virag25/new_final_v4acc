@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:state_enabled="false" android:color="@color/white_30_percent"/>
-    <item android:state_activated="true" android:color="@android:color/white"/>
-    <item android:color="@color/main_color_grey_700"/>
-
-</selector><!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/drawable/selector_text_empty.xml -->

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@drawable/check_on_dark" android:state_checked="true"/>
-    <item android:drawable="@drawable/check_off_dark"/>
-
-</selector><!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/drawable/checkbox_selector_dark.xml -->
