@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="amigoinn.example.v4sales.dummy.AddProductsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:text="Select Product:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/edtProduct"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:hint="Your Product name"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:text="Add Qty.:"
+                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+            <EditText
+                android:id="@+id/edtQty"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:inputType="number"
+                android:hint="Your Quantity here"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:text="Total Price:"
+                android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+
+            <EditText
+                android:id="@+id/edtTotal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:text="Your Total here"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/main_color_300"
+            android:text="Subimt"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</RelativeLayout>
+
+
+<!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/layout/add_product_item.xml -->

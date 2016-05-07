@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="amigoinn.example.v4sales.AttendenceActivity">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>
+<!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/menu/menu_attendence.xml -->

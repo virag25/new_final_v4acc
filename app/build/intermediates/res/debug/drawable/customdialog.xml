@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  
+<!-- Define the background properties like color etc -->
+    <item>
+        <rotate
+             android:drawable="@drawable/spinner_76_outer_holo"
+             android:pivotX="50%"
+             android:pivotY="50%"
+             android:fromDegrees="0"
+             android:toDegrees="1080" />
+    </item>
+    <item>
+        <rotate
+             android:drawable="@drawable/spinner_76_inner_holo"
+             android:pivotX="50%"
+             android:pivotY="50%"
+             android:fromDegrees="720"
+             android:toDegrees="0" />
+    </item>
+</layer-list>
+<!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/drawable/customdialog.xml -->

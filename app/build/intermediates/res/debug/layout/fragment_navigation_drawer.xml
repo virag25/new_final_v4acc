@@ -1,0 +1,11 @@
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cccc"
+    android:choiceMode="singleChoice"
+    android:divider="@android:color/transparent"
+    android:dividerHeight="0dp"
+    tools:context="amigoinn.example.v4sales.NavigationDrawerFragment" />
+
+<!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/layout/fragment_navigation_drawer.xml -->

@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.wanderlust.amigo.sap.Filter">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/txtfiltertitle"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/main_color_500"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="Apply Filter"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <!--<TextView-->
+            <!--android:id="@+id/txtfilterfound"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/txtfiltertitle"-->
+            <!--android:text="27 Buses Found"-->
+            <!--android:textSize="16dp"-->
+            <!--android:layout_centerHorizontal="true"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/txtfilterparty"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/txtfilterfound"-->
+            <!--android:text="PARTY"-->
+            <!--android:layout_marginLeft="30dp"/>-->
+        <!--<LinearLayout-->
+            <!--android:layout_below="@+id/txtfilterparty"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:weightSum="100"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_height="match_parent">-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:layout_marginTop="23dp"
+                android:weightSum="100"
+
+                android:id="@+id/lnrcontainer"
+                    android:orientation="horizontal"
+
+                >
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    >
+                    <TextView
+                        android:id="@+id/txtAutoBicycle"
+
+                        android:layout_width="match_parent"
+
+                        android:padding="3dp"
+                        android:layout_height="45dp"
+                        android:text="Auto-Bicycles"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textSize="14dp"
+
+                        android:background="@drawable/buttonshapeempty"
+                        android:textColor="@color/main_color_500"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"/>
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listFiltered"
+                        android:visibility="gone"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_below="@+id/txtZone"
+                        ></ListView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    >
+                    <TextView
+                        android:id="@+id/txtState"
+                        android:layout_width="match_parent"
+
+                        android:padding="3dp"
+                        android:layout_height="45dp"
+                        android:text="Electronics"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textSize="14dp"
+
+                        android:background="@drawable/buttonshapeempty"
+                        android:textColor="@color/main_color_500"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"/>
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listState"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        android:layout_below="@+id/txtState"
+                        ></ListView>
+                </RelativeLayout>
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtState"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_weight="33"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:text="State"-->
+
+                    <!--android:textSize="16dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:background="@color/main_color_500"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:layout_below="@+id/txtfilterdata1"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:layout_centerHorizontal="true"/>-->
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="33"
+                    >
+                    <TextView
+                        android:id="@+id/txtCity"
+                        android:layout_width="match_parent"
+
+                        android:padding="3dp"
+                        android:layout_height="45dp"
+                        android:text="Fmcg"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textSize="14dp"
+
+                        android:background="@drawable/buttonshapeempty"
+                        android:textColor="@color/main_color_500"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"/>
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listCity"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_below="@+id/txtCity"
+                        android:visibility="gone"
+                        android:layout_marginBottom="0dp"
+                        ></ListView>
+                </RelativeLayout>
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtfilterdata3"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_weight="33"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:layout_height="0dp"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:text="City"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:background="@color/main_color_500"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:layout_below="@+id/txtfilterdata2"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:layout_centerHorizontal="true"/>-->
+
+            </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:text="MASTER GROUP"
+            android:textStyle="bold"
+            android:padding="3dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/material_grey_300"
+            ></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:id="@+id/txtSubFilter"
+            android:text="SUB FILTER"
+            android:textStyle="bold"
+            android:padding="3dp"
+            android:layout_below="@+id/lnrcontainer"
+            android:background="@color/material_grey_300"
+            ></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/txtSubFilter"
+            android:weightSum="100"
+
+            android:id="@+id/lnrsubcontainer"
+            android:orientation="vertical"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_weight="33"
+                >
+                <TextView
+                    android:id="@+id/txtItemGroup"
+
+                    android:layout_width="match_parent"
+
+                    android:padding="3dp"
+                    android:layout_height="45dp"
+                    android:text="Item Group"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="14dp"
+
+
+                    android:textColor="@color/material_grey_700"
+                    android:gravity="center|left"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+
+                android:visibility="visible"
+                android:background="@color/material_grey_500"
+                android:layout_below="@+id/txtItemGroup"
+                ></View>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="33"
+                >
+                <TextView
+                    android:id="@+id/txtReportingGroupCode"
+                    android:layout_width="match_parent"
+
+                    android:padding="3dp"
+                    android:layout_height="35dp"
+                    android:text="Reporting Group Code"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="14dp"
+                    android:textColor="@color/material_grey_700"
+                    android:gravity="center|left"
+
+                    />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+
+                android:visibility="visible"
+                android:background="@color/material_grey_500"
+                android:layout_below="@+id/txtItemGroup"
+                ></View>
+            <!--<TextView-->
+            <!--android:id="@+id/txtState"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_weight="33"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:text="State"-->
+
+            <!--android:textSize="16dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:background="@color/main_color_500"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:layout_below="@+id/txtfilterdata1"-->
+            <!--android:gravity="center"-->
+            <!--android:textAlignment="center"-->
+            <!--android:layout_centerHorizontal="true"/>-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="33"
+                >
+                <TextView
+                    android:id="@+id/txtProduct"
+                    android:layout_width="match_parent"
+
+                    android:padding="3dp"
+                    android:layout_height="35dp"
+                    android:text="Product"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14dp"
+
+
+                    android:textColor="@color/main_color_grey_700"
+                    android:gravity="center|left"
+
+                    />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+
+                android:visibility="visible"
+                android:background="@color/material_grey_500"
+                android:layout_below="@+id/txtItemGroup"
+                ></View>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="33"
+                android:id="@+id/rltvlast"
+                >
+                <TextView
+                    android:id="@+id/txtBrand"
+                    android:layout_width="match_parent"
+
+                    android:padding="3dp"
+                    android:layout_height="35dp"
+                    android:text="Brand"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14dp"
+
+
+                    android:textColor="@color/main_color_grey_700"
+                    android:gravity="center|left"
+
+                    />
+
+            </RelativeLayout>
+            <!--<TextView-->
+            <!--android:id="@+id/txtfilterdata3"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_weight="33"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:text="City"-->
+            <!--android:textSize="16dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:background="@color/main_color_500"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:layout_below="@+id/txtfilterdata2"-->
+            <!--android:gravity="center"-->
+            <!--android:textAlignment="center"-->
+            <!--android:layout_centerHorizontal="true"/>-->
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:id="@+id/txtLastFilter"
+            android:text="FINAL FILTER"
+            android:textStyle="bold"
+            android:padding="3dp"
+            android:layout_below="@+id/lnrsubcontainer"
+            android:background="@color/material_grey_300"
+            ></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/txtLastFilter"
+            android:weightSum="100"
+
+            android:id="@+id/lnrsubcontainer2"
+            android:orientation="vertical"
+
+            >
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_weight="33"
+                >
+                <TextView
+                    android:id="@+id/txtModel"
+
+                    android:layout_width="match_parent"
+
+                    android:padding="3dp"
+                    android:layout_height="45dp"
+                    android:text="Model"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="14dp"
+
+
+                    android:textColor="@color/material_grey_700"
+                    android:gravity="center|left"
+                    android:textAlignment="center"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+
+                android:visibility="visible"
+                android:background="@color/material_grey_500"
+                android:layout_below="@+id/txtItemGroup"
+                ></View>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="33"
+                >
+                <TextView
+                    android:id="@+id/txtSize"
+                    android:layout_width="match_parent"
+
+                    android:padding="3dp"
+                    android:layout_height="35dp"
+                    android:text="Size"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="14dp"
+                    android:textColor="@color/material_grey_700"
+                    android:gravity="center|left"
+
+                    />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+
+                android:visibility="visible"
+                android:background="@color/material_grey_500"
+                android:layout_below="@+id/txtItemGroup"
+                ></View>
+            <!--<TextView-->
+            <!--android:id="@+id/txtState"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_weight="33"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:text="State"-->
+
+            <!--android:textSize="16dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:background="@color/main_color_500"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:layout_below="@+id/txtfilterdata1"-->
+            <!--android:gravity="center"-->
+            <!--android:textAlignment="center"-->
+            <!--android:layout_centerHorizontal="true"/>-->
+
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="33"-->
+                <!-->-->
+                <!--<TextView-->
+                    <!--android:id="@+id/txtProduct"-->
+                    <!--android:layout_width="match_parent"-->
+
+                    <!--android:padding="3dp"-->
+                    <!--android:layout_height="35dp"-->
+                    <!--android:text="Product"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:textSize="14dp"-->
+
+
+                    <!--android:textColor="@color/main_color_grey_700"-->
+                    <!--android:gravity="center|left"-->
+
+                    <!--/>-->
+
+            <!--</RelativeLayout>-->
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0.5dp"-->
+
+                <!--android:visibility="visible"-->
+                <!--android:background="@color/material_grey_500"-->
+                <!--android:layout_below="@+id/txtItemGroup"-->
+                <!--></View>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="33"-->
+                <!--android:id="@+id/rltvlast"-->
+                <!-->-->
+                <!--<TextView-->
+                    <!--android:id="@+id/txtBrand"-->
+                    <!--android:layout_width="match_parent"-->
+
+                    <!--android:padding="3dp"-->
+                    <!--android:layout_height="35dp"-->
+                    <!--android:text="Brand"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:textSize="14dp"-->
+
+
+                    <!--android:textColor="@color/main_color_grey_700"-->
+                    <!--android:gravity="center|left"-->
+
+                    <!--/>-->
+
+            <!--</RelativeLayout>-->
+            <!--<TextView-->
+            <!--android:id="@+id/txtfilterdata3"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_weight="33"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:text="City"-->
+            <!--android:textSize="16dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:background="@color/main_color_500"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:layout_below="@+id/txtfilterdata2"-->
+            <!--android:gravity="center"-->
+            <!--android:textAlignment="center"-->
+            <!--android:layout_centerHorizontal="true"/>-->
+
+        </LinearLayout>
+            <!--<RelativeLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="50">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtfilterdata4"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:text="A/C4"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:layout_centerHorizontal="true"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtfilterdata5"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:text="A/C5"-->
+                    <!--android:layout_below="@+id/txtfilterdata4"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:layout_centerHorizontal="true"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtfilterdata6"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:text="A/C6"-->
+                    <!--android:layout_below="@+id/txtfilterdata5"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:layout_centerHorizontal="true"/>-->
+
+            <!--</RelativeLayout>-->
+
+
+        <!--</LinearLayout>-->
+        <!--<TextView-->
+            <!--android:id="@+id/txtfiltertype1"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="30dp" -->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/txtfilterparty"/>-->
+    </RelativeLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="60"-->
+        <!--android:orientation="vertical"-->
+        <!--android:weightSum="100">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:text="CITIES"-->
+            <!--android:layout_weight="15"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:textSize="16dp"/>-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="15">-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/chkitem1"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:text="Ahmedabad"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="16dp"/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=">"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="30dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_alignParentRight="true"/>-->
+
+
+        <!--</RelativeLayout>-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="15">-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/chkitem2"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:text="Ahmedabad"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="16dp"/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=">"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="30dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_alignParentRight="true"/>-->
+
+
+        <!--</RelativeLayout>-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="15">-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/chkitem3"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:text="Ahmedabad"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="16dp"/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=">"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="30dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_alignParentRight="true"/>-->
+
+
+        <!--</RelativeLayout>-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="15">-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/chkitem4"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:text="Ahmedabad"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="16dp"/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=">"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="30dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_alignParentRight="true"/>-->
+
+
+        <!--</RelativeLayout>-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_weight="15">-->
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/chkitem5"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginLeft="30dp"-->
+                <!--android:text="Ahmedabad"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="16dp"/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text=">"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:textSize="30dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_alignParentRight="true"/>-->
+
+
+        <!--</RelativeLayout>-->
+            <!--</LinearLayout>-->
+
+</LinearLayout>

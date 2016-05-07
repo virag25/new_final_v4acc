@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="amigoinn.example.v4sales.AttendenceActivity">
+
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp" />
+
+<amigoinn.example.v4sales.RobotoTextView
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:layout_marginTop="20dp"
+    android:id="@+id/txtNotification"
+    android:layout_below="@+id/imageView"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Home"
+        android:id="@+id/btnGO"
+        android:background="@drawable/buttonshape"
+        android:layout_below="@+id/txtNotification"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+       />
+
+</RelativeLayout>

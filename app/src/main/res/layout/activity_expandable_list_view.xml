@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/amigoinn.example.v4sales"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+    <amigoinn.example.v4sales.RobotoTextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/actionbar1"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="Marks"
+        android:textStyle="bold"
+        android:background="@color/material_blue_500"
+        android:textColor="@color/white"
+
+        />
+
+<amigoinn.example.v4sales.AnimatedExpandableListView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+</LinearLayout>
+<!-- 
+    android:divider="@color/main_color_grey_500"
+    android:childDivider="@android:color/transparent"
+    android:dividerHeight="1dp" -->

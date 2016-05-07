@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="5dp"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="horizontal"
+    android:background="@color/white"
+    >
+
+
+    <ImageView
+        android:id="@+id/imgUserImage"
+        android:layout_width="40dp"
+        android:src="@drawable/tl1bg"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/txtUsername"
+        android:layout_width="0dp"
+        android:layout_weight="45"
+        android:hint="Name"
+        android:paddingLeft="5dp"
+        android:gravity="center|left"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/txtAddress"
+        android:layout_width="0dp"
+        android:layout_weight="25"
+        android:hint="View Details"
+
+        android:gravity="center"
+        android:layout_height="match_parent" />
+    <TextView
+        android:layout_width="25dp"
+        android:id="@+id/txtmap"
+        android:padding="10dp"
+        android:background="@drawable/greenmarker"
+
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="16dp"
+        android:layout_height="25dp"
+        />
+
+</LinearLayout>
+</RelativeLayout>

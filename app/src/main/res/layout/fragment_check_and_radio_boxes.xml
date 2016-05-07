@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+
+
+
+<ImageView
+    android:id="@+id/imagelogoamigo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="0dp"
+    android:layout_marginLeft="20dp"
+
+    android:src="@drawable/bannerschool"
+/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtVersion"
+
+            android:text="V4 Account"
+            android:layout_marginTop="0dp"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/imagelogoamigo"
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDescription"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:text=" An innovation aimed towards breaking myths of learning on digital platform.\n This application is built with following purposes.\n- Providing most interactive study material to the students of navkar\n- Keep track on their studies by self evaluation process\n- Aim is to be the whole-and-sole digital learning platform for CA/CS/CPA students."
+        android:layout_marginTop="30dp"
+        android:textSize="14dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imagelogoamigo"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/txtContact"
+            android:text="Contact Developers"
+            android:background="@color/main_color_500"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:gravity="center"
+        />
+</LinearLayout>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/txtContactEmail"-->
+            <!--android:text="teamamigoinnovations@gmail.com"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_below="@id/txtContact"-->
+            <!--/>-->
+        <!--<WebView-->
+            <!--android:id="@+id/webView1"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+
+
+
+</RelativeLayout>

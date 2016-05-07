@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--  <com.github.mikephil.charting.charts.BarChart
+      android:id="@+id/barChart1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" /> -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        tools:context=".Order_HomePage">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="33">
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/txtordno"
+
+                    android:layout_width="130dp"
+                    android:textColor="@color/material_grey_700"
+                    android:layout_height="wrap_content"
+                    android:text="No."
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"/>
+                <EditText
+
+                    android:id="@+id/edtorderno"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/buttonshapeempty"
+                    android:layout_marginTop="0dp"
+                    android:padding="4dp"
+                    android:textSize="14dp"
+                    android:textAlignment="center"
+                    android:text="1022"
+                    android:editable="false"
+                android:textColor="@color/material_grey_700"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@+id/txtordno"/>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="33">
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/txtOrderDate"
+
+                    android:layout_width="130dp"
+                    android:textColor="@color/material_grey_700"
+                    android:layout_height="wrap_content"
+                    android:text="Take Date."
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:textAlignment="center"
+
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"/>
+                <TextView
+
+                    android:id="@+id/edtorderdate"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/buttonshapeempty"
+                    android:layout_marginTop="0dp"
+                    android:padding="4dp"
+                    android:gravity="center"
+                    android:text="date"
+                    android:hint=""
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@+id/txtOrderDate"/>
+
+                <!--<TextView-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:id="@+id/txtOrderdue"-->
+                    <!--android:background="@drawable/buttonshape"-->
+                    <!--android:layout_width="130dp"-->
+                    <!--android:layout_below="@+id/edtorderdate"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:text="Order Due Date"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:paddingRight="5dp"-->
+                    <!--android:paddingLeft="5dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="20dp"/>-->
+                <!--<TextView-->
+
+                    <!--android:id="@+id/edtOrderdue"-->
+                    <!--android:layout_width="130dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:gravity="center"-->
+                    <!--android:background="@drawable/buttonshapeempty"-->
+                    <!--android:layout_marginTop="0dp"-->
+                    <!--android:paddingLeft="6dp"-->
+                    <!--android:text=""-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:layout_marginLeft="20dp"-->
+                    <!--android:layout_below="@+id/txtOrderdue"/>-->
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="33">
+
+                <!--<TextView-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:id="@+id/txtOrderDate"-->
+                    <!--android:background="@drawable/buttonshape"-->
+                    <!--android:layout_width="130dp"-->
+                    <!--android:textColor="@color/white"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Order Date."-->
+                    <!--android:paddingRight="5dp"-->
+                    <!--android:paddingLeft="5dp"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textAlignment="center"-->
+
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:layout_marginLeft="20dp"/>-->
+                <!--<TextView-->
+
+                    <!--android:id="@+id/edtorderdate"-->
+                    <!--android:layout_width="130dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:background="@drawable/buttonshapeempty"-->
+                    <!--android:layout_marginTop="0dp"-->
+                    <!--android:paddingLeft="5dp"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text=""-->
+                    <!--android:hint=""-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:layout_marginLeft="20dp"-->
+                    <!--android:layout_below="@+id/txtOrderDate"/>-->
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/txtOrderdue"
+
+                    android:layout_width="130dp"
+
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/material_grey_700"
+                    android:text="Due Date"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"/>
+                <TextView
+
+                    android:id="@+id/edtOrderdue"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/buttonshapeempty"
+                    android:layout_marginTop="0dp"
+                    android:padding="4dp"
+
+                    android:text="due date"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_below="@+id/txtOrderdue"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="100"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txtclient"
+
+        android:layout_width="match_parent"
+        android:textColor="@color/material_grey_700"
+
+        android:layout_height="wrap_content"
+        android:text="Client"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="20dp"/>
+
+    <AutoCompleteTextView
+
+        android:id="@+id/edtclient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshapeempty"
+        android:layout_marginTop="0dp"
+
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingLeft="30dp"
+        android:textSize="14dp"
+        android:text=""
+        android:textColor="@color/material_grey_700"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/txtclient"/>
+    <ImageView
+        android:id="@+id/imgBrowse"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/txtclient"
+        android:layout_marginLeft="13dp"
+         android:layout_marginTop="3dp"
+        android:src="@drawable/abc_ic_search_api_mtrl_alpha"
+        android:background="@color/main_color_500"
+        />
+</RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/main_color_500"
+                android:layout_centerHorizontal="true"
+                android:text="Order Details"
+                android:layout_gravity="center"
+                />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:background="@color/main_color_500"
+            >
+
+
+            <TextView
+                android:id="@+id/edtcode"
+                android:layout_width="0dp"
+                android:layout_weight="25"
+                android:text="Code"
+                android:textSize="16dp"
+                android:gravity="center|top"
+                android:textColor="@color/white"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/edtQty"
+                android:textColor="@color/white"
+                android:layout_width="0dp"
+                android:layout_weight="25"
+                android:text="Quantity"
+                android:textSize="16dp"
+                android:gravity="center|top"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/edtdate"
+                android:layout_width="0dp"
+                android:textColor="@color/white"
+                android:layout_weight="25"
+                android:text="Product"
+                android:textSize="16dp"
+                android:gravity="center|top"
+                android:layout_height="match_parent" />
+            <TextView
+                android:layout_width="0dp"
+                android:textColor="@color/white"
+                android:id="@+id/txtprice"
+                android:text="Price"
+                android:gravity="center|top"
+                android:textSize="16dp"
+                android:layout_height="match_parent"
+                android:layout_weight="25"/>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <ListView
+                android:id="@+id/lvorder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="110dp"
+                ></ListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="100"
+                android:id="@+id/lnredit"
+                android:layout_above="@+id/lnrTotal"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                >
+
+                <!--<EditText-->
+                    <!--android:id="@+id/"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="25"-->
+                    <!--android:text=""-->
+                    <!--android:hint="Code"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textColor="@color/material_grey_700"-->
+                    <!--android:layout_height="40dp" />-->
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="25"
+                    >
+
+
+                    <AutoCompleteTextView
+
+                        android:id="@+id/edtCode1"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="0dp"
+                        android:paddingLeft="00dp"
+                        android:textSize="14dp"
+                        android:text=""
+                        android:hint="Code"
+                        android:gravity="center"
+                        android:textColor="@color/material_grey_700"
+
+                        android:layout_marginLeft="20dp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imgBrowse1"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+
+
+                        android:layout_marginTop="3dp"
+                        android:src="@drawable/abc_ic_search_api_mtrl_alpha"
+                        android:background="@color/main_color_500"
+                        />
+                </RelativeLayout>
+
+
+                <EditText
+                    android:id="@+id/edtQuantity"
+                    android:layout_width="0dp"
+                    android:layout_weight="25"
+                    android:text=""
+                    android:hint="Quantity"
+                    android:textSize="14dp"
+                    android:inputType="numberDecimal"
+                    android:gravity="center"
+                    android:textColor="@color/material_grey_700"
+                    android:layout_height="40dp" />
+                <EditText
+                    android:id="@+id/edtProduct"
+                    android:layout_width="0dp"
+                    android:layout_weight="25"
+                    android:text=""
+                    android:hint="Product"
+                    android:textSize="14dp"
+                    android:gravity="center"
+                    android:textColor="@color/material_grey_700"
+                    android:layout_height="40dp" />
+                <EditText
+                    android:id="@+id/edtPrice"
+                    android:layout_width="0dp"
+                    android:layout_weight="25"
+                    android:text=""
+                    android:editable="false"
+                    android:hint="Price"
+                    android:textSize="14dp"
+                    android:gravity="center"
+                    android:textColor="@color/material_grey_700"
+                    android:layout_height="40dp" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="100"
+                android:id="@+id/lnrTotal"
+                android:layout_above="@+id/txtSubmit"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                >
+
+                <!--<EditText-->
+                <!--android:id="@+id/"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="25"-->
+                <!--android:text=""-->
+                <!--android:hint="Code"-->
+                <!--android:textSize="16dp"-->
+                <!--android:gravity="center"-->
+                <!--android:textColor="@color/material_grey_700"-->
+                <!--android:layout_height="40dp" />-->
+                <TextView
+                    android:id="@+id/txtSave"
+                    android:layout_width="0dp"
+                    android:layout_weight="30"
+                    android:layout_height="30dp"
+                    android:textSize="20dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"
+                    android:textColor="@color/main_color_500"
+                    android:background="@color/white"
+                    android:layout_above="@+id/txtSubmit"
+                    android:paddingLeft="10dp"
+                    android:text="Next"
+                    android:layout_gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/txtCancel"
+                    android:layout_width="0dp"
+                    android:layout_weight="30"
+                    android:layout_height="30dp"
+                    android:textSize="20dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"
+                    android:textColor="@color/material_red_500"
+                    android:background="@color/white"
+                    android:layout_above="@+id/txtSubmit"
+                    android:text="Cancel"
+                    android:layout_gravity="center"
+                    />
+
+
+                <TextView
+                    android:id="@+id/txtTotal"
+                    android:layout_width="0dp"
+                    android:layout_weight="40"
+                    android:layout_height="30dp"
+                    android:textSize="20dp"
+                    android:gravity="center|left"
+                    android:textStyle="bold"
+                    android:textColor="@color/material_grey_700"
+                    android:background="@color/white"
+                    android:layout_above="@+id/txtSubmit"
+                    android:text="Total 700"
+                    android:layout_gravity="center"
+                    />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/main_color_500"
+
+                android:text="Submit"
+
+
+                />
+        </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

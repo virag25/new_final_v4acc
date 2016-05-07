@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Virag kuvadia\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.0.0\4c8d1536dba3812cc1592090dc20c47a4ed3c35e\okhttp-2.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4c8d1536dba3812cc1592090dc20c47a4ed3c35e">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\okhttp-2.0.0-d6b96efa97b82791df1aca83d6a6fe605154aaca.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\libs\apache-mime4j-0.6.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="945007627e8d12275d755081a9e609c018e1210d">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\apache-mime4j-0.6-8b5f86665a4f898fdf618d144ff4806d27d40550.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\libs\httpmime-4.0.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="326bf4147f100e8a4fdd7f1867a87e969fb10812">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\httpmime-4.0.1-84e761ba2efeca9d59f9db506af0dcb2637a8eac.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="82054090e487d78e163a988557db62d809fa9b95">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-54a151e8d4106aef02189dfeb2b48c93e038d174.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\libs\listviewanimations_lib-core-slh_3.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a4fe703aabd23e8c287c90396514418119109dd1">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\listviewanimations_lib-core-slh_3.1.0-f076527f0bd8b1f88838d79820d5dd9c49b669d2.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2a7e47da654546f9457deb6132364f1bf33a1857">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-002bdbb03e4cc397a21663779ce11b3d6c5aad9d.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3aed37c38c56679602255dd72ef356da5d327cda">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-925a4b86770816a9f593a636778a0814e22a2982.jar" />
+    </item>
+    <item
+        jar="C:\Users\Virag kuvadia\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-urlconnection\2.0.0\afe8399d352713b66e597e9670c741d1e60ae923\okhttp-urlconnection-2.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="afe8399d352713b66e597e9670c741d1e60ae923">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\okhttp-urlconnection-2.0.0-d1b9ccddf5e5e12cf462b5d3376b291836cccf16.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3b05c18f60969ecc2ba49c0409c4b96be2d9cb0c">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-af1c1b53a699e8ca76a8f86c467b98922ade1a64.jar" />
+    </item>
+    <item
+        jar="C:\Users\Virag kuvadia\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\picasso-2.3.2-f9dbf8f58e4e889317b4626f9f9e65e9ef0c39bc.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="041d93cf0533591c29d1d7263b2fa114dbfb20bd">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-8d4c2aa5b29ed1b5bb7734ada254e73d59ed9025.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="97f3b099801a9ad9d70e835b9125273e986eb68d">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-9097065c1371c70eb7077628c359745fe42fc557.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.astuetz\pagerslidingtabstrip\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-a6ef7ed99123ffb3a4f20c9e3a5929dcef9e6e10.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d294caf562c4c678b2ef351662a0ca6f1a4d06c0">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-13fe92f860eea320de179149c9db5393bd16ac5d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Virag kuvadia\.gradle\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v2.1.4\58ce41ef04e5b0821b9c3eb2387df515f10702d7\MPAndroidChart-v2.1.4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="58ce41ef04e5b0821b9c3eb2387df515f10702d7">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v2.1.4-4aad9b9ac05b258a83f07aa654c6491be63187ed.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d93480da1d303122ee67dc3bc23e6297bdef9951">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-4a936fab8e17c6101edc5df53a13931442a11079.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\libs\listviewanimations_lib-core_3.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f3f9629b068554d8513a2aaf34418171bf430851">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\listviewanimations_lib-core_3.1.0-8e632b297a4b5762f8c97776ae8c07041f481211.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.hudomju\swipe-to-dismiss-undo\1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c934830482473cb298c02f9eb55da67548b9db40">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-e49903bfccd4641fd31c478aa74865467923fc5f.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-4cac013ee9acf905f259a5d198505f8636fd9d9c.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dcb5b75baf05d92e61d5706737200ee55949f97b">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-c0072c6b032acc86efbdcddda357b78e9272152b.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d61920aba361832a9545a43fa8c9453eb02f18f7">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-e0224036f042cfe07bda7918293cc582304251e8.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-275b392a53b819052159f0e9018a036caf2783b0.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.github.flavienlaurent.datetimepicker\library\0.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2fc859b7abb78d29169f6a582b45cbe1f3f1a4cc">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-6e02080e50158c012aa052186338e7ff955be6fa.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3178362320bcf51228835b60ff978efadfd1f783">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-75bff0fd2ac85455fddc5da48a1e78c159c117c2.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-cf608a7c7408ae4cd20b683b51dee1f17d5c39fb.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9cf8c0ef60847621c7ad00b4f78dbfc9daba4af2">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-04965082ff3c9f76ec5afd56a221e6ca43050394.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-091a813c83ac4ebe0095fe977e45af00f0b2a80e.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\libs\listviewanimations_lib-manipulation_3.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="63737e512fcd9e0ebe9bcd0bb375c2dded74116f">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\listviewanimations_lib-manipulation_3.1.0-1d61bef42664c8f7f8ef154c11c2bca32a9a2962.jar" />
+    </item>
+    <item
+        jar="C:\Users\Virag kuvadia\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\retrofit-1.9.0-bde5ea8ec26fc0b2698988eff0647454ed0cf085.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-44fe8d6eb12a827f14665be3ca5cde064a842d87.jar" />
+    </item>
+    <item
+        jar="C:\Users\Virag kuvadia\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.0.0\2534c458682c73f5b9871131ab3098d3f987ca3\okio-1.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="02534c458682c73f5b9871131ab3098d3f987ca3">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\okio-1.0.0-4e0e820d70177befdba0eb2f1c92e9e5b828c010.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-0112345bec4e241b37fea3368f31a399f12b589f.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="82825756edeeb3b56b15e73b2edd56e93da5a444">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-aca6f77428badf43c5fa27f9e8e24e626193cb4e.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="997773777cf3904c11d6764fe3b7668538220e49">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-21c8f1ba4359075ec1f4edd20343c6baf8c7bb38.jar" />
+    </item>
+    <item
+        jar="C:\Users\Virag kuvadia\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\library-2.4.0-e045dc329eb4c3a5c2fbdbc45e0f8c791a3b8715.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="95758a2905669affbffc5ddd262921d375674fad">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-6e448b77a3fac1d2235ae4e3e46815912e709199.jar" />
+    </item>
+    <item
+        jar="C:\Users\Virag kuvadia\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\gson-2.3.1-10d152e4a2701ce1acad91e5cb58bf59e170ddf6.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3c729e6d76a36c5dc27e6a4c4009296f49eaa88a">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-2f90b39103a3b300e7ee2e67a46d9805ac8284c6.jar" />
+    </item>
+    <item
+        jar="E:\StudioSetup\DAta\android-sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-877cbd1799d8d619e5c6c36abeb5d173241a452b.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="17449c47df35c754b257532052f1270c444f7993">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-e75d70a162a9b89c85c37332a0157dc115fba94f.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.github.ganfra\material-spinner\1.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a973f67796996adb991bd6e63a11b2b88a571219">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-0afd51d5ebdb9e6659199c86fe904cf4cf5d2eec.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b92002cb2f0e11a226ac5bac6dff1dc2a9d0b774">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-b5fa6af40328020dc3a2c163270abac5b983f1e0.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-072dd9f9f5c6b70ae6bfeb5110aa6dbf9e0050b7.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="993834cb17d07d51b92db89d2c330243592ebf77">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-7d39d75a63eba3f4cb00196e41a1c6fbe492ad0f.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\libs\universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.3-d5c1766d415e1807f5f590c85196faad67eb6e2b.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="325788a04b436a0bccbc5b4c54cf0f12ebdcbd2d">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-ad9b63a6365aef22a0057f6ceffaee1e6377f862.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="482de223655d06253cc6a4955d653f8994169500">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-157126b060a5247bbf4128f01ecbb437b43ca869.jar" />
+    </item>
+    <item
+        jar="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\exploded-aar\se.emilsjolander\stickylistheaders\2.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dd93a96342fce030e55cafc5917d768da0135164">
+        <dex dex="E:\Maulik Nano Projects\Latest GIT V4\LATEST\05-05-2016\final_v4acc_android\app\build\intermediates\pre-dexed\debug\classes-98ddacec11d3b5bdd2c1cd4fe55fbf8b4598ac90.jar" />
+    </item>
+
+</items>

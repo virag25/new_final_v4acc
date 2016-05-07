@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_color">#FFFFFF</color>
+    <color name="divider_color1">#11000000</color>
+    <color name="msg_color">#FFFFFFFF</color>
+    <color name="dialog_bg">#ffe74c3c</color>
+
+    <color name="btn_press_color">#66000000</color>
+    <color name="btn_unpress_color">#22000000</color>
+    <color name="white">#ffffff</color>
+    <color name="white_15_percent">#26ffffff</color>
+    <color name="white_30_percent">#4Dffffff</color>
+    <color name="gray_background">#757575</color>
+    <color name="yellow">#FFBB33</color>
+    <color name="divider_color">@color/main_color_500</color>
+    
+    <color name="main_color_500">@color/material_green_900</color>
+    <color name="main_color_50">@color/material_green_50</color>
+    <color name="main_color_100">@color/material_green_100</color>
+    <color name="main_color_200">@color/material_green_200</color>
+    <color name="main_color_300">@color/material_green_300</color>
+    <color name="main_color_400">@color/material_green_400</color>
+    <color name="main_color_600">@color/material_green_600</color>
+    <color name="main_color_700">@color/material_green_700</color>
+    <color name="main_color_800">@color/material_green_800</color>
+    <color name="main_color_900">@color/material_green_900</color>
+    <color name="main_color_A100">@color/material_light_yellow_A100</color>
+    <color name="main_color_A200">@color/material_light_yellow_A200</color>
+    <color name="main_color_A400">@color/material_light_yellow_A400</color>
+    
+    <color name="main_color_grey_500">@color/material_grey_500</color>
+    <color name="main_color_grey_50">@color/material_grey_50</color>
+    <color name="main_color_grey_100">@color/material_grey_100</color>
+    <color name="main_color_grey_200">@color/material_grey_200</color>
+    <color name="main_color_grey_300">@color/material_grey_300</color>
+    <color name="main_color_grey_400">@color/material_grey_400</color>
+    <color name="main_color_grey_600">@color/material_grey_600</color>
+    <color name="main_color_grey_700">@color/material_grey_700</color>
+    <color name="main_color_grey_800">@color/material_grey_800</color>
+    <color name="main_color_grey_900">@color/material_grey_900</color>
+	
+    
+    <!-- PLEASE NOTE: Since adding transparency to already
+    defined colors is not supported through xml, we have
+    to add them manually. This means: we have used purple
+    color scheme, and this is where we use Purple500 color
+    to add transparency. If you were about to change color
+    scheme, also change Purple500 color from here. -->
+    <!-- 10 percent transparent Purple500 -->
+    <color name="main_color_500_10_percent">#1a8f3e97</color>
+    <!-- 20 percent transparent Purple500 -->
+    <color name="main_color_500_20_percent">#338f3e97</color>
+    <!-- 50 percent transparent Purple500 -->
+    <color name="main_color_500_50_percent">#808f3e97</color>
+    <!-- Ex. If you use red color scheme, write down (#ef4437 is Red500 color):
+    <color name="main_color_500_10_percent">#1aef4437</color>
+    <color name="main_color_500_20_percent">#33ef4437</color>
+    <color name="main_color_500_50_percent">#80ef4437</color>
+    -->
+    
+    
+    <color name="cpb_grey">#ffdedede</color>
+    <color name="cpb_blue">#ff0099cc</color>
+    <color name="cpb_blue_dark">#ff00719b</color>
+    <color name="cpb_red">#ffff4444</color>
+    <color name="cpb_red_dark">#ffcd3a3a</color>
+    <color name="cpb_green">#ff99cc00</color>
+    <color name="cpb_green_dark">#ff6d9b00</color>
+    <color name="cpb_white">@android:color/white</color>
+    <color name="background_gradient_start">#000000</color>
+    <color name="background_gradient_end">#DDDDDD</color>
+    <color name="fastlane_background">#0096a6</color>
+    <color name="search_opaque">#ffaa3f</color>
+    <color name="detail_background">#0096a6</color>
+    <color name="soft_opaque">#30000000</color>
+    <color name="img_soft_opaque">#30FF0000</color>
+    <color name="img_full_opaque">#00000000</color>
+    <color name="black_opaque">#AA000000</color>
+    <color name="black">#59000000</color>
+    <color name="orange_transparent">#AAFADCA7</color>
+    <color name="orange">#FADCA7</color>
+    <color name="default_background">#3d3d3d</color>
+
+</resources>

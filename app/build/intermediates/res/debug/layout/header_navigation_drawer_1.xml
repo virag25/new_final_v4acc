@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/amigoinn.example.v4sales"
+    android:layout_width="match_parent"
+    android:layout_height="140dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color_300"
+        android:scaleType="fitXY" />
+
+    <amigoinn.example.v4sales.RobotoTextView
+        android:id="@+id/name"
+        style="@style/TextViewAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|left"
+        android:visibility="visible"
+        android:text="John Martin"
+        android:textColor="#fff"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/rlImage"
+        android:textSize="17sp"
+        app:typeface="robotoBold" />
+
+    <amigoinn.example.v4sales.RobotoTextView
+        android:id="@+id/txtUpdatephoto"
+        style="@style/TextViewAppearance.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:gravity="center|left"
+        android:text="Update"
+        android:layout_toRightOf="@+id/rlImage"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:id="@+id/rlImage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/circle">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/social"
+
+            />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout><!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/layout/header_navigation_drawer_1.xml -->

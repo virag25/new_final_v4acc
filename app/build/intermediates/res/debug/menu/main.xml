@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.walkitalkie.MainActivity" >
+
+    <item
+        android:id="@+id/Announcements"
+
+        android:title="Notifications"/>
+    <item
+        android:id="@+id/Messages"
+        android:orderInCategory="100"
+
+        android:title="Messages"/>
+    <item
+        android:id="@+id/Profile"
+        android:orderInCategory="100"
+        android:title="Profile"/>
+    <item
+        android:id="@+id/About"
+        android:orderInCategory="100"
+
+        android:title="About"/>
+    <item
+        android:id="@+id/Support"
+        android:orderInCategory="100"
+
+        android:title="Support"/>
+    <item
+        android:id="@+id/LogOut"
+        android:orderInCategory="100"
+
+        android:title="Log Out"/>
+
+</menu>
+<!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/menu/main.xml -->

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/amigoinn.example.v4sales"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@drawable/login_background"
+    android:padding="24dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="vertical" >
+
+        <amigoinn.example.v4sales.MaterialRippleLayout
+            style="@style/RippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rippleColor1="@color/main_color_grey_400" >
+
+
+        </amigoinn.example.v4sales.MaterialRippleLayout>
+    </LinearLayout>
+
+    <amigoinn.example.v4sales.FontelloTextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/fontello_logo"
+        android:textColor="@color/main_color_500"
+        android:textSize="64dp"
+        tools:ignore="SpUsage" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical" >
+
+        <amigoinn.example.v4sales.FontelloTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/fontello_user"
+            android:textColor="@color/main_color_grey_900"
+            android:textSize="16dp"
+            tools:ignore="SpUsage" />
+
+        <amigoinn.example.v4sales.FloatLabeledEditText
+            android:layout_width="0dp"
+            android:id="@+id/user"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            app:fletFloatingHint="@string/username"
+            app:fletHintTextColor="@color/main_color_500"
+            app:fletSingleLine="true"
+            app:fletTextBackground="@drawable/edit_text_background_accent"
+            app:fletTextColor="@color/main_color_grey_900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center_vertical" >
+
+        <amigoinn.example.v4sales.FontelloTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/fontello_password"
+            android:textColor="@color/main_color_grey_900"
+            android:textSize="16dp"
+            tools:ignore="SpUsage" />
+
+        <amigoinn.example.v4sales.FloatLabeledEditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            app:fletFloatingHint="@string/password"
+            app:fletHintTextColor="@color/main_color_500"
+            app:fletPassword="true"
+            android:id="@+id/Password"
+            app:fletSingleLine="true"
+            app:fletTextBackground="@drawable/edit_text_background_accent"
+            app:fletTextColor="@color/main_color_grey_900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp" >
+
+        <amigoinn.example.v4sales.MaterialRippleLayout
+            style="@style/RippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            app:rippleColor1="@color/main_color_grey_400" >
+
+            <amigoinn.example.v4sales.RobotoTextView
+                android:id="@+id/login"
+                style="@style/ButtonStyle.RaisedEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:background="@color/main_color_500"
+                android:minWidth="112dp"
+                android:text="@string/login"
+                android:textColor="#fff" />
+        </amigoinn.example.v4sales.MaterialRippleLayout>
+
+        <amigoinn.example.v4sales.MaterialRippleLayout
+            style="@style/RippleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            app:rippleColor1="@color/main_color_grey_400" >
+
+            <amigoinn.example.v4sales.RobotoTextView
+                android:id="@+id/register"
+                style="@style/ButtonStyle.RaisedEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="0dp"
+                android:background="@color/main_color_500"
+                android:minWidth="112dp"
+                android:text="@string/register"
+                android:textColor="#fff" />
+        </amigoinn.example.v4sales.MaterialRippleLayout>
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/E:/Maulik%20Nano%20Projects/Latest%20GIT%20V4/LATEST/05-05-2016/final_v4acc_android/app/src/main/res/layout/activity_login_page_light.xml -->

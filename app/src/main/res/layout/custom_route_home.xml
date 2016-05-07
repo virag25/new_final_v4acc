@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@color/main_color_100"
+    >
+
+    <ImageView
+        android:id="@+id/imgrouteline"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/roadline"/>
+    <ImageView
+        android:id="@+id/imgroutemiddot"
+        android:layout_marginTop="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/tl1middot"/>
+
+    <TextView
+        android:id="@+id/txtroutelineright"
+        android:layout_width="70dp"
+        android:layout_height="3dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/imgroutemiddot"
+        android:layout_marginTop="34dp"
+
+        android:background="#ffffff"/>
+    <ImageView
+        android:id="@+id/imgrouterightdot"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/txtroutelineright"
+        android:background="@drawable/tl1dot"/>
+    <TextView
+        android:id="@+id/txtshaperight"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/imgrouterightdot"
+        android:background="@drawable/shapes"
+        android:gravity="center"
+        android:text="Some Message"
+        />
+
+
+
+    <TextView
+        android:id="@+id/txtroutelineleft"
+        android:layout_width="70dp"
+        android:layout_height="3dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/imgroutemiddot"
+        android:background="#ffffff"/>
+
+
+    <ImageView
+        android:id="@+id/imgrouteleftdot"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/txtroutelineleft"
+        android:background="@drawable/tl1dot"/>
+    <TextView
+        android:id="@+id/txtshapeleft"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/imgrouteleftdot"
+        android:background="@drawable/shapes"
+        android:text="some message"
+        android:gravity="center"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="amigoinn.example.v4sales.ClientContactFragment">
+
+    <RelativeLayout
+        android:id="@+id/rltvOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@color/main_color_500">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/main_color_500"
+            android:layout_marginLeft="10dp"
+            android:text="Address Details"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="24dp"
+        android:layout_below="@+id/rltvOrder"
+        android:id="@+id/lnrtContainer"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@color/white"
+        android:visibility="visible"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical" >
+
+            <amigoinn.example.v4sales.MaterialRippleLayout
+                style="@style/RippleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:rippleColor1="@color/main_color_grey_400" >
+
+
+            </amigoinn.example.v4sales.MaterialRippleLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:weightSum="100"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="Name :"
+                android:layout_weight="30"
+                android:textColor="@color/main_color_grey_700"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/txtuser"
+                android:layout_height="30dp"
+                android:gravity="center|left"
+                android:layout_weight="70"
+                android:layout_marginLeft="0dp"
+                android:text="Shoprite Benguela"
+                ></TextView>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:weightSum="100"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="Zone :"
+                android:layout_weight="30"
+                android:textColor="@color/main_color_grey_700"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/txtZone"
+                android:layout_height="30dp"
+                android:gravity="center|left"
+                android:layout_weight="70"
+                android:layout_marginLeft="0dp"
+                android:text="South"
+                ></TextView>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:weightSum="100"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="State :"
+                android:layout_weight="30"
+                android:textColor="@color/main_color_grey_700"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/txtState"
+                android:layout_height="30dp"
+                android:gravity="center|left"
+                android:layout_weight="70"
+                android:layout_marginLeft="0dp"
+                android:text="Benguela"
+                ></TextView>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:weightSum="100"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="City :"
+                android:layout_weight="30"
+                android:textColor="@color/main_color_grey_700"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/txtCity"
+                android:layout_height="30dp"
+                android:gravity="center|left"
+                android:layout_weight="70"
+                android:layout_marginLeft="0dp"
+                android:text="Benguela City"
+                ></TextView>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:weightSum="100"
+            android:id="@+id/lnrAddress"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="Address :"
+                android:layout_weight="30"
+                android:textColor="@color/main_color_grey_700"
+                android:textSize="16dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/txtAddress"
+                android:layout_height="30dp"
+                android:gravity="center|left"
+                android:layout_weight="70"
+                android:layout_marginLeft="0dp"
+                android:text="Benguela City,Benguela,South."
+                ></TextView>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="100"
+        android:layout_margin="5dp"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_marginTop="0dp"
+            android:text=""
+            android:layout_marginRight="10dp"
+
+            android:background="@drawable/order"
+            android:textColor="@color/main_color_grey_700"
+            android:textSize="20dp"
+            />
+
+        <TextView
+            android:layout_width="50dp"
+            android:id="@+id/txtCall"
+            android:layout_height="50dp"
+            android:gravity="center|left"
+
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/call"
+            android:layout_marginRight="10dp"
+
+            ></TextView>
+
+        <TextView
+            android:layout_width="50dp"
+            android:id="@+id/txtMap"
+            android:layout_height="50dp"
+            android:gravity="center|left"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/greenmarker"
+            ></TextView>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="amigoinn.example.v4sales"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <permission
+        android:name="com.example.v4sales.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="com.example.v4sales.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <permission
+        android:name="com.example.v4sales.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="amigoinn.example.v4sales.gcm.permission.C2D_MESSAGE" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
+    <application
+        android:name="amigoinn.example.v4sales.AccountApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        <activity
+            android:name="amigoinn.example.v4sales.LoginActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="amigoinn.example.v4sales.AbsentList"
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="amigoinn.example.v4sales.LeftMenusActivity"
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan" />
+
+        <service
+            android:name="amigoinn.example.v4sales.RegistrationIntentService"
+            android:exported="false" />
+        <service
+            android:name="amigoinn.example.v4sales.MyInstanceIDListener"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="amigoinn.example.v4sales.GcmMessageHandler"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service android:name="amigoinn.example.v4sales.LocationService" />
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.codepath.gcmquickstart" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="amigoinn.example.v4sales.ExpandableListViewActivity"
+            android:label="Marks"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+        <activity
+            android:name="amigoinn.example.v4sales.Filter"
+            android:label="Filter" />
+        <activity
+            android:name="amigoinn.example.v4sales.ProductFilter"
+            android:label="Filter" />
+        <activity
+            android:name="amigoinn.adapters.SectionedListActivity"
+            android:label="Marks" />
+        <activity
+            android:name="amigoinn.adapters.SectionedActivityForOrderFilter"
+            android:label="Marks" />
+        <activity
+            android:name="amigoinn.adapters.ProductSectionedActivityForOrderFilter"
+            android:label="Marks" />
+        <activity
+            android:name="amigoinn.example.v4sales.ClientActivity"
+            android:label="Marks" />
+        <activity
+            android:name="amigoinn.adapters.CameraActivity"
+            android:label="Preview" />
+        <activity
+            android:name="amigoinn.adapters.SectionedListActivityForFilters"
+            android:label="Search" />
+        <activity
+            android:name="amigoinn.example.v4sales.AddProductItemActivity"
+            android:label="Search" />
+        <activity
+            android:name="amigoinn.example.v4sales.AddClientActivity"
+            android:label="Search" />
+        <activity
+            android:name="amigoinn.example.v4sales.AddProductActivity"
+            android:label="Search" />
+        <activity
+            android:name="amigoinn.example.v4sales.AbsentListMain"
+            android:label="Absents"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="amigoinn.example.v4sales.AttendenceActivity"
+            android:label="@string/title_activity_attendence" />
+        <activity android:name="com.example.v4sales.PlaybackOverlayActivity" />
+        <activity android:name="com.example.v4sales.BrowseErrorActivity" />
+        <activity
+            android:name="amigoinn.example.v4sales.GoogleMapActivity"
+            android:label="@string/title_activity_google_map" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBvoFBSIwXxwsp7QjT95KMY2jhofNekAkY" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="amigoinn.example.v4sales.AndroidDatabaseManager"
+            android:theme="@style/Theme.AppCompat.Light" />
+        <activity android:name="amigoinn.example.v4sales.ClientsTabFragment" />
+        <activity android:name="amigoinn.example.v4sales.ClientContactFragment" />
+        <activity android:name="amigoinn.example.v4sales.ClientAnalyticsFragment" />
+        <activity android:name="amigoinn.example.v4sales.ClientLedgersFragment" />
+        <activity android:name="amigoinn.example.v4sales.ClientsOutStandingsFragment" />
+        <activity android:name="amigoinn.example.v4sales.DashboardFragment" />
+        <activity android:name="amigoinn.example.v4sales.NewOrderTabActiviy" />
+        <activity android:name="amigoinn.example.v4sales.dummy.AddProductsActivity" />
+        <activity android:name="amigoinn.example.v4sales.OrderDetailActivity" />
+        <activity android:name="amigoinn.example.v4sales.OrderDispatchDetail" />
+        <activity android:name="amigoinn.example.v4sales.ClientOrderDetalisActivity" />
+        <activity android:name="amigoinn.example.v4sales.ClientOrderDispatchActiviy" />
+        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+
+        <provider
+            android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"
+            android:authorities="amigoinn.example.v4sales.google_measurement_service"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+
+</manifest>

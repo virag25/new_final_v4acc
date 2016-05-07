@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<amigoinn.example.v4sales.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/amigoinn.example.v4sales"
+    style="@style/RippleStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_background_empty" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:orientation="horizontal"
+        android:paddingBottom="1dp"
+        android:weightSum="100"
+        android:paddingTop="1dp" >
+
+        <amigoinn.example.v4sales.FontAwsam1
+            android:id="@+id/icon"
+            style="@style/TextViewAppearance.Title1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:layout_marginLeft="5dp"
+       		android:layout_weight="80"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/main_color_300" />
+
+        <amigoinn.example.v4sales.RobotoTextView
+            android:id="@+id/title"
+            style="@style/TextViewAppearance.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+      		android:layout_weight="20"
+            android:paddingLeft="0dp"
+            android:textColor="@drawable/selector_text_empty"
+             />
+    </LinearLayout>
+
+</amigoinn.example.v4sales.MaterialRippleLayout>

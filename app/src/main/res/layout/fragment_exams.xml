@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/amigoinn.example.v4sales"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+
+        android:background="@color/main_color_500"
+
+        android:weightSum="100"
+        >
+        <amigoinn.example.v4sales.RobotoTextView
+            android:id="@+id/textTitle"
+            style="@style/TextViewAppearance.Title1"
+            android:layout_width="0dp"
+            android:layout_weight="100"
+            android:text="Upcoming Exams"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:minHeight="48dp"
+            android:padding="8dp"
+            android:background="@color/main_color_500"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            app:typeface="robotoRegular" />
+        <!--<TextView-->
+            <!--android:id="@+id/login"-->
+            <!--style="@style/ButtonStyle.RaisedEmpty"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@drawable/whitecalendar"-->
+
+            <!--android:textColor="#fff" />-->
+
+        
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+
+        android:fillViewport="false" >
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/material_grey_600"
+            android:id="@+id/lvExams" />
+    </ScrollView>
+</LinearLayout>

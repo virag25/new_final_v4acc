@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:weightSum="100"
+    >
+
+    <TextView
+        android:id="@+id/txthpleft"
+        android:layout_width="0dp"
+        android:layout_weight="70"
+        android:layout_height="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Write blog post"/>
+    <TextView
+        android:id="@+id/txthpright"
+        android:layout_width="0dp"
+        android:layout_weight="30"
+        android:gravity="center"
+        android:layout_height="30dp"
+        android:text="Today"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"/>
+</LinearLayout>

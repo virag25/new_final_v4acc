@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/lnrtContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <amigoinn.example.v4sales.MaterialRippleLayout
+                    style="@style/RippleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rippleColor1="@color/main_color_grey_400">
+
+
+                </amigoinn.example.v4sales.MaterialRippleLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="30"
+                    android:gravity="center"
+                    android:text="Name :"
+                    android:textColor="@color/main_color_grey_700"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/txtuser"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="70"
+                    android:gravity="center|left"
+                    android:text="Shoprite Benguela"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="30"
+                    android:gravity="center"
+                    android:text="Zone :"
+                    android:textColor="@color/main_color_grey_700"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/txtZone"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="70"
+                    android:gravity="center|left"
+                    android:text="South"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="30"
+                    android:gravity="center"
+                    android:text="State :"
+                    android:textColor="@color/main_color_grey_700"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/txtState"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="70"
+                    android:gravity="center|left"
+                    android:text="Benguela"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="30"
+                    android:gravity="center"
+                    android:text="City :"
+                    android:textColor="@color/main_color_grey_700"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/txtCity"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="70"
+                    android:gravity="center|left"
+                    android:text="Benguela City"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnrAddress"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="30"
+                    android:gravity="center"
+                    android:text="Address :"
+                    android:textColor="@color/main_color_grey_700"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_weight="70"
+                    android:gravity="center|left"
+                    android:text="Benguela City,Benguela,South."></TextView>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rltvOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@color/main_color_500"
+            android:layout_below="@+id/lnrtContainer">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/main_color_500"
+                android:layout_marginLeft="10dp"
+                android:text="Order Summary"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lnrheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rltvOrder"
+            android:padding="5dp"
+            android:background="@color/gray_background"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+
+            <TextView
+                android:id="@+id/edtcode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="25"
+                android:gravity="center|top"
+                android:text="Code"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/edtQty"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="25"
+                android:gravity="center|top"
+                android:text="Quantity"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/edtdate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="25"
+                android:gravity="center|top"
+                android:text="Product"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtprice"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="25"
+                android:gravity="center|top"
+                android:text="Price"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lstOrders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lnrheader"
+            android:layout_marginBottom="50dp"></ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/order"
+                android:gravity="center"
+
+                android:text=""
+                android:textColor="@color/main_color_grey_700"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtCall"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+
+                android:layout_marginRight="10dp"
+                android:background="@drawable/call"
+                android:gravity="center|left"
+
+                ></TextView>
+
+            <TextView
+                android:id="@+id/txtMap"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/greenmarker"
+                android:gravity="center|left"></TextView>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

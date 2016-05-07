@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/amigoinn.example.v4sales"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+     >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="100"
+    >
+
+
+    <amigoinn.example.v4sales.RobotoTextView
+        android:id="@+id/textSubject"
+        android:layout_weight="75"
+        style="@style/TextViewAppearance.Title1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+
+        android:gravity="center|left"
+        android:minHeight="64dp"
+        android:padding="4dp"
+        android:text="Name"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:typeface="robotoRegular" />
+
+    <amigoinn.example.v4sales.RobotoTextView
+        android:id="@+id/textDate"
+        android:layout_weight="25"
+        style="@style/TextViewAppearance.Title1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center|left"
+
+        android:minHeight="64dp"
+        android:padding="4dp"
+        android:text="Date"
+        android:textColor="@color/material_grey_500"
+        android:textSize="12dp"
+        app:typeface="robotoRegular" />
+
+
+</LinearLayout>
+    <!--<amigoinn.example.v4sales.FontelloTextView-->
+        <!--style="@style/TextViewAppearance.Title1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center_vertical"-->
+        <!--android:minHeight="64dp"-->
+        <!--android:padding="8dp"-->
+        <!--android:text="@string/fontello_heart_empty"-->
+        <!--android:textColor="@color/main_color_grey_700"-->
+        <!--android:textSize="16sp" />-->
+
+</LinearLayout>

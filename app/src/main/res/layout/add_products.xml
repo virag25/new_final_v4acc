@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="amigoinn.example.v4sales.dummy.AddProductsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Select Product:"
+                android:id="@+id/textView2" />
+
+            <EditText
+                android:id="@+id/edtProduct"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Your Product name" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Add Qty.:"></TextView>
+
+            <EditText
+                android:id="@+id/edtQty"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Your Quantity here" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Total Price:"></TextView>
+
+            <EditText
+                android:id="@+id/edtTotal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Your Total here" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subimt"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:background="@color/main_color_300"/>
+
+    </LinearLayout>
+</RelativeLayout>
