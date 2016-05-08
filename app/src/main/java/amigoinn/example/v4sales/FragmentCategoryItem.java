@@ -180,9 +180,13 @@ public class FragmentCategoryItem extends Fragment
            }
 
 
-try {
-    ArrayList<ProductInfo> products = handler1.getproductforItemgroups("Home Care");
-}catch (Exception ex)
+try
+{
+//    ArrayList<ProductInfo> products = handler1.getproductforItemgroups("Home Care");
+//    ArrayList<ProductInfo> producta = handler1.getproductforReportingGroupcode("Automobile");
+//    ArrayList<ProductInfo> productI = handler1.getproductforMasterGroup("Electronics");
+}
+catch(Exception ex)
 {
 
 }

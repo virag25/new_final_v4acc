@@ -46,7 +46,8 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  */
 
 
-public class ProductListSectionedActivity extends BaseFragment {
+public class ProductListSectionedActivity extends BaseFragment
+{
 
     //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
@@ -62,7 +63,8 @@ public class ProductListSectionedActivity extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         v = inflater.inflate(R.layout.searchlistlayoutbefore, container, false);
 
         stickyList = (StickyListHeadersListView) v.findViewById(R.id.list);

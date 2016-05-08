@@ -72,6 +72,7 @@
     <string name="drawer_title_home">Home Screen</string>
     <string name="drawer_title_tasks">Tasks</string>
     <string name="drawer_title_order">Orders</string>
+    <string name="drawer_title_sales">Sales</string>
     <string name="drawer_title_route">Routes</string>
     <string name="drawer_title_PRODUCTS">Products</string>
 

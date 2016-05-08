@@ -13,7 +13,8 @@ import amigoinn.adapters.SectionedListActivityForFilters;
 import amigoinn.walkietalkie.Constants;
 import amigoinn.walkietalkie.DatabaseHandler1;
 
-public class ProductFilter extends Activity implements View.OnClickListener {
+public class ProductFilter extends Activity implements View.OnClickListener
+{
 
     TextView txtItemGroup,txtRequesting,txtProduct,txtBrand;
     TextView txtAutobicycle,txtElectronics,txtFmcg,txtModel,txtSize,txtApply;
@@ -94,34 +95,42 @@ public class ProductFilter extends Activity implements View.OnClickListener {
         {
             case R.id.txtItemGroup:
                 Constants.countries=handler1.getItemgroups();
-
+                in.putExtra("from","itemgroup");
                 startActivity(in);
+                finish();
                 break;
             case R.id.txtModel:
                 Constants.countries=handler1.getModels();
-
+                in.putExtra("from","model");
                 startActivity(in);
+                finish();
                 break;
             case R.id.txtSize:
                 Constants.countries=handler1.getPACKINGSIZE();
-
+                in.putExtra("from","size");
                 startActivity(in);
+                finish();
                 break;
 
             case R.id.txtReportingGroupCode:
 //                Constants.countries=Constants.Reportinggroupcodelist
                 Constants.countries=handler1.getReportingGroupcode();
+                in.putExtra("from","reporting");
                 startActivity(in);
+                finish();
                 break;
             case R.id.txtProduct:
                 Constants.countries=handler1.getProduct();
+                in.putExtra("from","product");
 //                Intent in=new Intent(ProductFilter.this,SectionedListActivityForFilters.class);
                 startActivity(in);
+                finish();
                 break;
             case R.id.txtBrand:
                 Constants.countries=handler1.getBrands();
-
+                in.putExtra("from","brand");
                 startActivity(in);
+                finish();
                 break;
             case R.id.txtAutoBicycle:
                         if(isAutoselected)

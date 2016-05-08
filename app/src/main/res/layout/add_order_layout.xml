@@ -259,6 +259,98 @@
                 android:layout_height="2px"
                 android:background="#000000" />
 
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:background="@color/white"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:weightSum="2">-->
+
+
+                <!--<TextView-->
+                    <!--android:id="@+id/edtcode"-->
+                    <!--android:layout_width="30dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="left|top"-->
+                    <!--android:text="Code"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textStyle="bold" />-->
+
+                <!--<View-->
+                    <!--android:layout_width="2px"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:background="#000000" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/edtdate"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:gravity="center|top|left"-->
+                    <!--android:text="Product"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textStyle="bold" />-->
+
+                <!--<View-->
+                    <!--android:layout_width="2px"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:background="#000000" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/edtQty"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="0.6"-->
+                    <!--android:gravity="center|top"-->
+                    <!--android:text="Qty."-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textStyle="bold" />-->
+
+                <!--<View-->
+                    <!--android:layout_width="2px"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:background="#000000" />-->
+
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtRate"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="0.6"-->
+                    <!--android:gravity="center|top"-->
+                    <!--android:text="Rate"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textStyle="bold" />-->
+
+                <!--<View-->
+                    <!--android:layout_width="2px"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:background="#000000" />-->
+
+
+                <!--<TextView-->
+                    <!--android:id="@+id/txtprice"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="0.6"-->
+                    <!--android:gravity="center|top"-->
+                    <!--android:text="Price"-->
+                    <!--android:textColor="@color/black"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textStyle="bold" />-->
+
+            <!--</LinearLayout>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -266,31 +358,31 @@
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="100">
 
 
-                <TextView
-                    android:id="@+id/edtcode"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="left|top"
-                    android:text="Code"
-                    android:textColor="@color/black"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
+                <!--<TextView-->
+                <!--android:id="@+id/edtcode"-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="left|top"-->
+                <!--android:text="Code"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16dp"-->
+                <!--android:textStyle="bold" />-->
 
-                <View
-                    android:layout_width="2px"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:background="#000000" />
+                <!--<View-->
+                <!--android:layout_width="2px"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:background="#000000" />-->
 
                 <TextView
                     android:id="@+id/edtdate"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_weight="0.2"
+                    android:layout_weight="20"
                     android:gravity="center|top|left"
                     android:text="Product"
                     android:textColor="@color/black"
@@ -307,7 +399,7 @@
                     android:id="@+id/edtQty"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
+                    android:layout_weight="28"
                     android:gravity="center|top"
                     android:text="Qty."
                     android:textColor="@color/black"
@@ -325,7 +417,7 @@
                     android:id="@+id/txtRate"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
+                    android:layout_weight="28"
                     android:gravity="center|top"
                     android:text="Rate"
                     android:textColor="@color/black"
@@ -343,7 +435,7 @@
                     android:id="@+id/txtprice"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
+                    android:layout_weight="25"
                     android:gravity="center|top"
                     android:text="Price"
                     android:textColor="@color/black"
@@ -351,7 +443,6 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="2px"
@@ -372,6 +463,7 @@
                 <ListView
                     android:id="@+id/lvorder"
                     android:layout_width="match_parent"
+                    android:background="@color/white"
                     android:layout_height="match_parent"
                     android:layout_above="@+id/txtSubmit"
                     android:divider="@color/black"

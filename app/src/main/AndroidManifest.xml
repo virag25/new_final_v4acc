@@ -116,11 +116,19 @@
         <activity
             android:name="amigoinn.example.v4sales.ProductFilter"
             android:label="Filter" />
+
+        <activity
+            android:name="amigoinn.example.v4sales.ProductFilterOrder"
+            android:label="Filter" />
         <activity
             android:name="amigoinn.adapters.SectionedListActivity"
             android:label="Marks" />
         <activity
             android:name="amigoinn.adapters.SectionedActivityForOrderFilter"
+            android:label="Marks" />
+
+        <activity
+            android:name="amigoinn.adapters.SectionedListActivityProductAfterFilter"
             android:label="Marks" />
         <activity
             android:name="amigoinn.adapters.ProductSectionedActivityForOrderFilter"

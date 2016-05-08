@@ -24,7 +24,8 @@ public class AddProductItemActivity extends BaseActivity {
     String pid;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_product_item);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
@@ -57,10 +58,13 @@ public class AddProductItemActivity extends BaseActivity {
 //            }
 //        });
 
-        edtProduct.setOnTouchListener(new View.OnTouchListener() {
+        edtProduct.setOnTouchListener(new View.OnTouchListener()
+        {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                if (event.getAction() == MotionEvent.ACTION_UP)
+                {
                     Intent item = new Intent(getApplicationContext(),
                             AddProductActivity.class);
                     startActivityForResult(item, PRODUCT_SELECT);
@@ -91,7 +95,8 @@ public class AddProductItemActivity extends BaseActivity {
                     qty_send = Integer.parseInt(qty);
                 }
 
-                if (flag) {
+                if (flag)
+                {
                     Intent start = new Intent();
                     start.putExtra("product_id", pid);
                     start.putExtra("qty", qty_send);
@@ -111,15 +116,21 @@ public class AddProductItemActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == PRODUCT_SELECT) {
-                if (data != null) {
+        if (resultCode == RESULT_OK)
+        {
+            if (requestCode == PRODUCT_SELECT)
+            {
+                if (data != null)
+                {
                     String str = data.getStringExtra("product_id");
-                    if (str != null && str.length() > 0) {
+
+                    if (str != null && str.length() > 0)
+                    {
                         pid = str;
                         ProductInfo p_info = ProductInfo.getProductInfoById(pid);
                         product_id = p_info.StockNo;
-                        if (p_info != null) {
+                        if (p_info != null)
+                        {
                             edtProduct.setText(p_info.product);
                         }
                     }

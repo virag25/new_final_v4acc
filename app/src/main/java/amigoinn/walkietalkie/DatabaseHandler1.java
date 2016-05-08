@@ -95,15 +95,16 @@ public class DatabaseHandler1 extends SQLiteOpenHelper
         return category;
     }
 
-    public ArrayList<ProductInfo> getproductforItemgroups(String selecteditemgroup)
+    public ArrayList<String> getproductforItemgroups(String selecteditemgroup)
     {
-        ArrayList<ProductInfo> category=new ArrayList<>();
+        ArrayList<String> category=new ArrayList<>();
         try
         {
 
 //            Database m_database=Database.createInstance(v.getContext(),"vact.db",1);
             SQLiteDatabase db = this.getWritableDatabase();
-            String querystring="select PRODUCT_INFO.STOCK_NO,PRODUCT_INFO.MODEL,PRODUCT_INFO.BRAND,PRODUCT_INFO.ITEM_DESC,PRODUCT_INFO.RETAILPRICE from GEN_LOOK_INFO inner join ClASS_COMB_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE inner join PRODUCT_INFO on ClASS_COMB_INFO.PRODUCT = PRODUCT_INFO.Brand where GEN_LOOK_INFO.RECID='66' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+//            String querystring="select distinct PRODUCT_INFO.STOCK_NO,PRODUCT_INFO.MODEL,PRODUCT_INFO.BRAND,PRODUCT_INFO.ITEM_DESC,PRODUCT_INFO.RETAILPRICE from PRODUCT_INFO  inner join ClASS_COMB_INFO on PRODUCT_INFO.BRAND = ClASS_COMB_INFO.PRODUCT inner join GEN_LOOK_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE where GEN_LOOK_INFO.RECID='66' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+            String querystring="select distinct PRODUCT_INFO.ITEM_DESC from PRODUCT_INFO  inner join ClASS_COMB_INFO on PRODUCT_INFO.BRAND = ClASS_COMB_INFO.PRODUCT inner join GEN_LOOK_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE where GEN_LOOK_INFO.RECID='66' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
             //String querystring="SELECT distinct itemgroup FROM PRODUCT_INFO order by itemgroup asc";
             Cursor cursor = db.rawQuery(querystring, null);
 
@@ -111,13 +112,83 @@ public class DatabaseHandler1 extends SQLiteOpenHelper
             {
                 do
                 {
-                    ProductInfo product=new ProductInfo();
-                    product.StockNo=cursor.getString(0);
-                    product.model=cursor.getString(1);
-                    product.brand=cursor.getString(2);
-                    product.ItemDesc=cursor.getString(3);
-                    product.Retail_Price=cursor.getString(4);
-                    category.add(product);
+//                    ProductInfo product=new ProductInfo();
+//                    product.StockNo=cursor.getString(0);
+//                    product.model=cursor.getString(1);
+//                    product.brand=cursor.getString(2);
+//                    product.ItemDesc=cursor.getString(3);
+//                    product.Retail_Price=cursor.getString(4);
+                    category.add(cursor.getString(0));
+                }
+                while (cursor.moveToNext());
+            }
+            return category;
+        } catch (Exception e) {
+            Log.e("Error",e.toString());
+        }
+        return category;
+    }
+
+    public ArrayList<String> getproductforReportingGroupcode(String selecteditemgroup)
+    {
+        ArrayList<String> category=new ArrayList<>();
+        try
+        {
+
+//            Database m_database=Database.createInstance(v.getContext(),"vact.db",1);
+            SQLiteDatabase db = this.getWritableDatabase();
+//            String querystring="select distinct PRODUCT_INFO.STOCK_NO,PRODUCT_INFO.MODEL,PRODUCT_INFO.BRAND,PRODUCT_INFO.ITEM_DESC,PRODUCT_INFO.RETAILPRICE from GEN_LOOK_INFO inner join ClASS_COMB_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE inner join PRODUCT_INFO on ClASS_COMB_INFO.PRODUCT = PRODUCT_INFO.Brand where GEN_LOOK_INFO.RECID='52' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+//            String querystring="select distinct PRODUCT_INFO.STOCK_NO,PRODUCT_INFO.MODEL,PRODUCT_INFO.BRAND,PRODUCT_INFO.ITEM_DESC,PRODUCT_INFO.RETAILPRICE from PRODUCT_INFO  inner join ClASS_COMB_INFO on PRODUCT_INFO.BRAND = ClASS_COMB_INFO.PRODUCT inner join GEN_LOOK_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE where GEN_LOOK_INFO.RECID='52' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+            String querystring="select distinct PRODUCT_INFO.ITEM_DESC from PRODUCT_INFO  inner join ClASS_COMB_INFO on PRODUCT_INFO.BRAND = ClASS_COMB_INFO.PRODUCT inner join GEN_LOOK_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE where GEN_LOOK_INFO.RECID='52' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+            //String querystring="SELECT distinct itemgroup FROM PRODUCT_INFO order by itemgroup asc";
+            Cursor cursor = db.rawQuery(querystring, null);
+
+            if (cursor.moveToFirst())
+            {
+                do
+                {
+//                    ProductInfo product=new ProductInfo();
+//                    product.StockNo=cursor.getString(0);
+//                    product.model=cursor.getString(1);
+//                    product.brand=cursor.getString(2);
+//                    product.ItemDesc=cursor.getString(3);
+//                    product.Retail_Price=cursor.getString(4);
+                    category.add(cursor.getString(0));
+                }
+                while (cursor.moveToNext());
+            }
+            return category;
+        } catch (Exception e) {
+            Log.e("Error",e.toString());
+        }
+        return category;
+    }
+
+    public ArrayList<String> getproductforMasterGroup(String selecteditemgroup)
+    {
+        ArrayList<String> category=new ArrayList<>();
+        try
+        {
+
+//            Database m_database=Database.createInstance(v.getContext(),"vact.db",1);
+            SQLiteDatabase db = this.getWritableDatabase();
+//            String querystring="select distinct PRODUCT_INFO.STOCK_NO,PRODUCT_INFO.MODEL,PRODUCT_INFO.BRAND,PRODUCT_INFO.ITEM_DESC,PRODUCT_INFO.RETAILPRICE from PRODUCT_INFO  inner join ClASS_COMB_INFO on PRODUCT_INFO.BRAND = ClASS_COMB_INFO.PRODUCT inner join GEN_LOOK_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE where GEN_LOOK_INFO.RECID='51' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+            String querystring="select distinct PRODUCT_INFO.ITEM_DESC from PRODUCT_INFO  inner join ClASS_COMB_INFO on PRODUCT_INFO.BRAND = ClASS_COMB_INFO.PRODUCT inner join GEN_LOOK_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE where GEN_LOOK_INFO.RECID='51' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+//            String querystring="select PRODUCT_INFO.STOCK_NO,PRODUCT_INFO.MODEL,PRODUCT_INFO.BRAND,PRODUCT_INFO.ITEM_DESC,PRODUCT_INFO.RETAILPRICE from GEN_LOOK_INFO inner join ClASS_COMB_INFO on ClASS_COMB_INFO.MASTERGROUP = GEN_LOOK_INFO.CODE inner join PRODUCT_INFO on ClASS_COMB_INFO.PRODUCT = PRODUCT_INFO.Brand where GEN_LOOK_INFO.RECID='51' and GEN_LOOK_INFO.DESCR='"+selecteditemgroup+"'";
+            //String querystring="SELECT distinct itemgroup FROM PRODUCT_INFO order by itemgroup asc";
+            Cursor cursor = db.rawQuery(querystring, null);
+
+            if (cursor.moveToFirst())
+            {
+                do
+                {
+//                    ProductInfo product=new ProductInfo();
+//                    product.StockNo=cursor.getString(0);
+//                    product.model=cursor.getString(1);
+//                    product.brand=cursor.getString(2);
+//                    product.ItemDesc=cursor.getString(3);
+//                    product.Retail_Price=cursor.getString(4);
+                    category.add(cursor.getString(0));
                 }
                 while (cursor.moveToNext());
             }
@@ -297,6 +368,113 @@ public class DatabaseHandler1 extends SQLiteOpenHelper
             SQLiteDatabase db = this.getWritableDatabase();
 //            String querystring="select distinct product from ";
             String querystring="SELECT distinct MODEL FROM PRODUCT_INFO order by MODEL asc";
+            Cursor cursor = db.rawQuery(querystring, null);
+
+            if (cursor.moveToFirst())
+            {
+                do
+                {
+                    category.add(cursor.getString(0));
+                }
+                while (cursor.moveToNext());
+            }
+            return category;
+        } catch (Exception e) {
+            Log.e("Error",e.toString());
+        }
+        return category;
+    }
+
+    public ArrayList<String> getProductForModel(String modelname)
+    {
+        ArrayList<String> category=new ArrayList<>();
+        try
+        {
+
+//            Database m_database=Database.createInstance(v.getContext(),"vact.db",1);
+            SQLiteDatabase db = this.getWritableDatabase();
+//            String querystring="select distinct product from ";
+            String querystring="SELECT distinct ITEM_DESC FROM PRODUCT_INFO where MODEL='"+modelname+"' order by ITEM_DESC asc";
+            Cursor cursor = db.rawQuery(querystring, null);
+
+            if (cursor.moveToFirst())
+            {
+                do
+                {
+                    category.add(cursor.getString(0));
+                }
+                while (cursor.moveToNext());
+            }
+            return category;
+        } catch (Exception e) {
+            Log.e("Error",e.toString());
+        }
+        return category;
+    }
+    public ArrayList<String> getProductForProduct(String modelname)
+    {
+        ArrayList<String> category=new ArrayList<>();
+        try
+        {
+
+//            Database m_database=Database.createInstance(v.getContext(),"vact.db",1);
+            SQLiteDatabase db = this.getWritableDatabase();
+//            String querystring="select distinct product from ";
+            String querystring="SELECT distinct ITEM_DESC FROM PRODUCT_INFO where PRODUCT='"+modelname+"' order by ITEM_DESC asc";
+            Cursor cursor = db.rawQuery(querystring, null);
+
+            if (cursor.moveToFirst())
+            {
+                do
+                {
+                    category.add(cursor.getString(0));
+                }
+                while (cursor.moveToNext());
+            }
+            return category;
+        } catch (Exception e) {
+            Log.e("Error",e.toString());
+        }
+        return category;
+    }
+
+    public ArrayList<String> getProductForBrands(String modelname)
+    {
+        ArrayList<String> category=new ArrayList<>();
+        try
+        {
+
+//            Database m_database=Database.createInstance(v.getContext(),"vact.db",1);
+            SQLiteDatabase db = this.getWritableDatabase();
+//            String querystring="select distinct product from ";
+            String querystring="SELECT distinct ITEM_DESC FROM PRODUCT_INFO where BRAND='"+modelname+"' order by ITEM_DESC asc";
+            Cursor cursor = db.rawQuery(querystring, null);
+
+            if (cursor.moveToFirst())
+            {
+                do
+                {
+                    category.add(cursor.getString(0));
+                }
+                while (cursor.moveToNext());
+            }
+            return category;
+        } catch (Exception e) {
+            Log.e("Error",e.toString());
+        }
+        return category;
+    }
+
+    public ArrayList<String> getProductForSize(String modelname)
+    {
+        ArrayList<String> category=new ArrayList<>();
+        try
+        {
+
+//            Database m_database=Database.createInstance(v.getContext(),"vact.db",1);
+            SQLiteDatabase db = this.getWritableDatabase();
+//            String querystring="select distinct product from ";
+            String querystring="SELECT distinct ITEM_DESC FROM PRODUCT_INFO where PACKINGSIZE='"+modelname+"' order by ITEM_DESC asc";
             Cursor cursor = db.rawQuery(querystring, null);
 
             if (cursor.moveToFirst())

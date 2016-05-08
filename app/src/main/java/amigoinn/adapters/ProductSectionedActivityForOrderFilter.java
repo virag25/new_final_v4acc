@@ -59,7 +59,7 @@ public class ProductSectionedActivityForOrderFilter extends Activity
         setContentView(R.layout.searchlistlayoutbefore);
         stickyList = (StickyListHeadersListView) findViewById(R.id.list);
         txtFilter = (TextView) findViewById(R.id.txtFilter);
-        stickyList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        stickyList.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 //        countries = new ArrayList<>();
 //        countries = Constants.countries;
 //        Constants.initString2(countries.size());

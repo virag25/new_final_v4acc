@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Filter;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.v4sales.R;
 
+import amigoinn.db_model.ProductInfo;
 import amigoinn.example.v4sales.Config;
 import amigoinn.example.v4sales.LeftMenusActivity;
 import amigoinn.walkietalkie.Constants;
@@ -26,6 +28,7 @@ import amigoinn.walkietalkie.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
+import amigoinn.walkietalkie.DatabaseHandler1;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
@@ -43,8 +46,10 @@ public class SectionedListActivityForFilters extends Activity
 //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
     EditText inputSearch;
+    String fromactivity="";
     List<String> countries;
     StickyListHeadersListView stickyList;
+    DatabaseHandler1 handler1;
    public static SectionedListActivityForFilters listActivity;
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -60,7 +65,9 @@ public class SectionedListActivityForFilters extends Activity
 //        stickyList.setAdapter(adapter);
 
         inputSearch = (EditText) findViewById(R.id.inputSearch);
+        handler1=new DatabaseHandler1(this);
         setbaseadapter();
+        fromactivity=getIntent().getStringExtra("from");
         TextView txtDone = (TextView) findViewById(R.id.txtDone);
         txtDone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,10 +80,11 @@ public class SectionedListActivityForFilters extends Activity
                     startActivity(in);
                     finish();
                 }
-                else {
-                    Intent in = new Intent(SectionedListActivityForFilters.this, LeftMenusActivity.class);
-                    in.putExtra("for", "order");
-                    startActivity(in);
+                else
+                {
+//                    Intent in = new Intent(SectionedListActivityForFilters.this, LeftMenusActivity.class);
+//                    in.putExtra("for", "order");
+//                    startActivity(in);
                     finish();
                 }
             }
@@ -121,54 +129,74 @@ public class SectionedListActivityForFilters extends Activity
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
             ViewHolder holder;
 
-            if (convertView == null) {
+            if (convertView == null)
+            {
                 holder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.sammplelistitem, parent, false);
                 holder.text = (TextView) convertView.findViewById(R.id.tv);
                 convertView.setTag(holder);
-            } else {
+            }
+            else
+            {
                 holder = (ViewHolder) convertView.getTag();
             }
 
+//            if (Constants.arrTemp2[position].equalsIgnoreCase("b"))
+//            {
+//                // array.put(position, false);
+//               // Constants.arrTemp2[position] = "a";
+//                holder.text.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+//                holder.text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.true1, 0);
+//
+//            }
+//            else
+//            {
+////                    array.put(position, true);
+//                // listner.BrandListClicked();
+//               // Constants.arrTemp2[position] = "b";
+//                holder.text.setBackgroundColor(Color.parseColor("#EAEAEA"));
+//                holder.text.setBackgroundColor(Color.parseColor("#00000000"));
+//            }
             holder.text.setText(filteredData.get(position));
             final int pos=position;
             final ViewHolder holder1=holder;
-            holder.text.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Config.FilteredValue=filteredData.get(pos);
-                    if (Constants.arrTemp2[pos].equalsIgnoreCase("b"))
-                    {
-                        // array.put(position, false);
-                        Constants.arrTemp2[pos] = "a";
-                        holder1.text.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                        holder1.text.setBackgroundColor(Color.parseColor("#00000000"));
-                    } else {
-//                    array.put(position, true);
-                       // listner.BrandListClicked();
-                        Constants.arrTemp2[pos] = "b";
-                        holder1.text.setBackgroundColor(Color.parseColor("#EAEAEA"));
-                        holder1.text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.true1, 0);
-                    }
-//                if (array.get(position)) {
-//                    array.put(position, false);
-//                    tv_catprice.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+//            holder.text.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
 //
-//                    tv_catprice.setBackgroundColor(Color.parseColor("#00000000"));
-//                } else {
-//                    array.put(position, true);
-//                    //listner.shopListClicked();
-//                    tv_catprice.setBackgroundColor(Color.parseColor("#EAEAEA"));
-//                    tv_catprice.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.com_facebook_tooltip_black_bottomnub, 0);
+//                    Config.FilteredValue=filteredData.get(pos);
+//                    if (Constants.arrTemp2[pos].equalsIgnoreCase("b"))
+//                    {
+//                        // array.put(position, false);
+//                        Constants.arrTemp2[pos] = "a";
+//                        holder1.text.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+//                        holder1.text.setBackgroundColor(Color.parseColor("#00000000"));
+//                    } else {
+////                    array.put(position, true);
+//                       // listner.BrandListClicked();
+//                        Constants.arrTemp2[pos] = "b";
+//                        holder1.text.setBackgroundColor(Color.parseColor("#EAEAEA"));
+//                        holder1.text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.true1, 0);
+//                    }
+////                if (array.get(position)) {
+////                    array.put(position, false);
+////                    tv_catprice.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+////
+////                    tv_catprice.setBackgroundColor(Color.parseColor("#00000000"));
+////                } else {
+////                    array.put(position, true);
+////                    //listner.shopListClicked();
+////                    tv_catprice.setBackgroundColor(Color.parseColor("#EAEAEA"));
+////                    tv_catprice.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.com_facebook_tooltip_black_bottomnub, 0);
+////                }
+//
+//
 //                }
-
-
-                }
-            });
+//            });
 
             return convertView;
         }
@@ -254,7 +282,50 @@ public void setbaseadapter()
 {
     final MyAdapter adapter = new MyAdapter(this,countries);
     stickyList.setAdapter(adapter);
-    inputSearch.addTextChangedListener(new TextWatcher() {
+    stickyList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+    {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+        {
+            String selectedvalue=countries.get(position);
+            Constants.PRODUCTINFO.clear();
+            if(fromactivity.equalsIgnoreCase("reporting"))
+            {
+                Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
+            }
+           else if(fromactivity.equalsIgnoreCase("itemgroup"))
+            {
+                Constants.PRODUCTINFO = handler1.getproductforItemgroups(selectedvalue);
+            }
+            else if(fromactivity.equalsIgnoreCase("model"))
+            {
+                Constants.PRODUCTINFO = handler1.getProductForModel(selectedvalue);
+            }
+            else if(fromactivity.equalsIgnoreCase("size"))
+            {
+                Constants.PRODUCTINFO = handler1.getProductForSize(selectedvalue);
+            }
+            else if(fromactivity.equalsIgnoreCase("reporting"))
+            {
+                Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
+            }
+            else if(fromactivity.equalsIgnoreCase("product"))
+            {
+                Constants.PRODUCTINFO = handler1.getProductForProduct(selectedvalue);
+            }
+            else if(fromactivity.equalsIgnoreCase("brand"))
+            {
+                Constants.PRODUCTINFO = handler1.getProductForBrands(selectedvalue);
+            }
+
+            Intent   in =new Intent(SectionedListActivityForFilters.this, SectionedListActivityProductAfterFilter.class);
+//            in.putExtra("value",selectedvalue);
+            startActivity(in);
+
+        }
+    });
+    inputSearch.addTextChangedListener(new TextWatcher()
+    {
 
         @Override
         public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {

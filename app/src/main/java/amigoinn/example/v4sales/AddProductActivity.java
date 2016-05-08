@@ -40,7 +40,8 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  */
 
 
-public class AddProductActivity extends BaseActivity {
+public class AddProductActivity extends BaseActivity
+{
 
     //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
@@ -55,6 +56,14 @@ public class AddProductActivity extends BaseActivity {
     ArrayList<GenLookInfo> gen_lookup = new ArrayList<>();
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+
+        }
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,20 +88,14 @@ public class AddProductActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent in;
                 Config.filterfrom = "product";
-                if (Config.filterfrom.equalsIgnoreCase("product")) {
-                    in = new Intent(getApplicationContext(), ProductFilter.class);
-                } else if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
-                    in = new Intent(getApplicationContext(), Filter.class);
-                } else {
-                    in = new Intent(getApplicationContext(), Filter.class);
-                }
-                try {
-                    startActivity(in);
-                } catch (Exception ex) {
 
-                }
+                    in = new Intent(getApplicationContext(), ProductFilterOrder.class);
+
+                    startActivityForResult(in,123);
+
             }
         });
+
         txtDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -265,7 +268,8 @@ public class AddProductActivity extends BaseActivity {
 ////        mQueryHandler.startQuery(Media.INTERNAL_CONTENT_URI, AudioFilesQuery.PROJECTION, AudioFilesQuery.SORT_ORDER);
 //}
 
-    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter, Filterable {
+    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter, Filterable
+    {
 
         private List<ProductInfo> countries;
         private LayoutInflater inflater;
@@ -298,12 +302,15 @@ public class AddProductActivity extends BaseActivity {
         public View getView(final int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
 
-            if (convertView == null) {
+            if (convertView == null)
+            {
                 holder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.sammplelistitem, parent, false);
                 holder.text = (TextView) convertView.findViewById(R.id.tv);
                 convertView.setTag(holder);
-            } else {
+            }
+            else
+            {
                 holder = (ViewHolder) convertView.getTag();
             }
 
@@ -346,7 +353,8 @@ public class AddProductActivity extends BaseActivity {
         }
 
         @Override
-        public long getHeaderId(int position) {
+        public long getHeaderId(int position)
+        {
             //return the first character of the country as ID because this is what headers are based upon
             return filteredData.get(position).product.subSequence(0, 1).charAt(0);
         }

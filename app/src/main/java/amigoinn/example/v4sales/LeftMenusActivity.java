@@ -311,6 +311,9 @@ public class LeftMenusActivity extends ActionBarActivity
 		mDrawerItems.add(new DrawerItem(R.string.drawer_icon_order,
 				R.string.drawer_title_order,
 				DrawerItem.DRAWER_ITEM_TAG_GIT_HUB));
+		mDrawerItems.add(new DrawerItem(R.string.drawer_icon_order,
+				R.string.drawer_title_sales,
+				DrawerItem.DRAWER_ITEM_TAG_GIT_HUB));
 		mDrawerItems.add(new DrawerItem(R.string.drawer_icon_route,
 				R.string.drawer_title_route ,
 				DrawerItem.DRAWER_ITEM_TAG_INSTAGRAM));
@@ -536,16 +539,25 @@ public class LeftMenusActivity extends ActionBarActivity
 //			commitFragment(fragment2);
 //			setTitle(mDrawerItems.get(position - 1).getTitle());
 			break;
-		case 4:
+			case 4:
 //			SharedPreferences.Editor editor3=preference.edit();
 //			editor3.clear();
 //			editor3.putString("url", "http://www.amigoinnovations.co.in/aspiremobile/index.php?student/marks");
 //			editor3.commit();
-			Fragment fragment3 = new FragmentCategoryItemAttendance();//.newInstance();
-			commitFragment(fragment3);
+				Fragment fragment3 = new Fragmentsales();//.newInstance();
+				commitFragment(fragment3);
+				setTitle(mDrawerItems.get(position - 1).getTitle());
+				break;
+		case 5:
+//			SharedPreferences.Editor editor3=preference.edit();
+//			editor3.clear();
+//			editor3.putString("url", "http://www.amigoinnovations.co.in/aspiremobile/index.php?student/marks");
+//			editor3.commit();
+			Fragment fragment31 = new FragmentCategoryItemAttendance();//.newInstance();
+			commitFragment(fragment31);
 			setTitle(mDrawerItems.get(position - 1).getTitle());
 			break;
-		case 5:
+		case 6:
 			try {
 //				212.131.115.219/navkarmobileservice/
 //				Config.filterfrom="product";
@@ -565,7 +577,7 @@ public class LeftMenusActivity extends ActionBarActivity
 			}
 			break;
 
-			case 6:
+			case 7:
 				try
 				{
 //				Fragment fragment123 = new ReportCardFragment();//.newInstance();
@@ -604,7 +616,7 @@ public class LeftMenusActivity extends ActionBarActivity
 //					Log.e("Error",ex.toString());
 //				}
 
-			case 7:
+			case 8:
 
 				try
 				{
@@ -620,7 +632,7 @@ public class LeftMenusActivity extends ActionBarActivity
 					Log.e("Error",ex.toString());
 				}
 
-			case 8:
+			case 9:
 
 				try
 				{

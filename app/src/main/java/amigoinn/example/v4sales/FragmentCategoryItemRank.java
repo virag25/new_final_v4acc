@@ -217,7 +217,8 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
 
     }
 
-    public void filledittext() {
+    public void filledittext()
+    {
 //        edtProduct1.setText(Product.get(Config.SELECTEDPOSITION).toString());
 //        edtPrice.setText(Price.get(Config.SELECTEDPOSITION).toString());
 //        edtQuantity.setText(extras.get(Config.SELECTEDPOSITION).toString());
@@ -225,7 +226,8 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
 
         getActivity();
@@ -236,14 +238,18 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
             //some code
         }
 
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == 111) {
-                if (data != null) {
+        if (resultCode == Activity.RESULT_OK)
+        {
+            if (requestCode == 111)
+            {
+                if (data != null)
+                {
                     String pid = data.getStringExtra("product_id");
                     int qty = data.getIntExtra("qty", 0);
                     ProductInfo pinfo = ProductInfo.getProductInfoById(pid);
                     CartInfo cinfo = new CartInfo();
-                    if (pinfo != null) {
+                    if (pinfo != null)
+                    {
                         cinfo.product = pinfo.product;
                         cinfo.qty = qty;
                         double price = Double.parseDouble(pinfo.Retail_Price);
@@ -313,7 +319,8 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         class Holder {
             TextView name;
             TextView txtPrice;
-            TextView edtcode, edtdate, txtQty, txtRate;
+            EditText txtQty;
+            TextView edtcode, edtdate , txtRate;
 
         }
 
@@ -326,9 +333,9 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
             if (arg1 == null) {
                 hv = new Holder();
                 arg1 = inflater.inflate(R.layout.custom_order_home, null);
-                hv.edtcode = (TextView) arg1.findViewById(R.id.edtcode);
+                //hv.edtcode = (TextView) arg1.findViewById(R.id.edtcode);
                 hv.edtdate = (TextView) arg1.findViewById(R.id.edtdate);
-                hv.txtQty = (TextView) arg1.findViewById(R.id.txtQty);
+                hv.txtQty = (EditText) arg1.findViewById(R.id.txtQty);
                 hv.txtPrice = (TextView) arg1.findViewById(R.id.txtprice);
                 hv.txtRate = (TextView) arg1.findViewById(R.id.txtRate);
                 arg1.setTag(hv);
@@ -338,8 +345,8 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
 
             CartInfo info = cart_list.get(arg0);
             if (info != null) {
-                hv.edtcode.setText(info.StockNo);
-                hv.edtdate.setText(info.product);
+//                hv.edtcode.setText(info.StockNo);
+                hv.edtdate.setText(info.StockNo+"\n"+info.product);
                 hv.txtRate.setText(info.rete);
                 hv.txtQty.setText(String.valueOf(info.qty));
                 hv.txtPrice.setText(info.total);
@@ -393,20 +400,28 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         return buffer.toString();
     }
 
-    public void sendData() {
+    public void sendData()
+    {
         showProgress();
         String data = makeJson();
-        if (data != null && data.length() > 0) {
+        if (data != null && data.length() > 0)
+        {
             ServiceHelper helper = new ServiceHelper(ServiceHelper.ADD_ORDER, ServiceHelper.RequestMethod.POST, data);
-            helper.call(new ServiceHelper.ServiceHelperDelegate() {
+            helper.call(new ServiceHelper.ServiceHelperDelegate()
+            {
                 @Override
-                public void CallFinish(ServiceResponse res) {
+                public void CallFinish(ServiceResponse res)
+                {
                     hideProgress();
-                    if (res.RawResponse != null) {
-                        Intent start = new Intent(getActivity(), LeftMenusActivity.class);
-                        startActivity(start);
-                        getActivity().finish();
-                    } else {
+                    if (res.RawResponse != null)
+                    {
+                        Toast.makeText(context,"Order placed successfully!",Toast.LENGTH_LONG).show();
+//                        Intent start = new Intent(getActivity(), LeftMenusActivity.class);
+//                        startActivity(start);
+//                        getActivity().finish();
+                    }
+                    else
+                    {
 
                     }
 

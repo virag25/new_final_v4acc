@@ -419,13 +419,19 @@ public class ServiceHelper {
         }
 
         @Override
-        protected void onPostExecute(ServiceResponse result) {
-            if (result != null) {
-                if (m_delegate != null) {
+        protected void onPostExecute(ServiceResponse result)
+        {
+            if (result != null)
+            {
+                if (m_delegate != null)
+                {
                     m_delegate.CallFinish(result);
                 }
-            } else {
-                if (m_delegate != null) {
+            }
+            else
+            {
+                if (m_delegate != null)
+                {
                     m_delegate.CallFailure(ServiceHelper.COMMON_ERROR);
                 }
             }

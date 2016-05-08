@@ -3,6 +3,8 @@ package amigoinn.walkietalkie;
 import java.util.ArrayList;
 import java.util.List;
 
+import amigoinn.db_model.ProductInfo;
+
 /**
  * Created by maulik on 1/27/2016.
  */
@@ -11,6 +13,7 @@ public class Constants
     public static ArrayList<String> searchlist=new ArrayList<String>();
     public static String[] arrTemp2;
     public static  String selectedclient="";
+    public static  String selectedproduct="";
     public static List<String> Zonelist=new ArrayList<String>();
     public static List<String> PartyList=new ArrayList<String>();
     public static List<String> countries=new ArrayList<String>();
@@ -23,6 +26,7 @@ public class Constants
     public static List<String> BrandList=new ArrayList<String>();
     public static List<String> sizelist=new ArrayList<String>();
     public static List<String> modellist=new ArrayList<String>();
+    public static ArrayList<String> PRODUCTINFO=new ArrayList<String>();
 
     public static void initString2(int size)
     {
