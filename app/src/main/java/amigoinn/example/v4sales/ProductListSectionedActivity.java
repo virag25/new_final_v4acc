@@ -46,8 +46,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  */
 
 
-public class ProductListSectionedActivity extends BaseFragment
-{
+public class ProductListSectionedActivity extends BaseFragment {
 
     //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
@@ -63,8 +62,7 @@ public class ProductListSectionedActivity extends BaseFragment
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.searchlistlayoutbefore, container, false);
 
         stickyList = (StickyListHeadersListView) v.findViewById(R.id.list);
@@ -156,7 +154,7 @@ public class ProductListSectionedActivity extends BaseFragment
                 Collections.sort(list, new Comparator<ProductInfo>() {
                     @Override
                     public int compare(ProductInfo s1, ProductInfo s2) {
-                        return s1.model.compareToIgnoreCase(s2.model);
+                        return s1.ItemDesc.compareToIgnoreCase(s2.ItemDesc);
                     }
                 });
 //                Collections.sort(list, String.CASE_INSENSITIVE_ORDER);
@@ -313,7 +311,7 @@ public class ProductListSectionedActivity extends BaseFragment
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.text.setText(filteredData.get(position).model);
+            holder.text.setText(filteredData.get(position).ItemDesc);
             final int pos = position;
             final ViewHolder holder1 = holder;
             holder.text.setOnClickListener(new View.OnClickListener() {
@@ -321,6 +319,7 @@ public class ProductListSectionedActivity extends BaseFragment
                 public void onClick(View v) {
                     ProductInfo c_info = filteredData.get(position);
                     Intent in = new Intent(getActivity(), amigoinn.example.v4sales.AbsentList.class);
+                    in.putExtra("pro_id", c_info.StockNo);
                     startActivity(in);
 //                    Intent in = new Intent(getActivity(), ClientsTabFragment.class);
 //                    in.putExtra("client_code",c_info.client_code);
@@ -344,7 +343,7 @@ public class ProductListSectionedActivity extends BaseFragment
                 holder = (HeaderViewHolder) convertView.getTag();
             }
             //set header text as first char in name
-            String headerText = "" + filteredData.get(position).model.subSequence(0, 1).charAt(0);
+            String headerText = "" + filteredData.get(position).ItemDesc.subSequence(0, 1).charAt(0);
             holder.text.setText(headerText);
             return convertView;
         }
@@ -352,7 +351,7 @@ public class ProductListSectionedActivity extends BaseFragment
         @Override
         public long getHeaderId(int position) {
             //return the first character of the country as ID because this is what headers are based upon
-            return filteredData.get(position).model.subSequence(0, 1).charAt(0);
+            return filteredData.get(position).ItemDesc.subSequence(0, 1).charAt(0);
         }
 
         @Override
@@ -377,7 +376,7 @@ public class ProductListSectionedActivity extends BaseFragment
 
                 for (int i = 0; i < count; i++) {
                     filterableString = list.get(i);
-                    if (filterableString.product.toLowerCase().contains(filterString)) {
+                    if (filterableString.ItemDesc.toLowerCase().contains(filterString)) {
                         nlist.add(filterableString);
                     }
                 }

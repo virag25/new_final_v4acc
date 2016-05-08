@@ -2,6 +2,7 @@ package amigoinn.example.v4sales;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -246,5 +247,11 @@ public class ClientsTabFragment extends FragmentActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent start = new Intent(getApplicationContext(), LeftMenusActivity.class);
+        start.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(start);
+    }
 }

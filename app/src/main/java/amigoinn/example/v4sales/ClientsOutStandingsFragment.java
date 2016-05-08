@@ -1,9 +1,11 @@
 package amigoinn.example.v4sales;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +19,14 @@ import com.example.v4sales.R;
 
 import java.util.ArrayList;
 
-import amigoinn.db_model.ClientOrderInfo;
+import amigoinn.db_model.ClientDispatchInfo;
+import amigoinn.db_model.ClientSaleInfo;
+import amigoinn.db_model.ClientSaleInfo;
 import amigoinn.db_model.ModelDelegates;
 import amigoinn.modallist.ClientOrderList;
+import amigoinn.modallist.ClientSaleList;
 
-public class ClientsOutStandingsFragment extends BaseFragment
-{
+public class ClientsOutStandingsFragment extends BaseFragment {
 
     ListView listView2;
     ListViewCustomAdapter adateer;
@@ -32,15 +36,34 @@ public class ClientsOutStandingsFragment extends BaseFragment
         View v = inflater.inflate(R.layout.clients_out_standings_fragment, container, false);
         listView2 = (ListView) v.findViewById(R.id.listView2);
         loadData();
+
+        v.setFocusableInTouchMode(true);
+        v.requestFocus();
+
+        v.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        Intent start = new Intent(getActivity(), LeftMenusActivity.class);
+                        start.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(start);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
         return v;
     }
 
 
     public void loadData() {
         showProgress();
-        ClientOrderList.Instance().DoSale(new ModelDelegates.ModelDelegate<ClientOrderInfo>() {
+        ClientSaleList.Instance().DoSale(new ModelDelegates.ModelDelegate<ClientSaleInfo>() {
             @Override
-            public void ModelLoaded(ArrayList<ClientOrderInfo> list) {
+            public void ModelLoaded(ArrayList<ClientSaleInfo> list) {
                 hideProgress();
                 if (list != null && list.size() > 0) {
                     adateer = new ListViewCustomAdapter(getActivity(), list);
@@ -65,9 +88,9 @@ public class ClientsOutStandingsFragment extends BaseFragment
     public class ListViewCustomAdapter extends BaseAdapter {
         public Activity context;
         LayoutInflater inflater;
-        ArrayList<ClientOrderInfo> m_list;
+        ArrayList<ClientSaleInfo> m_list;
 
-        public ListViewCustomAdapter(Activity context, ArrayList<ClientOrderInfo> list)
+        public ListViewCustomAdapter(Activity context, ArrayList<ClientSaleInfo> list)
 
         {
             super();
@@ -102,7 +125,7 @@ public class ClientsOutStandingsFragment extends BaseFragment
         }
 
         @Override
-        public View getView(int arg0, View arg1, ViewGroup arg2) {
+        public View getView(final int arg0, View arg1, ViewGroup arg2) {
             // TODO Auto-generated method stub
 
             Holder hv;
@@ -119,7 +142,7 @@ public class ClientsOutStandingsFragment extends BaseFragment
                 hv = (Holder) arg1.getTag();
             }
 
-            ClientOrderInfo c_info = m_list.get(arg0);
+            ClientSaleInfo c_info = m_list.get(arg0);
             if (c_info != null) {
                 String str = "TrnCtrlNo " + c_info.TrnCtrlNo;
                 hv.textview1.setText(str);
@@ -132,6 +155,12 @@ public class ClientsOutStandingsFragment extends BaseFragment
             hv.rlMain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent start = new Intent(getActivity(), ClientOrderDispatchActiviy.class);
+                    ClientSaleInfo c_info = m_list.get(arg0);
+                    start.putExtra("Order no.: ", c_info.TrnCtrlNo);
+                    start.putExtra("Net Amount: ", c_info.DocNoPrefix);
+                    start.putExtra("Date", c_info.DocNoPrefix);
+                    startActivity(start);
 
                 }
             });

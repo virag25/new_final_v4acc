@@ -56,7 +56,6 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name="amigoinn.example.v4sales.LoginActivity"
@@ -116,7 +115,6 @@
         <activity
             android:name="amigoinn.example.v4sales.ProductFilter"
             android:label="Filter" />
-
         <activity
             android:name="amigoinn.example.v4sales.ProductFilterOrder"
             android:label="Filter" />
@@ -126,7 +124,6 @@
         <activity
             android:name="amigoinn.adapters.SectionedActivityForOrderFilter"
             android:label="Marks" />
-
         <activity
             android:name="amigoinn.adapters.SectionedListActivityProductAfterFilter"
             android:label="Marks" />
@@ -190,7 +187,8 @@
         <activity android:name="amigoinn.example.v4sales.OrderDetailActivity" />
         <activity android:name="amigoinn.example.v4sales.OrderDispatchDetail" />
         <activity android:name="amigoinn.example.v4sales.ClientOrderDetalisActivity" />
-        <activity android:name="amigoinn.example.v4sales.ClientOrderDispatchActiviy"></activity>
+        <activity android:name="amigoinn.example.v4sales.ClientOrderDispatchActiviy" />
+        <activity android:name="amigoinn.example.v4sales.ClientOrderSaleDetail"></activity>
     </application>
 
 </manifest>

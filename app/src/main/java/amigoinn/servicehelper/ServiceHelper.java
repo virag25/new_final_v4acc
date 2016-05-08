@@ -66,6 +66,12 @@ public class ServiceHelper {
     public static final String INSERT_LOCATIONS = "insertlocation.php";
     public static final String CLIENT_SALE = "clientsales.php";
 
+    public static final String SALE_DETAILS = " salesdetails.php";
+
+
+    public static final String PRODUCT_DETAILS = "productwiseorder.php";
+
+
     String my_quesryString;
 
     private static boolean IS_DEBUG = true;
@@ -419,19 +425,13 @@ public class ServiceHelper {
         }
 
         @Override
-        protected void onPostExecute(ServiceResponse result)
-        {
-            if (result != null)
-            {
-                if (m_delegate != null)
-                {
+        protected void onPostExecute(ServiceResponse result) {
+            if (result != null) {
+                if (m_delegate != null) {
                     m_delegate.CallFinish(result);
                 }
-            }
-            else
-            {
-                if (m_delegate != null)
-                {
+            } else {
+                if (m_delegate != null) {
                     m_delegate.CallFailure(ServiceHelper.COMMON_ERROR);
                 }
             }

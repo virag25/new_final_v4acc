@@ -18,20 +18,18 @@ import java.util.ArrayList;
 import amigoinn.db_model.ClientOrderDetailInfo;
 import amigoinn.db_model.ModelDelegates;
 import amigoinn.db_model.ProductInfo;
-import amigoinn.modallist.ClientDispatchList;
 import amigoinn.modallist.ClientOrderList;
 
-public class ClientOrderDispatchActiviy extends BaseActivity {
+public class ClientOrderSaleDetail extends BaseActivity {
     ListView lvorder;
     ListViewCustomAdapter adateer;
     TextView txtClient;
     String TrnCtrlNo, DocNoPrefix, DocNo;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.client_order_dispatch);
+        setContentView(R.layout.client_order_sale_detail);
         Bundle b = getIntent().getExtras();
         if (b != null) {
             TrnCtrlNo = b.getString("TrnCtrlNo");
@@ -45,12 +43,12 @@ public class ClientOrderDispatchActiviy extends BaseActivity {
 
     public void loadData() {
         showProgress();
-        ClientOrderList.Instance().DoClientDispatchDetail(new ModelDelegates.ModelDelegate<ClientOrderDetailInfo>() {
+        ClientOrderList.Instance().DoSaleDetail(new ModelDelegates.ModelDelegate<ClientOrderDetailInfo>() {
             @Override
             public void ModelLoaded(ArrayList<ClientOrderDetailInfo> list) {
                 hideProgress();
                 if (list != null && list.size() > 0) {
-                    adateer = new ListViewCustomAdapter(ClientOrderDispatchActiviy.this, list);
+                    adateer = new ListViewCustomAdapter(ClientOrderSaleDetail.this, list);
                     lvorder.setAdapter(adateer);
                 } else {
                     Toast.makeText(getApplicationContext(), "There are no any data found", Toast.LENGTH_LONG).show();
@@ -67,7 +65,6 @@ public class ClientOrderDispatchActiviy extends BaseActivity {
             }
         }, TrnCtrlNo, DocNoPrefix, DocNo);
     }
-
 
     public class ListViewCustomAdapter extends BaseAdapter {
         public Activity context;

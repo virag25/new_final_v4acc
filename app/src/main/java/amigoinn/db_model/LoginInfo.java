@@ -53,15 +53,17 @@ public class LoginInfo {
                                     JSONObject jobjj = new JSONObject(res.RawResponse);
                                     if (jobjj != null) {
                                         JSONArray jobj = jobjj.optJSONArray("data");
-                                        JSONObject job = jobj.optJSONObject(0);
+                                        if (jobj != null && jobj.length() > 0) {
+                                            JSONObject job = jobj.optJSONObject(0);
 //                                        JSONObject job1 = jobj.optJSONObject(1);
-                                        ModelMapHelper<UserInfo> mapper = new ModelMapHelper<UserInfo>();
-                                        UserInfo.DeleteUser();
-                                        UserInfo info = mapper.getObject(
-                                                UserInfo.class, job);
-                                        info.updatestatus = jobjj.getString("updateapp");
-                                        if (info != null) {
-                                            info.save();
+                                            ModelMapHelper<UserInfo> mapper = new ModelMapHelper<UserInfo>();
+                                            UserInfo.DeleteUser();
+                                            UserInfo info = mapper.getObject(
+                                                    UserInfo.class, job);
+                                            info.updatestatus = jobjj.getString("updateapp");
+                                            if (info != null) {
+                                                info.save();
+                                            }
                                         }
                                     }
 

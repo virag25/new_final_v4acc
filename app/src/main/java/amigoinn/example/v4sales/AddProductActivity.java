@@ -40,8 +40,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  */
 
 
-public class AddProductActivity extends BaseActivity
-{
+public class AddProductActivity extends BaseActivity {
 
     //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
@@ -57,13 +56,13 @@ public class AddProductActivity extends BaseActivity
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
 
         }
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,9 +88,9 @@ public class AddProductActivity extends BaseActivity
                 Intent in;
                 Config.filterfrom = "product";
 
-                    in = new Intent(getApplicationContext(), ProductFilterOrder.class);
+                in = new Intent(getApplicationContext(), ProductFilterOrder.class);
 
-                    startActivityForResult(in,123);
+                startActivityForResult(in, 123);
 
             }
         });
@@ -153,7 +152,7 @@ public class AddProductActivity extends BaseActivity
                 Collections.sort(list, new Comparator<ProductInfo>() {
                     @Override
                     public int compare(ProductInfo s1, ProductInfo s2) {
-                        return s1.product.compareToIgnoreCase(s2.product);
+                        return s1.ItemDesc.compareToIgnoreCase(s2.ItemDesc);
                     }
                 });
 //                Collections.sort(list, String.CASE_INSENSITIVE_ORDER);
@@ -268,8 +267,7 @@ public class AddProductActivity extends BaseActivity
 ////        mQueryHandler.startQuery(Media.INTERNAL_CONTENT_URI, AudioFilesQuery.PROJECTION, AudioFilesQuery.SORT_ORDER);
 //}
 
-    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter, Filterable
-    {
+    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter, Filterable {
 
         private List<ProductInfo> countries;
         private LayoutInflater inflater;
@@ -302,19 +300,16 @@ public class AddProductActivity extends BaseActivity
         public View getView(final int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
 
-            if (convertView == null)
-            {
+            if (convertView == null) {
                 holder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.sammplelistitem, parent, false);
                 holder.text = (TextView) convertView.findViewById(R.id.tv);
                 convertView.setTag(holder);
-            }
-            else
-            {
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.text.setText(filteredData.get(position).product);
+            holder.text.setText(filteredData.get(position).ItemDesc);
             final int pos = position;
             final ViewHolder holder1 = holder;
             holder.text.setOnClickListener(new View.OnClickListener() {
@@ -347,16 +342,15 @@ public class AddProductActivity extends BaseActivity
                 holder = (HeaderViewHolder) convertView.getTag();
             }
             //set header text as first char in name
-            String headerText = "" + filteredData.get(position).product.subSequence(0, 1).charAt(0);
+            String headerText = "" + filteredData.get(position).ItemDesc.subSequence(0, 1).charAt(0);
             holder.text.setText(headerText);
             return convertView;
         }
 
         @Override
-        public long getHeaderId(int position)
-        {
+        public long getHeaderId(int position) {
             //return the first character of the country as ID because this is what headers are based upon
-            return filteredData.get(position).product.subSequence(0, 1).charAt(0);
+            return filteredData.get(position).ItemDesc.subSequence(0, 1).charAt(0);
         }
 
         @Override
@@ -381,7 +375,7 @@ public class AddProductActivity extends BaseActivity
 
                 for (int i = 0; i < count; i++) {
                     filterableString = list.get(i);
-                    if (filterableString.product.toLowerCase().contains(filterString)) {
+                    if (filterableString.ItemDesc.toLowerCase().contains(filterString)) {
                         nlist.add(filterableString);
                     }
                 }
