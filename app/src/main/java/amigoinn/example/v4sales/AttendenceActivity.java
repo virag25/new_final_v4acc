@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 
-import com.example.v4sales.R;
+
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;

@@ -22,7 +22,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import com.example.v4sales.R;
+
 import com.google.android.gms.gcm.GcmListenerService;
 
 import org.json.JSONObject;

@@ -25,7 +25,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.v4sales.R;
+
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation

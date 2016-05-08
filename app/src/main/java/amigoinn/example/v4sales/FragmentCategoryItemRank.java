@@ -27,7 +27,7 @@ import android.widget.Toast;
 import amigoinn.adapters.Custom_Home_Orders;
 
 
-import com.example.v4sales.R;
+
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -165,7 +165,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         String cid;
 
         final DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), true);
-        edtOrderDate.setOnClickListener(new View.OnClickListener() {
+        edtOrderdueDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 datePickerDialog.setVibrate(false);
@@ -205,13 +205,13 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         //int montho=Integer.parseInt(newMonth);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         monthName = year + "/" + newMonth + "/" + day;
-        edtOrderDate.setText(monthName);
+        edtOrderdueDate.setText(monthName);
         Calendar c = Calendar.getInstance();
         c.setTime(new Date(monthName)); // Now use today date.
         c.add(Calendar.DATE, 7); // Adding 5 days
         String output = sdf.format(c.getTime());
 //        System.out.println(output);
-        edtOrderdueDate.setText(output);
+//        edtOrderdueDate.setText(output);
 //        tvDisplayDate.setText(year+"-"+newMonth+"-"+day);
 //        new GetMarks12().execute();
 

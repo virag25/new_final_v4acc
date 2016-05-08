@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.v4sales.R;
+
 
 import amigoinn.db_model.ProductInfo;
 

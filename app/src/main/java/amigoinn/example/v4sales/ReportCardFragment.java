@@ -15,7 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.v4sales.R;
+
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
 
 import amigoinn.adapters.SectionedListActivityForFilters;
 import amigoinn.walkietalkie.Constants;

@@ -24,7 +24,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.v4sales.R;
+
 
 /**
  * A collection of utility methods, all static.

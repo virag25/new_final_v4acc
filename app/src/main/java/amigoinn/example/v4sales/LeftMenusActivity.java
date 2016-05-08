@@ -35,7 +35,7 @@ import android.widget.TextView;
 
 import amigoinn.adapters.CameraActivity;
 
-import com.example.v4sales.R;
+
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import amigoinn.adapters.SectionedListBeforeFilter;

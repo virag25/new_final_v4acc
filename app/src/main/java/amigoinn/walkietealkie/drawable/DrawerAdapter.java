@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+import amigoinn.example.v4sales.R;
+
 
 public class DrawerAdapter extends BaseAdapter {
 	

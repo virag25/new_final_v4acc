@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 import org.w3c.dom.Text;
 

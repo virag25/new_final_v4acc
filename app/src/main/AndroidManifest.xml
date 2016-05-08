@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.v4sales"
+    package="amigoinn.example.v4sales"
     android:versionCode="1"
     android:versionName="1.0.0">
 
@@ -12,11 +12,11 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <permission
-        android:name="com.example.v4sales.permission.MAPS_RECEIVE"
+        android:name="amigoinn.example.v4sales.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
-    <uses-permission android:name="com.example.v4sales.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="amigoinn.example.v4sales.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -32,7 +32,7 @@
         android:required="true" />
 
     <permission
-        android:name="com.example.v4sales.gcm.permission.C2D_MESSAGE"
+        android:name="amigoinn.example.v4sales.gcm.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="amigoinn.example.v4sales.gcm.permission.C2D_MESSAGE" />
@@ -166,9 +166,13 @@
             android:name="amigoinn.example.v4sales.GoogleMapActivity"
             android:label="@string/title_activity_google_map" />
 
+        <!--<meta-data-->
+            <!--android:name="com.google.android.geo.API_KEY"-->
+            <!--android:value="AIzaSyBvoFBSIwXxwsp7QjT95KMY2jhofNekAkY" />-->
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBvoFBSIwXxwsp7QjT95KMY2jhofNekAkY" />
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyAVI9iaVcyzr-gj8qd-S4orBI5lIiRSPnI" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

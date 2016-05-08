@@ -16,7 +16,7 @@ import android.widget.Filterable;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,6 +27,7 @@ import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.ModelDelegates;
 import amigoinn.example.v4sales.Config;
 import amigoinn.example.v4sales.ProductFilter;
+import amigoinn.example.v4sales.R;
 import amigoinn.modallist.ClientList;
 import amigoinn.walkietalkie.DatabaseHandler1;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;

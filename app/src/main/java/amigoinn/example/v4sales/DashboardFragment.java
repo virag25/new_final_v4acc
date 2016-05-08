@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.example.v4sales.R;
+
 
 import amigoinn.adapters.SectionedListBeforeFilter;
 import amigoinn.walkietalkie.Constants;

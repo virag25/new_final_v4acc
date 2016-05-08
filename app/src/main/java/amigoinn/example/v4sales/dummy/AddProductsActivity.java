@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
-import com.example.v4sales.R;
+import amigoinn.example.v4sales.R;
+
 
 public class AddProductsActivity extends Activity {
     EditText edtProduct,edtTotal,edtQty;

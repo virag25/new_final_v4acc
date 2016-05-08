@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.example.v4sales.R;
+
 
 public class OrderDispatchDetail extends BaseActivity {
     ListView listView;

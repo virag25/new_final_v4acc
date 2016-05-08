@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.v4sales.R;
+
 
 import amigoinn.adapters.Custom_Route_Home;
 import amigoinn.db_model.GenLookInfo;

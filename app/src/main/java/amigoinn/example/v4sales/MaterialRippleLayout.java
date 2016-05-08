@@ -49,7 +49,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 
-import com.example.v4sales.R;
+
 
 @SuppressLint("ClickableViewAccessibility")
 public class MaterialRippleLayout extends FrameLayout {

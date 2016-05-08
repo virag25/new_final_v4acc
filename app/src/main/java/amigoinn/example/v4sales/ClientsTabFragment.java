@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.example.v4sales.R;
+
 
 import amigoinn.db_model.ClientInfo;
 
