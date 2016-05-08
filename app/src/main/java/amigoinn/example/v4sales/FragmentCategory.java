@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.example.v4sales.R;
+
 
 /**
  * Created by Manthan on 27/09/2015.

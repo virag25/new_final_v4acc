@@ -53,7 +53,7 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.example.v4sales.R;
+
 
 import amigoinn.db_model.LoginInfo;
 import amigoinn.db_model.ModelDelegates;

@@ -5,6 +5,7 @@ import java.util.List;
 
 import amigoinn.example.v4sales.LeftMenusActivity;
 
+import amigoinn.example.v4sales.R;
 import amigoinn.walkietealkie.drawable.SubcategoryAdapter;
 
 import android.content.Intent;
@@ -17,7 +18,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-import com.example.v4sales.R;
+
 
 public class LeftMenusFragment extends Fragment implements OnItemClickListener {
 

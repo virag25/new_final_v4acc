@@ -30,7 +30,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 /**
  * Created by SemonCat on 2014/6/2.

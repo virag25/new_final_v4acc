@@ -13,12 +13,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 import amigoinn.example.v4sales.Config;
 import amigoinn.example.v4sales.Filter;
 
 import amigoinn.example.v4sales.FragmentCategoryItemRank;
+import amigoinn.example.v4sales.R;
 import amigoinn.walkietalkie.Constants;
 
 import java.util.ArrayList;

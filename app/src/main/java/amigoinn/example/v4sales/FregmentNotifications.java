@@ -13,7 +13,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 
-import com.example.v4sales.R;
+
 
 import amigoinn.example.v4sales.dummy.DummyContent;
 

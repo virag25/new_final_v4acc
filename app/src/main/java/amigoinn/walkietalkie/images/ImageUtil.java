@@ -3,7 +3,7 @@ package amigoinn.walkietalkie.images;
 import android.graphics.Bitmap.Config;
 import android.widget.ImageView;
 
-import com.example.v4sales.R;
+
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -11,6 +11,8 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+
+import amigoinn.example.v4sales.R;
 
 public class ImageUtil {
 	

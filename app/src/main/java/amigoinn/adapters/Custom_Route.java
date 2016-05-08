@@ -10,13 +10,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 import amigoinn.example.v4sales.ClientActivity;
 import amigoinn.example.v4sales.GoogleMapActivity;
+import amigoinn.example.v4sales.R;
 import amigoinn.models.Datum1;
 import amigoinn.walkietalkie.Constants;
 

@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import amigoinn.adapters.Custom_Product_Details;
 
-import com.example.v4sales.R;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

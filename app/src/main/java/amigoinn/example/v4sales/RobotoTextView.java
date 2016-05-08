@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 public class RobotoTextView extends TextView {
 

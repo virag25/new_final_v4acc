@@ -404,7 +404,9 @@ public class ServiceHelper {
 //                        response.Message = data.getString("message");
 //                        response.RawResponse = strResponse;
                     response.RawResponse = strResponse;
-                } else {
+                }
+                else
+                {
                     //response.isSuccess = data.getBoolean("success");
                     //response.Message = data.getString("message");
                     response.RawResponse = strResponse;

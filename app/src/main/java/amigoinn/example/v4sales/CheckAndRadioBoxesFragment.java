@@ -14,7 +14,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 public class CheckAndRadioBoxesFragment extends Fragment {
 

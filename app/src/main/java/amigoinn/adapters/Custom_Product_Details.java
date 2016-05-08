@@ -10,9 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.example.v4sales.R;
+
 
 import java.util.ArrayList;
+
+import amigoinn.example.v4sales.R;
 
 public class Custom_Product_Details extends BaseAdapter {
     Context context;

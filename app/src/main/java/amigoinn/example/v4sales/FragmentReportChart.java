@@ -21,7 +21,7 @@ import android.widget.GridView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;

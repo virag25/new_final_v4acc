@@ -18,11 +18,12 @@ import android.widget.Filterable;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 import amigoinn.db_model.ProductInfo;
 import amigoinn.example.v4sales.Config;
 import amigoinn.example.v4sales.LeftMenusActivity;
+import amigoinn.example.v4sales.R;
 import amigoinn.walkietalkie.Constants;
 
 import java.util.ArrayList;

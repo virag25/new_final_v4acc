@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.v4sales.R;
+
 
 import amigoinn.adapters.SectionedListActivityForFilters;
 import amigoinn.walkietalkie.Constants;

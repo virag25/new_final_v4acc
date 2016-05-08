@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import android.view.View.OnClickListener;
 
-import com.example.v4sales.R;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +28,7 @@ import java.util.Random;
 
 import amigoinn.db_model.RouteInfo;
 import amigoinn.example.v4sales.GoogleMapActivity;
+import amigoinn.example.v4sales.R;
 import amigoinn.example.v4sales.Utils;
 import amigoinn.models.Datum;
 import amigoinn.models.Datum1;

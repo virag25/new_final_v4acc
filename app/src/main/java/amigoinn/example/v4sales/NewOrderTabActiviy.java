@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.example.v4sales.R;
+
 
 public class NewOrderTabActiviy extends Activity {
     ListView listView;

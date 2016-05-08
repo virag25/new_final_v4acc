@@ -11,7 +11,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.v4sales.R;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;

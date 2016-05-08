@@ -18,13 +18,13 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 
-import com.example.v4sales.R;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import amigoinn.example.v4sales.R;
 import amigoinn.example.v4sales.RobotoTextView;
 
 /**

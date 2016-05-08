@@ -34,7 +34,8 @@ public class LoginInfo {
 
     public void doLogin(final ModelDelegates.LoginDelegate delegate) {
         m_delegate = delegate;
-        if (NetworkConnectivity.isConnected()) {
+        if (NetworkConnectivity.isConnected())
+        {
             ServiceHelper helper = new ServiceHelper(ServiceHelper.LOGIN,
                     ServiceHelper.RequestMethod.POST);
             helper.addParam("username", this.email);
