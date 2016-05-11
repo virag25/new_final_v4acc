@@ -78,4 +78,20 @@ public class ProductInfo extends ActiveRecordBase {
         return null;
     }
 
+
+    public static ProductInfo getProductInfoByItemName(String ItemDesc) {
+        try {
+            List<ProductInfo> lst = AccountApplication.Connection().find(
+                    ProductInfo.class,
+                    CamelNotationHelper.toSQLName("ItemDesc") + "=?",
+                    new String[]{String.valueOf(ItemDesc)});
+            if (lst != null && lst.size() > 0) {
+                return lst.get(0);
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

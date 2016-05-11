@@ -18,10 +18,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-
 import java.util.ArrayList;
 import java.util.List;
 
+import amigoinn.example.v4sales.AccountApplication;
 import amigoinn.example.v4sales.Config;
 import amigoinn.example.v4sales.R;
 import amigoinn.walkietalkie.Constants;
@@ -36,24 +36,23 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  *
  * @author Cyril Mottier
  */
-public class SectionedListActivityProductAfterFilter extends Activity
-{
+public class SectionedListActivityProductAfterFilter extends Activity {
 
-//    private AudioFilesAdapter mAdapter;
+    //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
     EditText inputSearch;
     List<String> countries;
     StickyListHeadersListView stickyList;
-   public static SectionedListActivityProductAfterFilter listActivity;
+    public static SectionedListActivityProductAfterFilter listActivity;
+
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchlistlayout);
-        stickyList= (StickyListHeadersListView) findViewById(R.id.list);
+        stickyList = (StickyListHeadersListView) findViewById(R.id.list);
         stickyList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        countries =new ArrayList<>();
-        countries= Constants.PRODUCTINFO;
+        countries = new ArrayList<>();
+        countries = Constants.PRODUCTINFO;
         Constants.initString2(countries.size());
 //        final MyAdapter adapter = new MyAdapter(this,countries);
 //        stickyList.setAdapter(adapter);
@@ -64,17 +63,13 @@ public class SectionedListActivityProductAfterFilter extends Activity
         txtDone.setVisibility(View.GONE);
         txtDone.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(Config.filterfrom.equalsIgnoreCase("Mainmenu"))
-                {
-                    Intent   in =new Intent(SectionedListActivityProductAfterFilter.this, amigoinn.example.v4sales.ClientActivity.class);
-                    Config.filterfrom="abc";
+            public void onClick(View v) {
+                if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
+                    Intent in = new Intent(SectionedListActivityProductAfterFilter.this, amigoinn.example.v4sales.ClientActivity.class);
+                    Config.filterfrom = "abc";
                     startActivity(in);
                     finish();
-                }
-                else
-                {
+                } else {
 //                    Intent in = new Intent(SectionedListActivityForFilters.this, LeftMenusActivity.class);
 //                    in.putExtra("for", "order");
 //                    startActivity(in);
@@ -91,18 +86,18 @@ public class SectionedListActivityProductAfterFilter extends Activity
 //        mQueryHandler = new NotifyingAsyncQueryHandler(getContentResolver(), this);
 //        mQueryHandler.startQuery(Media.INTERNAL_CONTENT_URI, AudioFilesQuery.PROJECTION, AudioFilesQuery.SORT_ORDER);
     }
-    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter,Filterable
-    {
+
+    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter, Filterable {
 
         private List<String> countries;
         private LayoutInflater inflater;
-        private List<String>filteredData = null;
+        private List<String> filteredData = null;
         private ItemFilter mFilter = new ItemFilter();
-        public MyAdapter(Context context,List<String> countri)
-        {
+
+        public MyAdapter(Context context, List<String> countri) {
             inflater = LayoutInflater.from(context);
-            countries=countri;
-            filteredData=countri;
+            countries = countri;
+            filteredData = countri;
 //            countries = context.getResources().getStringArray(R.array.countries);
         }
 
@@ -122,19 +117,15 @@ public class SectionedListActivityProductAfterFilter extends Activity
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
+        public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
 
-            if (convertView == null)
-            {
+            if (convertView == null) {
                 holder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.sammplelistitem, parent, false);
                 holder.text = (TextView) convertView.findViewById(R.id.tv);
                 convertView.setTag(holder);
-            }
-            else
-            {
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
@@ -155,8 +146,8 @@ public class SectionedListActivityProductAfterFilter extends Activity
 //                holder.text.setBackgroundColor(Color.parseColor("#00000000"));
 //            }
             holder.text.setText(filteredData.get(position));
-            final int pos=position;
-            final ViewHolder holder1=holder;
+            final int pos = position;
+            final ViewHolder holder1 = holder;
 //            holder.text.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
@@ -218,10 +209,10 @@ public class SectionedListActivityProductAfterFilter extends Activity
         }
 
         @Override
-        public Filter getFilter()
-        {
+        public Filter getFilter() {
             return mFilter;
         }
+
         private class ItemFilter extends Filter {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
@@ -235,7 +226,7 @@ public class SectionedListActivityProductAfterFilter extends Activity
                 int count = list.size();
                 final ArrayList<String> nlist = new ArrayList<String>(count);
 
-                String filterableString ;
+                String filterableString;
 
                 for (int i = 0; i < count; i++) {
                     filterableString = list.get(i);
@@ -252,16 +243,14 @@ public class SectionedListActivityProductAfterFilter extends Activity
 
             @SuppressWarnings("unchecked")
             @Override
-            protected void publishResults(CharSequence constraint, FilterResults results)
-            {
+            protected void publishResults(CharSequence constraint, FilterResults results) {
                 filteredData = (ArrayList<String>) results.values;
                 notifyDataSetChanged();
             }
 
         }
 
-        class HeaderViewHolder
-        {
+        class HeaderViewHolder {
             TextView text;
         }
 
@@ -271,48 +260,47 @@ public class SectionedListActivityProductAfterFilter extends Activity
 
     }
 
-public void setbaseadapter()
-{
-    final MyAdapter adapter = new MyAdapter(this,countries);
-    stickyList.setAdapter(adapter);
-    stickyList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-    {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-        {
-            String selectedvalue=countries.get(position);
-            Constants.selectedproduct=selectedvalue;
-            finish();
+    public void setbaseadapter() {
+        final MyAdapter adapter = new MyAdapter(this, countries);
+        stickyList.setAdapter(adapter);
+        stickyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedvalue = countries.get(position);
+                Constants.selectedproduct = selectedvalue;
+                AccountApplication.setFilter_product_id(selectedvalue);
+                Intent start = new Intent();
+                setResult(RESULT_OK, start);
+                finish();
 //            Intent   in =new Intent(SectionedListActivityProductAfterFilter.this, amigoinn.example.v4sales.ClientActivity.class);
 //            in.putExtra("value",selectedvalue);
 //            startActivity(in);
 
-        }
-    });
-    inputSearch.addTextChangedListener(new TextWatcher()
-    {
+            }
+        });
+        inputSearch.addTextChangedListener(new TextWatcher() {
 
-        @Override
-        public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-            // When user changed the Text
-            adapter.getFilter().filter(cs);
-        }
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+                adapter.getFilter().filter(cs);
+            }
 
-        @Override
-        public void afterTextChanged(Editable s) {
+            @Override
+            public void afterTextChanged(Editable s) {
 
-        }
+            }
 
-        @Override
-        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-                                      int arg3) {
-            // TODO Auto-generated method stub
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                          int arg3) {
+                // TODO Auto-generated method stub
 
-        }
+            }
 
 
-    });
-}
+        });
+    }
 //
 //    @Override
 //    protected void onDestroy() {

@@ -10,13 +10,13 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Filterable;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 
 import java.util.ArrayList;
@@ -60,12 +60,19 @@ public class AddProductActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
 
+            if (requestCode == 123) {
+                Intent start = new Intent();
+                setResult(RESULT_OK, start);
+                finish();
+            }
+
         }
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.searchlistlayoutbefore);
         stickyList = (StickyListHeadersListView) findViewById(R.id.list);
         txtFilter = (TextView) findViewById(R.id.txtFilter);
@@ -199,6 +206,7 @@ public class AddProductActivity extends BaseActivity {
             }
         });
     }
+
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
@@ -431,4 +439,5 @@ public class AddProductActivity extends BaseActivity {
 
         });
     }
+
 }

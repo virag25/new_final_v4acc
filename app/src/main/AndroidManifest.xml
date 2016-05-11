@@ -16,6 +16,7 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="amigoinn.example.v4sales.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -141,13 +142,15 @@
             android:label="Search" />
         <activity
             android:name="amigoinn.example.v4sales.AddProductItemActivity"
+            android:theme="@android:style/Theme.Holo.Dialog"
             android:label="Search" />
         <activity
             android:name="amigoinn.example.v4sales.AddClientActivity"
             android:label="Search" />
         <activity
             android:name="amigoinn.example.v4sales.AddProductActivity"
-            android:label="Search" />
+            android:label="Search"
+            android:theme="@android:style/Theme.Holo.Dialog" />
         <activity
             android:name="amigoinn.example.v4sales.AbsentListMain"
             android:label="Absents"
@@ -167,11 +170,11 @@
             android:label="@string/title_activity_google_map" />
 
         <!--<meta-data-->
-            <!--android:name="com.google.android.geo.API_KEY"-->
-            <!--android:value="AIzaSyBvoFBSIwXxwsp7QjT95KMY2jhofNekAkY" />-->
+        <!--android:name="com.google.android.geo.API_KEY"-->
+        <!--android:value="AIzaSyBvoFBSIwXxwsp7QjT95KMY2jhofNekAkY" />-->
         <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyAVI9iaVcyzr-gj8qd-S4orBI5lIiRSPnI" />
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAVI9iaVcyzr-gj8qd-S4orBI5lIiRSPnI" />
 
         <meta-data
             android:name="com.google.android.gms.version"

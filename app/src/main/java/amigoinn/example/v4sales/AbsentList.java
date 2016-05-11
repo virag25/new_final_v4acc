@@ -543,10 +543,17 @@ public class AbsentList extends BaseActivity {
                             int qtty = Integer.parseInt(qty);
                             ProductInfo proinfo = ProductInfo.getProductInfoById(pro_id);
                             if (proinfo != null) {
-                                double price_product = Integer.parseInt(proinfo.Retail_Price);
-                                double price = qtty * price_product;
-                                hv.txtPrice.setText(price + "");
-                                hv.txtQuantity.setText(qty);
+                                if (proinfo.Retail_Price != null && proinfo.Retail_Price.length() > 0) {
+                                    String strr = proinfo.Retail_Price;
+//                                    String[] st = strr.split(".");
+//                                    String my = st[0];
+                                    double price_product = Double.parseDouble(strr);
+                                    double price = qtty * price_product;
+                                    hv.txtPrice.setText(price + "");
+                                    hv.txtQuantity.setText(qty);
+                                }
+
+
                             }
                         }
 

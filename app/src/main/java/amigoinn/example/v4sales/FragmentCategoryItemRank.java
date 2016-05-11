@@ -27,7 +27,6 @@ import android.widget.Toast;
 import amigoinn.adapters.Custom_Home_Orders;
 
 
-
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -73,9 +72,10 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
     ArrayList<String> extras = new ArrayList<String>();
     ArrayList<String> Product = new ArrayList<String>();
     ArrayList<String> Price = new ArrayList<String>();
-//        AutoCompleteTextView edtCode,edtProduct;
-//    EditText edtQuantity,edtProduct1,edtPrice;
-    TextView edtOrderDate, edtOrderdueDate, edtclient;
+    //        AutoCompleteTextView edtCode,edtProduct;
+    AutoCompleteTextView edtclient;
+    //    EditText edtQuantity,edtProduct1,edtPrice;
+    TextView edtOrderDate, edtOrderdueDate;
     //        txtSubmit,txtSave,txtCancel,txtTotal;
     ImageView imgSearch;
     TextView txtSubmit;
@@ -83,6 +83,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
     ImageView imgClientAdd, add_product;
     ArrayList<CartInfo> cart = new ArrayList<>();
     String cid;
+    ArrayList<String> arrayList_list;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -98,7 +99,32 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         imgClientAdd = (ImageView) view.findViewById(R.id.imgClientAdd);
         add_product = (ImageView) view.findViewById(R.id.add_product);
 
-        edtclient = (EditText) view.findViewById(R.id.edtclient);
+        edtclient = (AutoCompleteTextView) view.findViewById(R.id.edtclient);
+        ArrayList<ClientInfo> arr = ClientInfo.getAllClint();
+        arrayList_list = new ArrayList<>();
+        if (arr != null && arr.size() > 0) {
+            for (int i = 0; i < arr.size(); i++) {
+                ClientInfo cinfo = arr.get(i);
+                arrayList_list.add(cinfo.name);
+            }
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                    getActivity(), android.R.layout.simple_dropdown_item_1line, arrayList_list);
+            edtclient.setAdapter(adapter);
+            edtclient.setThreshold(1);
+        }
+
+
+//        edtclient.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+//                                    long arg3) {
+//                String str = arrayList_list.get(arg2);
+//                edtclient.setText(str);
+//            }
+//        });
+
+
         add_product = (ImageView) view.findViewById(R.id.add_product);
         txtSubmit = (TextView) view.findViewById(R.id.txtSubmit);
         txtSubmit.setOnClickListener(new View.OnClickListener() {
@@ -152,10 +178,10 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         lv1 = (ListView) view.findViewById(R.id.lvorder);
         Constants.PartyList.clear();
         Constants.addParty();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.sammplelistitemabsent, R.id.tv, Constants.PartyList);
+        ArrayAdapter<String> ada = new ArrayAdapter<String>(context, R.layout.sammplelistitemabsent, R.id.tv, Constants.PartyList);
         edtOrderDate = (TextView) view.findViewById(R.id.edtorderdate);
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = df.format(c.getTime());
         edtOrderDate.setText(formattedDate);
         edtOrderDate.setEnabled(false);
@@ -217,8 +243,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
 
     }
 
-    public void filledittext()
-    {
+    public void filledittext() {
 //        edtProduct1.setText(Product.get(Config.SELECTEDPOSITION).toString());
 //        edtPrice.setText(Price.get(Config.SELECTEDPOSITION).toString());
 //        edtQuantity.setText(extras.get(Config.SELECTEDPOSITION).toString());
@@ -226,8 +251,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         getActivity();
@@ -238,19 +262,15 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
             //some code
         }
 
-        if (resultCode == Activity.RESULT_OK)
-        {
-            if (requestCode == 111)
-            {
-                if (data != null)
-                {
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == 111) {
+                if (data != null) {
                     String pid = data.getStringExtra("product_id");
                     int qty = data.getIntExtra("qty", 0);
                     ProductInfo pinfo = ProductInfo.getProductInfoById(pid);
                     CartInfo cinfo = new CartInfo();
-                    if (pinfo != null)
-                    {
-                        cinfo.product = pinfo.product;
+                    if (pinfo != null) {
+                        cinfo.product = pinfo.ItemDesc;
                         cinfo.qty = qty;
                         double price = Double.parseDouble(pinfo.Retail_Price);
                         double total = qty * price;
@@ -320,7 +340,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
             TextView name;
             TextView txtPrice;
             EditText txtQty;
-            TextView edtcode, edtdate , txtRate;
+            TextView edtcode, edtdate, txtRate;
 
         }
 
@@ -346,7 +366,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
             CartInfo info = cart_list.get(arg0);
             if (info != null) {
 //                hv.edtcode.setText(info.StockNo);
-                hv.edtdate.setText(info.StockNo+"\n"+info.product);
+                hv.edtdate.setText(info.StockNo + "\n" + info.product);
                 hv.txtRate.setText(info.rete);
                 hv.txtQty.setText(String.valueOf(info.qty));
                 hv.txtPrice.setText(info.total);
@@ -360,6 +380,15 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
     public String makeJson() {
         String str1 = edtOrderDate.getText().toString();
         String str2 = edtOrderdueDate.getText().toString();
+        if (cid != null && cid.length() == 0) {
+            String clientname = edtclient.getText().toString();
+            if (clientname != null && clientname.length() > 0) {
+                ClientInfo cinfoo = ClientInfo.getClintInfoByName(clientname);
+                if (cinfoo != null) {
+                    cid = cinfoo.client_code;
+                }
+            }
+        }
         String data = "{\"userid\":\"%s\",\"client_code\":\"%s\",\"order_date\":\"%s\",\"due_date\":\"%s\",\"devicecode\":\"%s\",\"products\":\"%s\"}";
         String strr = GetJsonForPackage();
         data = String.format(data, UserInfo.getUser().login_id, cid, str1, str2, "0001", strr);
@@ -400,28 +429,21 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         return buffer.toString();
     }
 
-    public void sendData()
-    {
+    public void sendData() {
         showProgress();
         String data = makeJson();
-        if (data != null && data.length() > 0)
-        {
+        if (data != null && data.length() > 0) {
             ServiceHelper helper = new ServiceHelper(ServiceHelper.ADD_ORDER, ServiceHelper.RequestMethod.POST, data);
-            helper.call(new ServiceHelper.ServiceHelperDelegate()
-            {
+            helper.call(new ServiceHelper.ServiceHelperDelegate() {
                 @Override
-                public void CallFinish(ServiceResponse res)
-                {
+                public void CallFinish(ServiceResponse res) {
                     hideProgress();
-                    if (res.RawResponse != null)
-                    {
-                        Toast.makeText(context,"Order placed successfully!",Toast.LENGTH_LONG).show();
+                    if (res.RawResponse != null) {
+                        Toast.makeText(context, "Order placed successfully!", Toast.LENGTH_LONG).show();
 //                        Intent start = new Intent(getActivity(), LeftMenusActivity.class);
 //                        startActivity(start);
 //                        getActivity().finish();
-                    }
-                    else
-                    {
+                    } else {
 
                     }
 

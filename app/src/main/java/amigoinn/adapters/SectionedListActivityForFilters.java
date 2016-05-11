@@ -19,7 +19,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-
 import amigoinn.db_model.ProductInfo;
 import amigoinn.example.v4sales.Config;
 import amigoinn.example.v4sales.LeftMenusActivity;
@@ -41,48 +40,43 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  *
  * @author Cyril Mottier
  */
-public class SectionedListActivityForFilters extends Activity
-{
+public class SectionedListActivityForFilters extends Activity {
 
-//    private AudioFilesAdapter mAdapter;
+    //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
     EditText inputSearch;
-    String fromactivity="";
+    String fromactivity = "";
     List<String> countries;
     StickyListHeadersListView stickyList;
     DatabaseHandler1 handler1;
-   public static SectionedListActivityForFilters listActivity;
+    public static SectionedListActivityForFilters listActivity;
+
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchlistlayout);
-        stickyList= (StickyListHeadersListView) findViewById(R.id.list);
+        stickyList = (StickyListHeadersListView) findViewById(R.id.list);
         stickyList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        countries =new ArrayList<>();
-        countries= Constants.countries;
+        countries = new ArrayList<>();
+        countries = Constants.countries;
         Constants.initString2(countries.size());
 //        final MyAdapter adapter = new MyAdapter(this,countries);
 //        stickyList.setAdapter(adapter);
 
         inputSearch = (EditText) findViewById(R.id.inputSearch);
-        handler1=new DatabaseHandler1(this);
+        handler1 = new DatabaseHandler1(this);
         setbaseadapter();
-        fromactivity=getIntent().getStringExtra("from");
+        fromactivity = getIntent().getStringExtra("from");
         TextView txtDone = (TextView) findViewById(R.id.txtDone);
         txtDone.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                if(Config.filterfrom.equalsIgnoreCase("Mainmenu"))
-                {
-                    Intent   in =new Intent(SectionedListActivityForFilters.this, amigoinn.example.v4sales.ClientActivity.class);
-                    Config.filterfrom="abc";
+            public void onClick(View v) {
+                if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
+                    Intent in = new Intent(SectionedListActivityForFilters.this, amigoinn.example.v4sales.ClientActivity.class);
+                    Config.filterfrom = "abc";
                     startActivity(in);
                     finish();
-                }
-                else
-                {
+                } else {
 //                    Intent in = new Intent(SectionedListActivityForFilters.this, LeftMenusActivity.class);
 //                    in.putExtra("for", "order");
 //                    startActivity(in);
@@ -99,18 +93,18 @@ public class SectionedListActivityForFilters extends Activity
 //        mQueryHandler = new NotifyingAsyncQueryHandler(getContentResolver(), this);
 //        mQueryHandler.startQuery(Media.INTERNAL_CONTENT_URI, AudioFilesQuery.PROJECTION, AudioFilesQuery.SORT_ORDER);
     }
-    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter,Filterable
-    {
+
+    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter, Filterable {
 
         private List<String> countries;
         private LayoutInflater inflater;
-        private List<String>filteredData = null;
+        private List<String> filteredData = null;
         private ItemFilter mFilter = new ItemFilter();
-        public MyAdapter(Context context,List<String> countri)
-        {
+
+        public MyAdapter(Context context, List<String> countri) {
             inflater = LayoutInflater.from(context);
-            countries=countri;
-            filteredData=countri;
+            countries = countri;
+            filteredData = countri;
 //            countries = context.getResources().getStringArray(R.array.countries);
         }
 
@@ -130,19 +124,15 @@ public class SectionedListActivityForFilters extends Activity
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent)
-        {
+        public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
 
-            if (convertView == null)
-            {
+            if (convertView == null) {
                 holder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.sammplelistitem, parent, false);
                 holder.text = (TextView) convertView.findViewById(R.id.tv);
                 convertView.setTag(holder);
-            }
-            else
-            {
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
@@ -163,8 +153,8 @@ public class SectionedListActivityForFilters extends Activity
 //                holder.text.setBackgroundColor(Color.parseColor("#00000000"));
 //            }
             holder.text.setText(filteredData.get(position));
-            final int pos=position;
-            final ViewHolder holder1=holder;
+            final int pos = position;
+            final ViewHolder holder1 = holder;
 //            holder.text.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
@@ -226,10 +216,10 @@ public class SectionedListActivityForFilters extends Activity
         }
 
         @Override
-        public Filter getFilter()
-        {
+        public Filter getFilter() {
             return mFilter;
         }
+
         private class ItemFilter extends Filter {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
@@ -243,7 +233,7 @@ public class SectionedListActivityForFilters extends Activity
                 int count = list.size();
                 final ArrayList<String> nlist = new ArrayList<String>(count);
 
-                String filterableString ;
+                String filterableString;
 
                 for (int i = 0; i < count; i++) {
                     filterableString = list.get(i);
@@ -260,16 +250,14 @@ public class SectionedListActivityForFilters extends Activity
 
             @SuppressWarnings("unchecked")
             @Override
-            protected void publishResults(CharSequence constraint, FilterResults results)
-            {
+            protected void publishResults(CharSequence constraint, FilterResults results) {
                 filteredData = (ArrayList<String>) results.values;
                 notifyDataSetChanged();
             }
 
         }
 
-        class HeaderViewHolder
-        {
+        class HeaderViewHolder {
             TextView text;
         }
 
@@ -279,76 +267,59 @@ public class SectionedListActivityForFilters extends Activity
 
     }
 
-public void setbaseadapter()
-{
-    final MyAdapter adapter = new MyAdapter(this,countries);
-    stickyList.setAdapter(adapter);
-    stickyList.setOnItemClickListener(new AdapterView.OnItemClickListener()
-    {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-        {
-            String selectedvalue=countries.get(position);
-            Constants.PRODUCTINFO.clear();
-            if(fromactivity.equalsIgnoreCase("reporting"))
-            {
-                Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
-            }
-           else if(fromactivity.equalsIgnoreCase("itemgroup"))
-            {
-                Constants.PRODUCTINFO = handler1.getproductforItemgroups(selectedvalue);
-            }
-            else if(fromactivity.equalsIgnoreCase("model"))
-            {
-                Constants.PRODUCTINFO = handler1.getProductForModel(selectedvalue);
-            }
-            else if(fromactivity.equalsIgnoreCase("size"))
-            {
-                Constants.PRODUCTINFO = handler1.getProductForSize(selectedvalue);
-            }
-            else if(fromactivity.equalsIgnoreCase("reporting"))
-            {
-                Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
-            }
-            else if(fromactivity.equalsIgnoreCase("product"))
-            {
-                Constants.PRODUCTINFO = handler1.getProductForProduct(selectedvalue);
-            }
-            else if(fromactivity.equalsIgnoreCase("brand"))
-            {
-                Constants.PRODUCTINFO = handler1.getProductForBrands(selectedvalue);
-            }
+    public void setbaseadapter() {
+        final MyAdapter adapter = new MyAdapter(this, countries);
+        stickyList.setAdapter(adapter);
+        stickyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedvalue = countries.get(position);
+                Constants.PRODUCTINFO.clear();
+                if (fromactivity.equalsIgnoreCase("reporting")) {
+                    Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
+                } else if (fromactivity.equalsIgnoreCase("itemgroup")) {
+                    Constants.PRODUCTINFO = handler1.getproductforItemgroups(selectedvalue);
+                } else if (fromactivity.equalsIgnoreCase("model")) {
+                    Constants.PRODUCTINFO = handler1.getProductForModel(selectedvalue);
+                } else if (fromactivity.equalsIgnoreCase("size")) {
+                    Constants.PRODUCTINFO = handler1.getProductForSize(selectedvalue);
+                } else if (fromactivity.equalsIgnoreCase("reporting")) {
+                    Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
+                } else if (fromactivity.equalsIgnoreCase("product")) {
+                    Constants.PRODUCTINFO = handler1.getProductForProduct(selectedvalue);
+                } else if (fromactivity.equalsIgnoreCase("brand")) {
+                    Constants.PRODUCTINFO = handler1.getProductForBrands(selectedvalue);
+                }
 
-            Intent   in =new Intent(SectionedListActivityForFilters.this, SectionedListActivityProductAfterFilter.class);
+                Intent in = new Intent(SectionedListActivityForFilters.this, SectionedListActivityProductAfterFilter.class);
 //            in.putExtra("value",selectedvalue);
-            startActivity(in);
+                startActivityForResult(in, 111);
 
-        }
-    });
-    inputSearch.addTextChangedListener(new TextWatcher()
-    {
+            }
+        });
+        inputSearch.addTextChangedListener(new TextWatcher() {
 
-        @Override
-        public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-            // When user changed the Text
-            adapter.getFilter().filter(cs);
-        }
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                // When user changed the Text
+                adapter.getFilter().filter(cs);
+            }
 
-        @Override
-        public void afterTextChanged(Editable s) {
+            @Override
+            public void afterTextChanged(Editable s) {
 
-        }
+            }
 
-        @Override
-        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
-                                      int arg3) {
-            // TODO Auto-generated method stub
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+                                          int arg3) {
+                // TODO Auto-generated method stub
 
-        }
+            }
 
 
-    });
-}
+        });
+    }
 //
 //    @Override
 //    protected void onDestroy() {
@@ -555,4 +526,17 @@ public void setbaseadapter()
 //        String SORT_ORDER = Media.TITLE + " ASC";
 //    }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 111) {
+                Intent start = new Intent();
+                setResult(RESULT_OK,start);
+                finish();
+
+            }
+        }
+    }
 }

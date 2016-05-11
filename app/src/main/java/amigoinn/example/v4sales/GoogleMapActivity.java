@@ -92,16 +92,7 @@ public class GoogleMapActivity extends Activity
             mMap.setMyLocationEnabled(true);
         }
 
-//        Canvas canvas = new Canvas(bitmap);
-//        canvas.drawText("Your text", textXOffset, textYOffset, mPictoPaint);
-//        MarkerOptions options = new MarkerOptions().position([…]).icon(BitmapDescriptorFactory.fromBitmap(bitmapResult));
-//        Marker newMarker = map.addMarker(options);
 
-////        MarkerOptions options = new MarkerOptions();
-////        options.position(LOWER_MANHATTAN);
-////        options.position(BROOKLYN_BRIDGE);
-////        options.position(WALL_STREET);
-//        mMap.addMarker(options);
         String url = getMapsApiDirectionsUrl();
         ReadTask downloadTask = new ReadTask();
         downloadTask.execute(url);

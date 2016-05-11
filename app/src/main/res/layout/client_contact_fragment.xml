@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="amigoinn.example.v4sales.ClientContactFragment">
 
     <RelativeLayout
         android:id="@+id/rltvOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:background="@color/main_color_500">
+        android:background="@color/main_color_500"
+        android:padding="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/main_color_500"
             android:layout_marginLeft="10dp"
+            android:background="@color/main_color_500"
             android:text="Address Details"
             android:textColor="@color/white"
             android:textSize="18dp"
@@ -26,27 +26,27 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:padding="24dp"
-        android:layout_below="@+id/rltvOrder"
         android:id="@+id/lnrtContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_below="@+id/rltvOrder"
         android:background="@color/white"
-        android:visibility="visible"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        >
+        android:padding="24dp"
+        android:visibility="visible">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <amigoinn.example.v4sales.MaterialRippleLayout
                 style="@style/RippleStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:rippleColor1="@color/main_color_grey_400" >
+                app:rippleColor1="@color/main_color_grey_400">
 
 
             </amigoinn.example.v4sales.MaterialRippleLayout>
@@ -56,204 +56,222 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:weightSum="100"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical"
+            android:weightSum="100">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center"
                 android:layout_marginTop="0dp"
+                android:layout_weight="30"
+                android:gravity="center"
                 android:text="Name :"
-                android:layout_weight="30"
                 android:textColor="@color/main_color_grey_700"
-                android:textSize="16dp"
-                />
+                android:textSize="16dp" />
 
             <TextView
-                android:layout_width="0dp"
                 android:id="@+id/txtuser"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center|left"
-                android:layout_weight="70"
                 android:layout_marginLeft="0dp"
-                android:text="Shoprite Benguela"
-                ></TextView>
-
+                android:layout_weight="70"
+                android:gravity="center|left"
+                android:text="Shoprite Benguela"></TextView>
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:weightSum="100"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical"
+            android:weightSum="100">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center"
                 android:layout_marginTop="0dp"
+                android:layout_weight="30"
+                android:gravity="center"
                 android:text="Zone :"
-                android:layout_weight="30"
                 android:textColor="@color/main_color_grey_700"
-                android:textSize="16dp"
-                />
+                android:textSize="16dp" />
 
             <TextView
-                android:layout_width="0dp"
                 android:id="@+id/txtZone"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center|left"
-                android:layout_weight="70"
                 android:layout_marginLeft="0dp"
-                android:text="South"
-                ></TextView>
-
+                android:layout_weight="70"
+                android:gravity="center|left"
+                android:text="South"></TextView>
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:weightSum="100"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical"
+            android:weightSum="100">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center"
                 android:layout_marginTop="0dp"
+                android:layout_weight="30"
+                android:gravity="center"
                 android:text="State :"
-                android:layout_weight="30"
                 android:textColor="@color/main_color_grey_700"
-                android:textSize="16dp"
-                />
+                android:textSize="16dp" />
 
             <TextView
-                android:layout_width="0dp"
                 android:id="@+id/txtState"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center|left"
-                android:layout_weight="70"
                 android:layout_marginLeft="0dp"
-                android:text="Benguela"
-                ></TextView>
-
+                android:layout_weight="70"
+                android:gravity="center|left"
+                android:text="Benguela"></TextView>
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:weightSum="100"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical"
+            android:weightSum="100">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center"
                 android:layout_marginTop="0dp"
+                android:layout_weight="30"
+                android:gravity="center"
                 android:text="City :"
-                android:layout_weight="30"
                 android:textColor="@color/main_color_grey_700"
-                android:textSize="16dp"
-                />
+                android:textSize="16dp" />
 
             <TextView
-                android:layout_width="0dp"
                 android:id="@+id/txtCity"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center|left"
-                android:layout_weight="70"
                 android:layout_marginLeft="0dp"
-                android:text="Benguela City"
-                ></TextView>
-
+                android:layout_weight="70"
+                android:gravity="center|left"
+                android:text="Benguela City"></TextView>
 
 
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/lnrAddress"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:weightSum="100"
-            android:id="@+id/lnrAddress"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical"
+            android:weightSum="100">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center"
                 android:layout_marginTop="0dp"
-                android:text="Address :"
                 android:layout_weight="30"
+                android:gravity="center"
+                android:text="Address :"
                 android:textColor="@color/main_color_grey_700"
-                android:textSize="16dp"
-                />
+                android:textSize="16dp" />
 
             <TextView
-                android:layout_width="0dp"
                 android:id="@+id/txtAddress"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:gravity="center|left"
-                android:layout_weight="70"
                 android:layout_marginLeft="0dp"
-                android:text="Benguela City,Benguela,South."
-                ></TextView>
-
+                android:layout_weight="70"
+                android:gravity="center|left"
+                android:text="Benguela City,Benguela,South."></TextView>
 
 
         </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnrtContainer"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btncall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:background="@color/main_color_500"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Call"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btnlocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="5dp"
+            android:background="@color/main_color_500"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Location"
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:weightSum="100"
-        android:layout_margin="5dp"
-        android:visibility="visible"
         android:layout_alignParentBottom="true"
-        android:gravity="center_horizontal" >
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:weightSum="100">
 
         <TextView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:gravity="center"
-            android:layout_marginTop="0dp"
-            android:text=""
             android:layout_marginRight="10dp"
-
+            android:layout_marginTop="0dp"
             android:background="@drawable/order"
+            android:gravity="center"
+            android:text=""
             android:textColor="@color/main_color_grey_700"
             android:textSize="20dp"
-            />
+            android:visibility="gone" />
 
         <TextView
-            android:layout_width="50dp"
             android:id="@+id/txtCall"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:gravity="center|left"
-
             android:layout_marginLeft="10dp"
-            android:background="@drawable/call"
+
             android:layout_marginRight="10dp"
+            android:background="@drawable/call"
+            android:gravity="center|left"
 
             ></TextView>
 
         <TextView
-            android:layout_width="50dp"
             android:id="@+id/txtMap"
+            android:layout_width="50dp"
             android:layout_height="50dp"
-            android:gravity="center|left"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/greenmarker"
-            ></TextView>
+            android:gravity="center|left"></TextView>
 
 
     </LinearLayout>
-
 
 
 </RelativeLayout>

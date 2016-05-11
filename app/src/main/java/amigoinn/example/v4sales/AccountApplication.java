@@ -25,6 +25,8 @@ public class AccountApplication extends Application {
     private static AccountApplication _intance = null;
     private static ActiveRecordBase mDatabase;
 
+    public static String filter_product_id;
+
     public static String getClient_code() {
         return client_code;
     }
@@ -34,6 +36,7 @@ public class AccountApplication extends Application {
         super.attachBaseContext(base);
         MultiDex.install(this);
     }
+
     public static void setClient_code(String client_code) {
         AccountApplication.client_code = client_code;
     }
@@ -41,8 +44,7 @@ public class AccountApplication extends Application {
     private static String client_code;
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
         DatabaseBuilder builder = new DatabaseBuilder(Const.DATABASE_NAME);
         builder.addClass(UserInfo.class);
@@ -66,6 +68,14 @@ public class AccountApplication extends Application {
         } catch (Exception e) {
             Log.e("Error", e.toString());
         }
+    }
+
+    public static String getFilter_product_id() {
+        return filter_product_id;
+    }
+
+    public static void setFilter_product_id(String filter_product_id) {
+        AccountApplication.filter_product_id = filter_product_id;
     }
 
     public AccountApplication() {

@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -92,12 +91,13 @@ public class ProductListSectionedActivity extends BaseFragment {
                     in = new Intent(getActivity(), Filter.class);
                 }
                 try {
-                    startActivity(in);
+                    startActivityForResult(in, 1111);
                 } catch (Exception ex) {
 
                 }
             }
         });
+
         txtDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,6 +172,26 @@ public class ProductListSectionedActivity extends BaseFragment {
                 Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == getActivity().RESULT_OK) {
+            if (requestCode == 1111) {
+                String strr = AccountApplication.getFilter_product_id();
+                if (strr != null) {
+                    ProductInfo po = ProductInfo.getProductInfoByItemName(strr);
+                    if (po != null) {
+                        Intent in = new Intent(getActivity(), amigoinn.example.v4sales.AbsentList.class);
+                        in.putExtra("pro_id", po.StockNo);
+                        startActivity(in);
+                    }
+                }
+
+
+            }
+        }
     }
 
     public void loadGENLOOKUPS() {

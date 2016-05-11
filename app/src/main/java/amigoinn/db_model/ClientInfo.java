@@ -82,4 +82,20 @@ public class ClientInfo extends ActiveRecordBase {
         return null;
     }
 
+
+    public static ClientInfo getClintInfoByName(String name) {
+        try {
+            List<ClientInfo> lst = AccountApplication.Connection().find(
+                    ClientInfo.class,
+                    CamelNotationHelper.toSQLName("name") + "=?",
+                    new String[]{String.valueOf(name)});
+            if (lst != null && lst.size() > 0) {
+                return lst.get(0);
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
