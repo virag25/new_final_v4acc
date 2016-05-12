@@ -64,13 +64,13 @@ public class DashboardFragment extends Fragment implements View.OnClickListener
         rlAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = null;
-                Bundle args = new Bundle();
-                FragmentManager frgManager = getFragmentManager();
-                fragment = new FragmentCategory();
-                fragment.setArguments(args);
-                frgManager.beginTransaction()
-                        .replace(R.id.content_frame, fragment).commit();
+//                Fragment fragment = null;
+//                Bundle args = new Bundle();
+//                FragmentManager frgManager = getFragmentManager();
+//                fragment = new FragmentCategory();
+//                fragment.setArguments(args);
+//                frgManager.beginTransaction()
+//                        .replace(R.id.content_frame, fragment).commit();
             }
         });
     }

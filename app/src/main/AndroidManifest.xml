@@ -53,13 +53,13 @@
         android:required="true" />
 
     <application
-        android:name="amigoinn.example.v4sales.AccountApplication"
+        android:name=".AccountApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name="amigoinn.example.v4sales.LoginActivity"
+            android:name=".LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,32 +68,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="amigoinn.example.v4sales.AbsentList"
+            android:name=".AbsentList"
             android:label="@string/title_activity_main"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="amigoinn.example.v4sales.LeftMenusActivity"
+            android:name=".LeftMenusActivity"
             android:label="@string/title_activity_main"
             android:windowSoftInputMode="adjustPan" />
 
         <service
-            android:name="amigoinn.example.v4sales.RegistrationIntentService"
+            android:name=".RegistrationIntentService"
             android:exported="false" />
         <service
-            android:name="amigoinn.example.v4sales.MyInstanceIDListener"
+            android:name=".MyInstanceIDListener"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
         <service
-            android:name="amigoinn.example.v4sales.GcmMessageHandler"
+            android:name=".GcmMessageHandler"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
-        <service android:name="amigoinn.example.v4sales.LocationService" />
+        <service android:name=".LocationService" />
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
@@ -107,17 +107,17 @@
         </receiver>
 
         <activity
-            android:name="amigoinn.example.v4sales.ExpandableListViewActivity"
+            android:name=".ExpandableListViewActivity"
             android:label="Marks"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
         <activity
-            android:name="amigoinn.example.v4sales.Filter"
+            android:name=".Filter"
             android:label="Filter" />
         <activity
-            android:name="amigoinn.example.v4sales.ProductFilter"
+            android:name=".ProductFilter"
             android:label="Filter" />
         <activity
-            android:name="amigoinn.example.v4sales.ProductFilterOrder"
+            android:name=".ProductFilterOrder"
             android:label="Filter" />
         <activity
             android:name="amigoinn.adapters.SectionedListActivity"
@@ -132,7 +132,7 @@
             android:name="amigoinn.adapters.ProductSectionedActivityForOrderFilter"
             android:label="Marks" />
         <activity
-            android:name="amigoinn.example.v4sales.ClientActivity"
+            android:name=".ClientActivity"
             android:label="Marks" />
         <activity
             android:name="amigoinn.adapters.CameraActivity"
@@ -141,18 +141,18 @@
             android:name="amigoinn.adapters.SectionedListActivityForFilters"
             android:label="Search" />
         <activity
-            android:name="amigoinn.example.v4sales.AddProductItemActivity"
-            android:theme="@android:style/Theme.Holo.Dialog"
-            android:label="Search" />
-        <activity
-            android:name="amigoinn.example.v4sales.AddClientActivity"
-            android:label="Search" />
-        <activity
-            android:name="amigoinn.example.v4sales.AddProductActivity"
+            android:name=".AddProductItemActivity"
             android:label="Search"
             android:theme="@android:style/Theme.Holo.Dialog" />
         <activity
-            android:name="amigoinn.example.v4sales.AbsentListMain"
+            android:name=".AddClientActivity"
+            android:label="Search" />
+        <activity
+            android:name=".AddProductActivity"
+            android:label="Search"
+            android:theme="@android:style/Theme.Holo.Dialog" />
+        <activity
+            android:name=".AbsentListMain"
             android:label="Absents"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
 
@@ -161,41 +161,42 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="amigoinn.example.v4sales.AttendenceActivity"
+            android:name=".AttendenceActivity"
             android:label="@string/title_activity_attendence" />
         <activity android:name=".PlaybackOverlayActivity" />
         <activity android:name=".BrowseErrorActivity" />
         <activity
-            android:name="amigoinn.example.v4sales.GoogleMapActivity"
+            android:name=".GoogleMapActivity"
             android:label="@string/title_activity_google_map" />
 
-        <!--<meta-data-->
-        <!--android:name="com.google.android.geo.API_KEY"-->
-        <!--android:value="AIzaSyBvoFBSIwXxwsp7QjT95KMY2jhofNekAkY" />-->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.geo.API_KEY" -->
+        <!-- android:value="AIzaSyBvoFBSIwXxwsp7QjT95KMY2jhofNekAkY" /> -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAVI9iaVcyzr-gj8qd-S4orBI5lIiRSPnI" />
-
+            android:value="AIzaSyBmcv-WZ2YZwFFJOnAXEGHcqEAnvDoH-jI" />
+        <!--AIzaSyAVI9iaVcyzr-gj8qd-S4orBI5lIiRSPnI-->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="amigoinn.example.v4sales.AndroidDatabaseManager"
+            android:name=".AndroidDatabaseManager"
             android:theme="@style/Theme.AppCompat.Light" />
-        <activity android:name="amigoinn.example.v4sales.ClientsTabFragment" />
-        <activity android:name="amigoinn.example.v4sales.ClientContactFragment" />
-        <activity android:name="amigoinn.example.v4sales.ClientAnalyticsFragment" />
-        <activity android:name="amigoinn.example.v4sales.ClientLedgersFragment" />
-        <activity android:name="amigoinn.example.v4sales.ClientsOutStandingsFragment" />
-        <activity android:name="amigoinn.example.v4sales.DashboardFragment" />
-        <activity android:name="amigoinn.example.v4sales.NewOrderTabActiviy" />
-        <activity android:name="amigoinn.example.v4sales.dummy.AddProductsActivity" />
-        <activity android:name="amigoinn.example.v4sales.OrderDetailActivity" />
-        <activity android:name="amigoinn.example.v4sales.OrderDispatchDetail" />
-        <activity android:name="amigoinn.example.v4sales.ClientOrderDetalisActivity" />
-        <activity android:name="amigoinn.example.v4sales.ClientOrderDispatchActiviy" />
-        <activity android:name="amigoinn.example.v4sales.ClientOrderSaleDetail"></activity>
+        <activity android:name=".ClientsTabFragment" />
+        <activity android:name=".ClientContactFragment" />
+        <activity android:name=".ClientAnalyticsFragment" />
+        <activity android:name=".ClientLedgersFragment" />
+        <activity android:name=".ClientsOutStandingsFragment" />
+        <activity android:name=".DashboardFragment" />
+        <activity android:name=".NewOrderTabActiviy" />
+        <activity android:name=".dummy.AddProductsActivity" />
+        <activity android:name=".OrderDetailActivity" />
+        <activity android:name=".OrderDispatchDetail" />
+        <activity android:name=".ClientOrderDetalisActivity" />
+        <activity android:name=".ClientOrderDispatchActiviy" />
+        <activity android:name=".ClientOrderSaleDetail" />
+        <activity android:name=".TargetActivity"></activity>
     </application>
 
 </manifest>

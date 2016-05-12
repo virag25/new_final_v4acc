@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -86,7 +85,7 @@ public class ClientListSectionedActivity extends BaseFragment {
                     in = new Intent(getActivity(), amigoinn.example.v4sales.Filter.class);
                 }
                 try {
-                    startActivity(in);
+                    startActivityForResult(in, 111);
                 } catch (Exception ex) {
 
                 }
@@ -370,4 +369,22 @@ public class ClientListSectionedActivity extends BaseFragment {
 
         });
     }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == getActivity().RESULT_OK) {
+            if (requestCode == 111) {
+                Intent in = new Intent(getActivity(), amigoinn.example.v4sales.ClientsTabFragment.class);
+                String str = AccountApplication.getClient_code();
+                ClientInfo ci = ClientInfo.getClintInfoByName(str);
+                if (ci != null) {
+                    in.putExtra("client_code", ci.client_code);
+                    AccountApplication.setClient_code(ci.client_code);
+                }
+                startActivity(in);
+            }
+        }
+
+    }
+
 }

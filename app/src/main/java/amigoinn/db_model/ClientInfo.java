@@ -82,6 +82,125 @@ public class ClientInfo extends ActiveRecordBase {
         return null;
     }
 
+    public static ArrayList<String> getAllClintZone() {
+        ArrayList<String> m_list = new ArrayList<String>();
+        try {
+            List<ClientInfo> lst = AccountApplication.Connection().findAll(
+                    ClientInfo.class);
+            if (lst != null && lst.size() > 0) {
+                m_list = new ArrayList<String>();
+                for (int i = 0; i < lst.size(); i++) {
+                    ClientInfo ci = lst.get(i);
+                    if (ci.Zone != null) {
+                        if (!m_list.contains(ci.Zone)) {
+                            m_list.add(ci.Zone);
+                        }
+                    }
+                }
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return m_list;
+    }
+
+
+    public static ArrayList<String> getAllClintCity() {
+        ArrayList<String> m_list = new ArrayList<String>();
+        try {
+            List<ClientInfo> lst = AccountApplication.Connection().findAll(
+                    ClientInfo.class);
+            if (lst != null && lst.size() > 0) {
+                m_list = new ArrayList<String>();
+                for (int i = 0; i < lst.size(); i++) {
+                    ClientInfo ci = lst.get(i);
+                    if (ci.Zone != null) {
+                        if (!m_list.contains(ci.City)) {
+                            m_list.add(ci.City);
+                        }
+                    }
+                }
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return m_list;
+    }
+
+
+    public static ArrayList<String> getAllClintState() {
+        ArrayList<String> m_list = new ArrayList<String>();
+        try {
+            List<ClientInfo> lst = AccountApplication.Connection().findAll(
+                    ClientInfo.class);
+            if (lst != null && lst.size() > 0) {
+                m_list = new ArrayList<String>();
+                for (int i = 0; i < lst.size(); i++) {
+                    ClientInfo ci = lst.get(i);
+                    if (ci.Zone != null) {
+                        if (!m_list.contains(ci.client_state)) {
+                            m_list.add(ci.client_state);
+                        }
+                    }
+                }
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return m_list;
+    }
+
+
+    public static ArrayList<ClientInfo> getClintInfoByZone(String Zone) {
+        ArrayList<ClientInfo> m_list = new ArrayList<ClientInfo>();
+        try {
+            List<ClientInfo> lst = AccountApplication.Connection().find(
+                    ClientInfo.class,
+                    CamelNotationHelper.toSQLName("Zone") + "=?",
+                    new String[]{String.valueOf(Zone)});
+            if (lst != null && lst.size() > 0) {
+                m_list = new ArrayList<>(lst);
+
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return m_list;
+    }
+
+
+    public static  ArrayList<ClientInfo> getClintInfoByState(String client_state) {
+        ArrayList<ClientInfo> m_list = new ArrayList<ClientInfo>();
+        try {
+            List<ClientInfo> lst = AccountApplication.Connection().find(
+                    ClientInfo.class,
+                    CamelNotationHelper.toSQLName("client_state") + "=?",
+                    new String[]{String.valueOf(client_state)});
+            if (lst != null && lst.size() > 0) {
+                m_list = new ArrayList<>(lst);
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return m_list;
+    }
+
+    public static ArrayList<ClientInfo> getClintInfoByCity(String City) {
+        ArrayList<ClientInfo> m_list = new ArrayList<ClientInfo>();
+        try {
+            List<ClientInfo> lst = AccountApplication.Connection().find(
+                    ClientInfo.class,
+                    CamelNotationHelper.toSQLName("City") + "=?",
+                    new String[]{String.valueOf(City)});
+            if (lst != null && lst.size() > 0) {
+                m_list = new ArrayList<>(lst);
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return m_list;
+    }
+
 
     public static ClientInfo getClintInfoByName(String name) {
         try {

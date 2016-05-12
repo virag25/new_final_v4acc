@@ -316,7 +316,14 @@ public class LeftMenusActivity extends ActionBarActivity {
         ////////FOR STOCK TAKE
         mDrawerItems.add(new DrawerItem(R.string.drawer_icon_report, R.string.drawer_title_REPORTS, DrawerItem.DRAWER_ITEM_TAG_INSTAGRAM));
         ////////FOR STOKE TAKE
+
+        mDrawerItems.add(new DrawerItem(R.string.drawer_icon_stocktake,
+                R.string.drawer_title_RankFinal,
+                DrawerItem.DRAWER_ITEM_TAG_INSTAGRAM));
         mDrawerItems.add(new DrawerItem(R.string.drawer_icon_task, R.string.drawer_title_message, DrawerItem.DRAWER_ITEM_TAG_INSTAGRAM));
+
+        mDrawerItems.add(new DrawerItem(R.string.drawer_icon_order, R.string.drawer_title_target, DrawerItem.DRAWER_ITEM_TAG_INSTAGRAM));
+
 
 //		mDrawerItems.add(new DrawerItem(R.string.drawer_icon_Share,
 //				R.string.drawer_title_LOGOUT,
@@ -603,12 +610,12 @@ public class LeftMenusActivity extends ActionBarActivity {
 
                 try {
                     //FOR STOCK TAKE
-//                    Fragment fragment12345 = new FragmentRankDuplicate();//.newInstance();
-//                    commitFragment(fragment12345);
-//                    setTitle("");
+                    Fragment fragment12345 = new FragmentCategoryItemRank();//FragmentRankDuplicate();//.newInstance();
+                    commitFragment(fragment12345);
+                    setTitle("Stock Take");
 
-                    Intent in = new Intent(LeftMenusActivity.this, CameraActivity.class);
-                    startActivity(in);
+//                    Intent in = new Intent(LeftMenusActivity.this, CameraActivity.class);
+//                    startActivity(in);
 
                 } catch (Exception ex) {
                     Log.e("Error", ex.toString());
@@ -622,6 +629,17 @@ public class LeftMenusActivity extends ActionBarActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                break;
+            case 11:
+                try {
+                    Fragment fragment12345 = new TargetActivity();//.newInstance();
+                    commitFragment(fragment12345);
+                    setTitle("Target");
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
 
 //			case 10:
 //

@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 
 import amigoinn.db_model.ProductInfo;
+import amigoinn.example.v4sales.AccountApplication;
 import amigoinn.example.v4sales.Config;
 import amigoinn.example.v4sales.LeftMenusActivity;
 import amigoinn.example.v4sales.R;
@@ -274,26 +275,34 @@ public class SectionedListActivityForFilters extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedvalue = countries.get(position);
-                Constants.PRODUCTINFO.clear();
-                if (fromactivity.equalsIgnoreCase("reporting")) {
-                    Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
-                } else if (fromactivity.equalsIgnoreCase("itemgroup")) {
-                    Constants.PRODUCTINFO = handler1.getproductforItemgroups(selectedvalue);
-                } else if (fromactivity.equalsIgnoreCase("model")) {
-                    Constants.PRODUCTINFO = handler1.getProductForModel(selectedvalue);
-                } else if (fromactivity.equalsIgnoreCase("size")) {
-                    Constants.PRODUCTINFO = handler1.getProductForSize(selectedvalue);
-                } else if (fromactivity.equalsIgnoreCase("reporting")) {
-                    Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
-                } else if (fromactivity.equalsIgnoreCase("product")) {
-                    Constants.PRODUCTINFO = handler1.getProductForProduct(selectedvalue);
-                } else if (fromactivity.equalsIgnoreCase("brand")) {
-                    Constants.PRODUCTINFO = handler1.getProductForBrands(selectedvalue);
+                if (fromactivity != null) {
+                    Constants.PRODUCTINFO.clear();
+                    if (fromactivity.equalsIgnoreCase("reporting")) {
+                        Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
+                    } else if (fromactivity.equalsIgnoreCase("itemgroup")) {
+                        Constants.PRODUCTINFO = handler1.getproductforItemgroups(selectedvalue);
+                    } else if (fromactivity.equalsIgnoreCase("model")) {
+                        Constants.PRODUCTINFO = handler1.getProductForModel(selectedvalue);
+                    } else if (fromactivity.equalsIgnoreCase("size")) {
+                        Constants.PRODUCTINFO = handler1.getProductForSize(selectedvalue);
+                    } else if (fromactivity.equalsIgnoreCase("reporting")) {
+                        Constants.PRODUCTINFO = handler1.getproductforReportingGroupcode(selectedvalue);
+                    } else if (fromactivity.equalsIgnoreCase("product")) {
+                        Constants.PRODUCTINFO = handler1.getProductForProduct(selectedvalue);
+                    } else if (fromactivity.equalsIgnoreCase("brand")) {
+                        Constants.PRODUCTINFO = handler1.getProductForBrands(selectedvalue);
+                    }
+                    Intent in = new Intent(SectionedListActivityForFilters.this, SectionedListActivityProductAfterFilter.class);
+//            in.putExtra("value",selectedvalue);
+                    startActivityForResult(in, 111);
+                } else {
+                    AccountApplication.setClient_code(selectedvalue);
+                    Intent start = new Intent();
+                    setResult(RESULT_OK, start);
+                    finish();
+
                 }
 
-                Intent in = new Intent(SectionedListActivityForFilters.this, SectionedListActivityProductAfterFilter.class);
-//            in.putExtra("value",selectedvalue);
-                startActivityForResult(in, 111);
 
             }
         });
@@ -533,7 +542,7 @@ public class SectionedListActivityForFilters extends Activity {
         if (resultCode == RESULT_OK) {
             if (requestCode == 111) {
                 Intent start = new Intent();
-                setResult(RESULT_OK,start);
+                setResult(RESULT_OK, start);
                 finish();
 
             }

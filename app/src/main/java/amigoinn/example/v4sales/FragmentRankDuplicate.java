@@ -35,8 +35,7 @@ import amigoinn.walkietalkie.Constants;
 /**
  * Created by Manthan on 28/09/2015.
  */
-public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.OnDateSetListener
-{
+public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.OnDateSetListener {
     View view;
     public List<String> list = new ArrayList<String>();
     ListView lv1;
@@ -45,7 +44,7 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
     int totalsum;
     Context context;
     ArrayList<BarEntry> entries = new ArrayList<>();
-    int selectedPosition=0;
+    int selectedPosition = 0;
     BarDataSet dataset;
     List<OverallPercentage> posts;
     ArrayList<String> labels = new ArrayList<String>();
@@ -54,23 +53,23 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
     ArrayList<String> extras = new ArrayList<String>();
     ArrayList<String> Product = new ArrayList<String>();
     ArrayList<String> Price = new ArrayList<String>();
-    AutoCompleteTextView edtCode,edtProduct;
-    EditText edtQuantity,edtProduct1,edtPrice;
-    TextView edtOrderDate,edtOrderdueDate,txtSubmit,txtSave,txtCancel,txtTotal;
-    ImageView imgSearch,imgFilter;
+    AutoCompleteTextView edtCode, edtProduct;
+    EditText edtQuantity, edtProduct1, edtPrice;
+    TextView edtOrderDate, edtOrderdueDate, txtSubmit, txtSave, txtCancel, txtTotal;
+    ImageView imgSearch, imgFilter;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_rank_duplicate, container, false);
-        context=view.getContext();
+        context = view.getContext();
         final Calendar calendar = Calendar.getInstance();
         //	Calendar cal=Calendar.getInstance();
-            imgSearch=(ImageView)view.findViewById(R.id.imgBrowse);
-        imgFilter=(ImageView)view.findViewById(R.id.imgBrowse1);
-        imgFilter=(ImageView)view.findViewById(R.id.imgBrowse1);
-        imgFilter=(ImageView)view.findViewById(R.id.imgBrowse1);
+        imgSearch = (ImageView) view.findViewById(R.id.imgBrowse);
+        imgFilter = (ImageView) view.findViewById(R.id.imgBrowse1);
+        imgFilter = (ImageView) view.findViewById(R.id.imgBrowse1);
+        imgFilter = (ImageView) view.findViewById(R.id.imgBrowse1);
         SimpleDateFormat month_date = new SimpleDateFormat("yyyy-MM-dd");
         //spinnerSubject=(MaterialSpinner)rootView.findViewById(R.id.spinnerMonth);
         //tvHomework=(TextView)rootView.findViewById(R.id.textTitle);
@@ -91,27 +90,27 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
 //        extras.add("1234");
 //        extras.add("11");
 //        extras.add("11");
-        lv1 = (ListView)view.findViewById(R.id.lvorder);
-        edtProduct = (AutoCompleteTextView)view.findViewById(R.id.edtclient);
+        lv1 = (ListView) view.findViewById(R.id.lvorder);
+        edtProduct = (AutoCompleteTextView) view.findViewById(R.id.edtclient);
         Constants.PartyList.clear();
         Constants.addParty();
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(context,R.layout.sammplelistitemabsent,R.id.tv,Constants.PartyList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.sammplelistitemabsent, R.id.tv, Constants.PartyList);
         edtProduct.setAdapter(adapter);
-        edtOrderDate = (TextView)view.findViewById(R.id.edtorderdate);
-        edtOrderdueDate = (TextView)view.findViewById(R.id.edtOrderdue);
+        edtOrderDate = (TextView) view.findViewById(R.id.edtorderdate);
+        edtOrderdueDate = (TextView) view.findViewById(R.id.edtOrderdue);
 
-        edtProduct1 = (EditText)view.findViewById(R.id.edtProduct);
-        edtPrice = (EditText)view.findViewById(R.id.edtPrice);
-        edtQuantity = (EditText)view.findViewById(R.id.edtQuantity);
-        edtCode = (AutoCompleteTextView)view.findViewById(R.id.edtCode1);
-        txtSubmit = (TextView)view.findViewById(R.id.txtSubmit);
-        txtTotal = (TextView)view.findViewById(R.id.txtTotal);
-        txtSave = (TextView)view.findViewById(R.id.txtSave);
-        txtCancel = (TextView)view.findViewById(R.id.txtCancel);
+        edtProduct1 = (EditText) view.findViewById(R.id.edtProduct);
+        edtPrice = (EditText) view.findViewById(R.id.edtPrice);
+        edtQuantity = (EditText) view.findViewById(R.id.edtQuantity);
+        edtCode = (AutoCompleteTextView) view.findViewById(R.id.edtCode1);
+        txtSubmit = (TextView) view.findViewById(R.id.txtSubmit);
+        txtTotal = (TextView) view.findViewById(R.id.txtTotal);
+        txtSave = (TextView) view.findViewById(R.id.txtSave);
+        txtCancel = (TextView) view.findViewById(R.id.txtCancel);
 
         Constants.Productlist.clear();
         Constants.addProducts();
-        ArrayAdapter<String> adapterCode=new ArrayAdapter<String>(context,R.layout.sammplelistitemabsent,R.id.tv,Constants.Productlist);
+        ArrayAdapter<String> adapterCode = new ArrayAdapter<String>(context, R.layout.sammplelistitemabsent, R.id.tv, Constants.Productlist);
         edtCode.setAdapter(adapter);
 //        edtProduct.addTextChangedListener(new TextWatcher() {
 //            @Override
@@ -132,7 +131,7 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
 //
 //
 //        });
-        ordersadapter=new Custom_Home_Orders(context,names,extras,Product,Price);
+        ordersadapter = new Custom_Home_Orders(context, names, extras, Product, Price);
         lv1.setAdapter(ordersadapter);
 //        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
@@ -151,8 +150,7 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
 //            }
 //        });
         final DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), true);
-        edtOrderDate.setOnClickListener(new View.OnClickListener()
-        {
+        edtOrderDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 datePickerDialog.setVibrate(false);
@@ -163,14 +161,12 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
         });
 //        lv1.setAdapter(new Custom_Order(this, txttl1, imgtlbg, imgtlround, imgtlloc, txttl2, txttl3, txttl5, txttl6, txttl7, txttl4));
 
-        imgSearch.setOnClickListener(new View.OnClickListener()
-        {
+        imgSearch.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Intent in = new Intent(context, SectionedListBeforeFilter.class);
-                Constants.countries=Constants.PartyList;
-                Config.filterfrom="party";
+                Constants.countries = Constants.PartyList;
+                Config.filterfrom = "party";
                 context.startActivity(in);
             }
         });
@@ -178,19 +174,17 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(context, SectionedListBeforeFilter.class);
-                Constants.countries=Constants.Productlist;
-                Config.filterfrom="product";
+                Constants.countries = Constants.Productlist;
+                Config.filterfrom = "product";
                 context.startActivity(in);
             }
         });
-        txtSubmit.setOnClickListener(new View.OnClickListener()
-        {
+        txtSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Product.add(edtProduct1.getText().toString());
-                Price.add(""+(Integer.parseInt(edtQuantity.getText().toString())*40));
-                totalsum=Integer.parseInt(edtQuantity.getText().toString())*40;
+                Price.add("" + (Integer.parseInt(edtQuantity.getText().toString()) * 40));
+                totalsum = Integer.parseInt(edtQuantity.getText().toString()) * 40;
                 txtTotal.setText("Total " + totalsum + 1000);
                 extras.add(edtQuantity.getText().toString());
                 names.add(edtCode.getText().toString());
@@ -201,15 +195,13 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
                 edtCode.setText("");//.toString();.getText().toString();
             }
         });
-        txtSave.setOnClickListener(new View.OnClickListener()
-        {
+        txtSave.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Product.add(edtProduct1.getText().toString());
-                totalsum=Integer.parseInt(edtQuantity.getText().toString())*40;
-                txtTotal.setText("Total "+totalsum+1000);
-                Price.add(""+(Integer.parseInt(edtQuantity.getText().toString())*40));
+                totalsum = Integer.parseInt(edtQuantity.getText().toString()) * 40;
+                txtTotal.setText("Total " + totalsum + 1000);
+                Price.add("" + (Integer.parseInt(edtQuantity.getText().toString()) * 40));
                 extras.add(edtQuantity.getText().toString());
                 names.add(edtCode.getText().toString());
                 ordersadapter.notifyDataSetChanged();
@@ -219,11 +211,9 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
                 edtCode.setText("");//.toString();.getText().toString();
             }
         });
-        txtCancel.setOnClickListener(new View.OnClickListener()
-        {
+        txtCancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
                 edtProduct1.setText("");//.toString();
                 edtPrice.setText("");//.toString();.getText().toString();
@@ -237,22 +227,18 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
     }
 
     @Override
-    public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day)
-    {
+    public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
         //Toast.makeText(context, "new date:" + year + "-" + month + "-" + day, Toast.LENGTH_LONG).show();
 
         String newMonth = null;
-        if((month+1)<10)
-        {
-            newMonth="0"+String.valueOf((month+1));
-        }
-        else
-        {
-            newMonth=String.valueOf((month+1));
+        if ((month + 1) < 10) {
+            newMonth = "0" + String.valueOf((month + 1));
+        } else {
+            newMonth = String.valueOf((month + 1));
         }
         //int montho=Integer.parseInt(newMonth);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        monthName=year+"/"+newMonth+"/"+day;
+        monthName = year + "/" + newMonth + "/" + day;
         edtOrderDate.setText(monthName);
         Calendar c = Calendar.getInstance();
         c.setTime(new Date(monthName)); // Now use today date.
@@ -265,42 +251,40 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
 
     }
 
-    public void filledittext()
-    {
+    public void filledittext() {
         edtProduct1.setText(Product.get(Config.SELECTEDPOSITION).toString());
         edtPrice.setText(Price.get(Config.SELECTEDPOSITION).toString());
         edtQuantity.setText(extras.get(Config.SELECTEDPOSITION).toString());
         edtCode.setText(names.get(Config.SELECTEDPOSITION).toString());
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         getActivity();
-        if(requestCode == 6 && resultCode == Activity.RESULT_OK)
-        {
+        if (requestCode == 6 && resultCode == Activity.RESULT_OK) {
             edtProduct.setText(Constants.selectedclient);
 
             //some code
         }
     }
 
-    public class Custom_Home_Orders extends BaseAdapter
-    {
+    public class Custom_Home_Orders extends BaseAdapter {
         Context context;
-        ArrayList<String> name,extra,product,price;
+        ArrayList<String> name, extra, product, price;
         String[] txthpright;
         //    String[] txtsectional;
 //    String[] imgsectional;
         ArrayAdapter<String> adapter;
-        private  LayoutInflater inflater=null;
+        private LayoutInflater inflater = null;
 
         public Custom_Home_Orders(Context context, ArrayList<String> name, ArrayList<String> extrra, ArrayList<String> product, ArrayList<String> price) {
             // TODO Auto-generated constructor stub
-            context=context;
-            this.name=name;
-            extra=extrra;
-            this.product=product;
-            this.price=price;
+            context = context;
+            this.name = name;
+            extra = extrra;
+            this.product = product;
+            this.price = price;
 //        Constants.searchlist.add("amigo");
 //        Constants.searchlist.add("himanshu");
 //        Constants.searchlist.add("maulik");
@@ -309,13 +293,13 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
 //        Constants.searchlist.add("ahmedabad");
 //        Constants.searchlist.add("bombay");
 //        Constants.searchlist.add("delhi");
-            this.context=context;
-            adapter=new ArrayAdapter<String>(context,R.layout.sammplelistitemabsent, R.id.tv,Constants.searchlist);
-            inflater = ( LayoutInflater )context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            this.context = context;
+            adapter = new ArrayAdapter<String>(context, R.layout.sammplelistitemabsent, R.id.tv, Constants.searchlist);
+            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
+
         @Override
-        public int getCount()
-        {
+        public int getCount() {
             // TODO Auto-generated method stub
             return this.name.size();
         }
@@ -326,8 +310,7 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
             return position;
         }
 
-        public void remove(int position)
-        {
+        public void remove(int position) {
             //   message.add(date.get(position));
             name.remove(position);
             Product.remove(position);
@@ -336,28 +319,28 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
 
             notifyDataSetChanged();
         }
+
         @Override
         public long getItemId(int position) {
             // TODO Auto-generated method stub
             return position;
         }
 
-        public class Holder
-        {
+        public class Holder {
             TextView tvl;
             TextView tvPrice;
-            AutoCompleteTextView edtcode;
-            EditText edtQuantity,edtDate;
+                        AutoCompleteTextView edtcode;
+            EditText edtQuantity, edtDate;
             TextView tvsectional;
             ImageView imgsectional;
         }
+
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             // TODO Auto-generated method stub
-            Holder holder=new Holder();
+            Holder holder = new Holder();
             View rowView;
-            try
-            {
+            try {
                 rowView = inflater.inflate(R.layout.custom_order_home, null);
                 holder.edtcode = (AutoCompleteTextView) rowView.findViewById(R.id.edtcode);
                 holder.edtDate = (EditText) rowView.findViewById(R.id.edtdate);
@@ -375,8 +358,7 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
                 holder.edtDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                     @Override
                     public void onFocusChange(View v, boolean hasFocus) {
-                        if (hasFocus)
-                        {
+                        if (hasFocus) {
                             Config.SELECTEDPOSITION = position;
                             edtProduct1.setText(Product.get(Config.SELECTEDPOSITION).toString());
                             edtPrice.setText(Price.get(Config.SELECTEDPOSITION).toString());
@@ -388,9 +370,8 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
                 holder.tvPrice.setOnClickListener(new View.OnClickListener() {
 
                     @Override
-                    public void onClick(View v)
-                    {
-                        Config.SELECTEDPOSITION=position;
+                    public void onClick(View v) {
+                        Config.SELECTEDPOSITION = position;
                         edtProduct1.setText(Product.get(Config.SELECTEDPOSITION).toString());
                         edtPrice.setText(Price.get(Config.SELECTEDPOSITION).toString());
                         edtQuantity.setText(extras.get(Config.SELECTEDPOSITION).toString());
@@ -414,45 +395,36 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
                 });
                 holder.edtcode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
                     @Override
-                    public void onFocusChange(View v, boolean hasFocus)
-                    {
-                        if(hasFocus)
-                        {
-                            Config.SELECTEDPOSITION=position;
+                    public void onFocusChange(View v, boolean hasFocus) {
+                        if (hasFocus) {
+                            Config.SELECTEDPOSITION = position;
                             edtProduct1.setText(Product.get(Config.SELECTEDPOSITION).toString());
                             edtPrice.setText(Price.get(Config.SELECTEDPOSITION).toString());
                             edtQuantity.setText(extras.get(Config.SELECTEDPOSITION).toString());
-                            edtCode.setText(names.get(Config.SELECTEDPOSITION).toString());
+//                            edtCode.setText(names.get(Config.SELECTEDPOSITION).toString());
                         }
                     }
                 });
 
-                holder.imgsectional.setOnClickListener(new View.OnClickListener()
-                {
+                holder.imgsectional.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
-                        try
-                        {
+                    public void onClick(View v) {
+                        try {
                             Intent in = new Intent(context, Filter.class);
                             context.startActivity(in);
-                        }catch (Exception ex)
-                        {
+                        } catch (Exception ex) {
                             Log.e("Error", ex.toString());
                         }
                     }
                 });
-                try
-                {
+                try {
 
                     //holder.edtcode.setThreshold(1);//will start working from first character
 //                actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
 //                actv.setTextColor(Color.RED);
-                    holder.edtcode.setAdapter(adapter);
-                }
-                catch (Exception ex)
-                {
-                    Log.e("Error",ex.toString());
+//                    holder.edtcode.setAdapter(adapter);
+                } catch (Exception ex) {
+                    Log.e("Error", ex.toString());
                 }
                 return rowView;
 
@@ -477,9 +449,8 @@ public class FragmentRankDuplicate extends Fragment implements DatePickerDialog.
 //
 //            }
 
-            }catch (Exception ex)
-            {
-                Log.e("Error",ex.toString());
+            } catch (Exception ex) {
+                Log.e("Error", ex.toString());
                 return null;
             }
         }

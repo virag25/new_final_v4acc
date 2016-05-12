@@ -27,6 +27,16 @@ public class AccountApplication extends Application {
 
     public static String filter_product_id;
 
+    public static String getFilter_client_id() {
+        return filter_client_id;
+    }
+
+    public static void setFilter_client_id(String filter_client_id) {
+        AccountApplication.filter_client_id = filter_client_id;
+    }
+
+    public static String filter_client_id;
+
     public static String getClient_code() {
         return client_code;
     }

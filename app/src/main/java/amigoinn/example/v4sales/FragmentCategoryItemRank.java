@@ -440,9 +440,9 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
                     hideProgress();
                     if (res.RawResponse != null) {
                         Toast.makeText(context, "Order placed successfully!", Toast.LENGTH_LONG).show();
-//                        Intent start = new Intent(getActivity(), LeftMenusActivity.class);
-//                        startActivity(start);
-//                        getActivity().finish();
+                        Intent start = new Intent(getActivity(), LeftMenusActivity.class);
+                        startActivity(start);
+                        getActivity().finish();
                     } else {
 
                     }
