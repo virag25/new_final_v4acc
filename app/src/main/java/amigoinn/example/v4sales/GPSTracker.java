@@ -99,7 +99,7 @@ public class GPSTracker extends Service implements LocationListener {
 						}
 					}
 				} else {
-					// showSettingsAlert(mContext);
+					 showSettingsAlert(mContext);
 				}
 			}
 		} catch (Exception e) {
@@ -165,13 +165,13 @@ public class GPSTracker extends Service implements LocationListener {
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
 
 		// Setting Dialog Title
-		alertDialog.setTitle("mFoodx");
+		alertDialog.setTitle("V4 Account");
 
 		// Setting Dialog Message
 		if (isGPSEnabled) {
-			alertDialog.setMessage("Would you like to Stop GPS Service.");
+//			alertDialog.setMessage("Would you like to Stop GPS Service.");
 		} else {
-			alertDialog.setMessage("Start GPS Service");
+			alertDialog.setMessage("Start your location service");
 		}
 
 		// On Pressing Setting button

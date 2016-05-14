@@ -33,8 +33,8 @@ public class LocationService extends Service {
 
 			@Override
 			public void CallFailedWithError(String error) {
-				Toast.makeText(getApplicationContext(), error,
-						Toast.LENGTH_LONG).show();
+//				Toast.makeText(getApplicationContext(), error,
+//						Toast.LENGTH_LONG).show();
 			}
 
 			@Override
@@ -83,6 +83,7 @@ public class LocationService extends Service {
 			} else {
 				gpsTracker.showSettingsAlert(getApplicationContext());
 				m_delegate.CallFailedWithError("try again");
+
 			}
 
 		} catch (Exception e) {

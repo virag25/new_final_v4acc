@@ -1,8 +1,12 @@
 package amigoinn.example.v4sales;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -28,6 +32,7 @@ import java.util.List;
 import amigoinn.adapters.NotifyingAsyncQueryHandler;
 import amigoinn.adapters.SectionedListActivityForFilters;
 import amigoinn.db_model.ClientInfo;
+import amigoinn.db_model.LoginInfo;
 import amigoinn.db_model.ModelDelegates;
 import amigoinn.modallist.ClientList;
 import amigoinn.walkietalkie.Constants;
@@ -39,7 +44,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  */
 
 
-public class ClientListSectionedActivity extends BaseFragment {
+public class ClientListSectionedActivity extends BaseActivity {
 
     //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
@@ -52,14 +57,92 @@ public class ClientListSectionedActivity extends BaseFragment {
     View v;
     ArrayList<ClientInfo> clint_info;
 
+    LocationManager lm;
+    Location l;
+    boolean isGPSEnabled;
+    boolean isNetworkEnabled;
+    String Longitude, Latitude;
+    GPSTracker gpsTracker;
+    UniversalDelegate m_delegate;
 
-    @Nullable
+    public interface UniversalDelegate {
+        public void CallDidSuccess(String lat, String lang);
+
+        public void CallFailedWithError(String error);
+    }
+
+
+//    @Nullable
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        v = inflater.inflate(R.layout.searchlistlayoutbefore, container, false);
+//
+//        stickyList = (StickyListHeadersListView) v.findViewById(R.id.list);
+//        txtFilter = (TextView) v.findViewById(R.id.txtFilter);
+//        stickyList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+////        countries = new ArrayList<>();
+////        countries = Constants.countries;
+////        Constants.initString2(countries.size());
+//
+////        final MyAdapter adapter = new MyAdapter(this,countries);
+////        stickyList.setAdapter(adapter);
+//
+//
+//        inputSearch = (EditText) v.findViewById(R.id.inputSearch);
+//
+//        TextView txtDone = (TextView) v.findViewById(R.id.txtDone);
+//        txtFilter.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent in;
+//                Config.filterfrom = "party";
+//                if (Config.filterfrom.equalsIgnoreCase("product")) {
+//                    in = new Intent(getApplicationContext(), ProductFilter.class);
+//                } else if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
+//                    in = new Intent(getApplicationContext(), amigoinn.example.v4sales.Filter.class);
+//                } else {
+//                    in = new Intent(getApplicationContext(), amigoinn.example.v4sales.Filter.class);
+//                }
+//                try {
+//                    startActivityForResult(in, 111);
+//                } catch (Exception ex) {
+//
+//                }
+//            }
+//        });
+//        txtDone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
+//                    Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.ClientsTabFragment.class);
+//                    startActivity(in);
+//                    finish();
+////                    Fragment newFragment = new ClientsTabFragment();
+////                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+////
+////                    transaction.commit();
+//
+//
+//                } else {
+//                    Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.AbsentList.class);
+//                    startActivity(in);
+//                }
+//            }
+//        });
+//
+//        loadClients();
+//        return v;
+//    }
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.searchlistlayoutbefore, container, false);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.searchlistlayoutbefore);
 
-        stickyList = (StickyListHeadersListView) v.findViewById(R.id.list);
-        txtFilter = (TextView) v.findViewById(R.id.txtFilter);
+
+        stickyList = (StickyListHeadersListView) findViewById(R.id.list);
+        txtFilter = (TextView) findViewById(R.id.txtFilter);
         stickyList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 //        countries = new ArrayList<>();
 //        countries = Constants.countries;
@@ -69,20 +152,20 @@ public class ClientListSectionedActivity extends BaseFragment {
 //        stickyList.setAdapter(adapter);
 
 
-        inputSearch = (EditText) v.findViewById(R.id.inputSearch);
+        inputSearch = (EditText) findViewById(R.id.inputSearch);
 
-        TextView txtDone = (TextView) v.findViewById(R.id.txtDone);
+        TextView txtDone = (TextView) findViewById(R.id.txtDone);
         txtFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in;
                 Config.filterfrom = "party";
                 if (Config.filterfrom.equalsIgnoreCase("product")) {
-                    in = new Intent(getActivity(), ProductFilter.class);
+                    in = new Intent(getApplicationContext(), ProductFilter.class);
                 } else if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
-                    in = new Intent(getActivity(), amigoinn.example.v4sales.Filter.class);
+                    in = new Intent(getApplicationContext(), amigoinn.example.v4sales.Filter.class);
                 } else {
-                    in = new Intent(getActivity(), amigoinn.example.v4sales.Filter.class);
+                    in = new Intent(getApplicationContext(), amigoinn.example.v4sales.Filter.class);
                 }
                 try {
                     startActivityForResult(in, 111);
@@ -95,9 +178,9 @@ public class ClientListSectionedActivity extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
-                    Intent in = new Intent(getActivity(), amigoinn.example.v4sales.ClientsTabFragment.class);
+                    Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.ClientsTabFragment.class);
                     startActivity(in);
-                    getActivity().finish();
+                    finish();
 //                    Fragment newFragment = new ClientsTabFragment();
 //                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
 //
@@ -105,16 +188,15 @@ public class ClientListSectionedActivity extends BaseFragment {
 
 
                 } else {
-                    Intent in = new Intent(getActivity(), amigoinn.example.v4sales.AbsentList.class);
+                    Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.AbsentList.class);
                     startActivity(in);
                 }
             }
         });
 
         loadClients();
-        return v;
-    }
 
+    }
 
     public void loadClients() {
         showProgress();
@@ -136,7 +218,7 @@ public class ClientListSectionedActivity extends BaseFragment {
             @Override
             public void ModelLoadFailedWithError(String error) {
                 hideProgress();
-                Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), error, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -256,12 +338,13 @@ public class ClientListSectionedActivity extends BaseFragment {
             holder.text.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ClientInfo c_info = filteredData.get(position);
-                    Intent in = new Intent(getActivity(), amigoinn.example.v4sales.ClientsTabFragment.class);
-                    in.putExtra("client_code", c_info.client_code);
-                    AccountApplication.setClient_code(c_info.client_code);
-                    startActivity(in);
-                    getActivity().finish();
+//                    ClientInfo c_info = filteredData.get(position);
+//                    Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.ClientsTabFragment.class);
+//                    in.putExtra("client_code", c_info.client_code);
+//                    AccountApplication.setClient_code(c_info.client_code);
+//                    startActivity(in);
+//                    finish();
+                    showAlertDialog();
                 }
             });
 
@@ -344,7 +427,7 @@ public class ClientListSectionedActivity extends BaseFragment {
     }
 
     public void setbaseadapter() {
-        final MyAdapter adapter = new MyAdapter(getActivity(), clint_info);
+        final MyAdapter adapter = new MyAdapter(getApplicationContext(), clint_info);
         stickyList.setAdapter(adapter);
         inputSearch.addTextChangedListener(new TextWatcher() {
 
@@ -372,19 +455,152 @@ public class ClientListSectionedActivity extends BaseFragment {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == getActivity().RESULT_OK) {
+        if (resultCode == RESULT_OK) {
             if (requestCode == 111) {
-                Intent in = new Intent(getActivity(), amigoinn.example.v4sales.ClientsTabFragment.class);
-                String str = AccountApplication.getClient_code();
-                ClientInfo ci = ClientInfo.getClintInfoByName(str);
-                if (ci != null) {
-                    in.putExtra("client_code", ci.client_code);
-                    AccountApplication.setClient_code(ci.client_code);
-                }
-                startActivity(in);
+                showAlertDialog();
+//                Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.ClientsTabFragment.class);
+//                String str = AccountApplication.getClient_code();
+//                ClientInfo ci = ClientInfo.getClintInfoByName(str);
+//                if (ci != null) {
+//                    in.putExtra("client_code", ci.client_code);
+//                    AccountApplication.setClient_code(ci.client_code);
+//                }
+//                startActivity(in);
             }
         }
 
+    }
+
+
+    private void showAlertDialog() {
+
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                ClientListSectionedActivity.this);
+
+        // set title
+        alertDialogBuilder.setTitle("V4 Account");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Do you want to send your location to server?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        DoCall();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
+
+    }
+
+    public void DoCall() {
+        showProgress();
+        getLocation(new UniversalDelegate() {
+
+            @Override
+            public void CallFailedWithError(String error) {
+                hideProgress();
+//                Toast.makeText(getApplicationContext(), error,
+//                        Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void CallDidSuccess(String lat, String lang) {
+                LoginInfo.Instance().DoUpdatelocations(new ModelDelegates.LoginDelegate() {
+                    @Override
+                    public void LoginDidSuccess() {
+                        hideProgress();
+
+                    }
+
+                    @Override
+                    public void LoginFailedWithError(String error) {
+                        hideProgress();
+
+                    }
+                }, lang, lat);
+//				Toast.makeText(getApplicationContext(),
+//						" lat=" + lat + "lang " + lang, Toast.LENGTH_LONG)
+//						.show();
+            }
+        });
+
+    }
+
+    public void getLocation(UniversalDelegate delegate) {
+        m_delegate = delegate;
+
+        gpsTracker = new GPSTracker(getApplicationContext());
+        Location location = null;
+        try {
+            lm = (LocationManager) getApplicationContext().getSystemService(
+                    LOCATION_SERVICE);
+            isGPSEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            isNetworkEnabled = lm
+                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+            if (isGPSEnabled) {
+                Latitude = String.valueOf(gpsTracker.latitude);
+                Longitude = String.valueOf(gpsTracker.longitude);
+                m_delegate.CallDidSuccess(Latitude, Longitude);
+            } else {
+                showSettingsAlert(this);
+                gpsTracker.showSettingsAlert(getApplicationContext());
+                m_delegate.CallFailedWithError("try again");
+            }
+
+        } catch (Exception e) {
+            m_delegate.CallFailedWithError("try again");
+            e.printStackTrace();
+        }
+    }
+
+
+    public void showSettingsAlert(final Context mContext) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+
+        // Setting Dialog Title
+        alertDialog.setTitle("V4 Account");
+
+        // Setting Dialog Message
+        if (isGPSEnabled) {
+//			alertDialog.setMessage("Would you like to Stop GPS Service.");
+        } else {
+            alertDialog.setMessage("Start your location service");
+        }
+
+        // On Pressing Setting button
+        alertDialog.setPositiveButton("Setting",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(
+                                android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);// ACTION_LOCATION_SOURCE_SETTINGS
+                        mContext.startActivity(intent);
+                    }
+                });
+
+        // On pressing cancel button
+        alertDialog.setNegativeButton("Cancle",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        alertDialog.show();
     }
 
 }

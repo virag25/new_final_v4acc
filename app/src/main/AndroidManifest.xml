@@ -76,6 +76,11 @@
             android:label="@string/title_activity_main"
             android:windowSoftInputMode="adjustPan" />
 
+        <activity
+            android:name=".ClientListSectionedActivity"
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan" />
+
         <service
             android:name=".RegistrationIntentService"
             android:exported="false" />

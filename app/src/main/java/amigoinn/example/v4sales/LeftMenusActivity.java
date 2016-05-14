@@ -566,8 +566,8 @@ public class LeftMenusActivity extends ActionBarActivity {
 //						Constants.addParty();
 //						Constants.countries=Constants.PartyList;
 //						Config.filterfrom="Mainmenu";
-                        Fragment fragment1234 = new ClientListSectionedActivity();//.newInstance();
-                        commitFragment(fragment1234);
+//                        Fragment fragment1234 = new ClientListSectionedActivity();//.newInstance();
+//                        commitFragment(fragment1234);
 //						Intent in = new Intent(LeftMenusActivity.this, SectionedListBeforeFilter.class);
 //						startActivity(in);
                     } catch (Exception ex) {

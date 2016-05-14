@@ -153,7 +153,7 @@ public class LoginActivity extends BaseActivity  {
                                             edit.putString("update", "false");
                                             edit.commit();
 
-                                            Intent in = new Intent(LoginActivity.this, LeftMenusActivity.class);
+                                            Intent in = new Intent(LoginActivity.this, ClientListSectionedActivity.class);
                                             startActivity(in);
                                             finish();
                                         }
@@ -240,7 +240,7 @@ public class LoginActivity extends BaseActivity  {
                 {
                     if(stopapp.equalsIgnoreCase("false"))
                     {
-                        Intent in = new Intent(LoginActivity.this, LeftMenusActivity.class);
+                        Intent in = new Intent(LoginActivity.this, ClientListSectionedActivity.class);
                         startActivity(in);
                         finish();
                     }
