@@ -1,12 +1,15 @@
 package amigoinn.example.v4sales;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -16,13 +19,21 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.hudomju.swipe.SwipeToDismissTouchListener;
+import com.hudomju.swipe.adapter.ListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,7 +55,8 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  */
 
 
-public class ClientListSectionedActivity extends BaseActivity {
+public class ClientListSectionedActivity extends BaseActivity
+{
 
     //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
@@ -56,7 +68,12 @@ public class ClientListSectionedActivity extends BaseActivity {
     public static SectionedListActivityForFilters listActivity;
     View v;
     ArrayList<ClientInfo> clint_info;
-
+    TextView txtuser, txtZone, txtState,
+            txtCity, txtAddress;
+    TextView txtCall, txtMap;
+    ClientInfo cinfo;
+    Button btncall;
+            ImageView btnlocation;
     LocationManager lm;
     Location l;
     boolean isGPSEnabled;
@@ -136,7 +153,8 @@ public class ClientListSectionedActivity extends BaseActivity {
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchlistlayoutbefore);
 
@@ -155,29 +173,38 @@ public class ClientListSectionedActivity extends BaseActivity {
         inputSearch = (EditText) findViewById(R.id.inputSearch);
 
         TextView txtDone = (TextView) findViewById(R.id.txtDone);
-        txtFilter.setOnClickListener(new View.OnClickListener() {
+        txtFilter.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent in;
                 Config.filterfrom = "party";
-                if (Config.filterfrom.equalsIgnoreCase("product")) {
+                if (Config.filterfrom.equalsIgnoreCase("product"))
+                {
                     in = new Intent(getApplicationContext(), ProductFilter.class);
-                } else if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
+                } else if (Config.filterfrom.equalsIgnoreCase("Mainmenu"))
+                {
                     in = new Intent(getApplicationContext(), amigoinn.example.v4sales.Filter.class);
-                } else {
+                } else
+                {
                     in = new Intent(getApplicationContext(), amigoinn.example.v4sales.Filter.class);
                 }
-                try {
+                try
+                {
                     startActivityForResult(in, 111);
                 } catch (Exception ex) {
 
                 }
             }
         });
-        txtDone.setOnClickListener(new View.OnClickListener() {
+        txtDone.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
+            public void onClick(View v)
+            {
+                if (Config.filterfrom.equalsIgnoreCase("Mainmenu"))
+                {
                     Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.ClientsTabFragment.class);
                     startActivity(in);
                     finish();
@@ -187,7 +214,9 @@ public class ClientListSectionedActivity extends BaseActivity {
 //                    transaction.commit();
 
 
-                } else {
+                }
+                else
+                {
                     Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.AbsentList.class);
                     startActivity(in);
                 }
@@ -204,9 +233,11 @@ public class ClientListSectionedActivity extends BaseActivity {
             @Override
             public void ModelLoaded(ArrayList<ClientInfo> list) {
                 hideProgress();
-                Collections.sort(list, new Comparator<ClientInfo>() {
+                Collections.sort(list, new Comparator<ClientInfo>()
+                {
                     @Override
-                    public int compare(ClientInfo s1, ClientInfo s2) {
+                    public int compare(ClientInfo s1, ClientInfo s2)
+                    {
                         return s1.name.compareToIgnoreCase(s2.name);
                     }
                 });
@@ -297,7 +328,8 @@ public class ClientListSectionedActivity extends BaseActivity {
         private List<ClientInfo> filteredData = null;
         private ItemFilter mFilter = new ItemFilter();
 
-        public MyAdapter(Context context, List<ClientInfo> countri) {
+        public MyAdapter(Context context, List<ClientInfo> countri)
+        {
             inflater = LayoutInflater.from(context);
             countries = countri;
             filteredData = countri;
@@ -323,12 +355,15 @@ public class ClientListSectionedActivity extends BaseActivity {
         public View getView(final int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
 
-            if (convertView == null) {
+            if (convertView == null)
+            {
                 holder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.sammplelistitem, parent, false);
                 holder.text = (TextView) convertView.findViewById(R.id.tv);
                 convertView.setTag(holder);
-            } else {
+            }
+            else
+            {
                 holder = (ViewHolder) convertView.getTag();
             }
 
@@ -338,13 +373,15 @@ public class ClientListSectionedActivity extends BaseActivity {
             holder.text.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    ClientInfo c_info = filteredData.get(position);
+                    ClientInfo c_info = filteredData.get(position);
 //                    Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.ClientsTabFragment.class);
 //                    in.putExtra("client_code", c_info.client_code);
 //                    AccountApplication.setClient_code(c_info.client_code);
 //                    startActivity(in);
 //                    finish();
-                    showAlertDialog();
+                     Constants.client_id=c_info.client_code;
+                    QuestionDialog("1");
+               //     showAlertDialog();
                 }
             });
 
@@ -455,9 +492,12 @@ public class ClientListSectionedActivity extends BaseActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == 111) {
-                showAlertDialog();
+        if (resultCode == RESULT_OK)
+        {
+            if (requestCode == 111)
+            {
+                QuestionDialog("1");
+//                showAlertDialog();
 //                Intent in = new Intent(getApplicationContext(), amigoinn.example.v4sales.ClientsTabFragment.class);
 //                String str = AccountApplication.getClient_code();
 //                ClientInfo ci = ClientInfo.getClintInfoByName(str);
@@ -471,8 +511,102 @@ public class ClientListSectionedActivity extends BaseActivity {
 
     }
 
+    public  void QuestionDialog(String chapId)
+    {try {
+        final Dialog storyDialog = new Dialog(ClientListSectionedActivity.this);
+        storyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        storyDialog.setContentView(R.layout.client_contact_fragment);
+        storyDialog.getWindow().setLayout(ActionBar.LayoutParams.FILL_PARENT,
+                ActionBar.LayoutParams.WRAP_CONTENT);
+        storyDialog.setCancelable(true);
+        storyDialog.show();
+        String c_code = Constants.client_id;
+        txtuser = (TextView) storyDialog.findViewById(R.id.txtuser);
+        txtZone = (TextView) storyDialog.findViewById(R.id.txtZone);
+        txtState = (TextView) storyDialog.findViewById(R.id.txtState);
+        txtCity = (TextView) storyDialog.findViewById(R.id.txtCity);
+        txtAddress = (TextView) storyDialog.findViewById(R.id.txtAddress);
 
-    private void showAlertDialog() {
+        btncall = (Button) storyDialog.findViewById(R.id.btncall);
+        btncall.setVisibility(View.GONE);
+        btnlocation = (ImageView) storyDialog.findViewById(R.id.btnlocation);
+
+        btncall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String numberr = cinfo.mobile_number;
+                if (numberr != null)
+                {
+                    Uri number = Uri.parse("tel:" + numberr);
+                    Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                    startActivity(callIntent);
+                }
+
+            }
+        });
+
+        btnlocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent start = new Intent(ClientListSectionedActivity.this, GoogleMapActivity.class);
+//                startActivity(start);
+//                showAlertDialog();
+                try
+                {
+                    storyDialog.cancel();
+                    DoCall();
+
+                } catch (Exception ex) {
+                }
+            }
+        });
+
+
+        txtCall = (TextView) findViewById(R.id.txtCall);
+        txtMap = (TextView) findViewById(R.id.txtMap);
+
+//        txtCall.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String numberr = cinfo.mobile_number;
+//                if (numberr != null) {
+//                    Uri number = Uri.parse("tel:" + numberr);
+//                    Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+//                    startActivity(callIntent);
+//                }
+//            }
+//        });
+//
+//        txtMap.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent start = new Intent(ClientListSectionedActivity.this, GoogleMapActivity.class);
+//                startActivity(start);
+//            }
+//        });
+
+        if (c_code != null)
+        {
+            cinfo = ClientInfo.getClintInfoById(c_code);
+            if (cinfo != null) {
+                txtuser.setText(cinfo.name);
+                txtZone.setText(cinfo.Zone);
+                txtState.setText(cinfo.client_state);
+                txtCity.setText(cinfo.City);
+                txtAddress.setText(cinfo.client_addr_one + "," + cinfo.client_addr_two + "," + cinfo.client_addr_three + "," + cinfo.client_addr_four);
+            }
+        }
+
+
+//		DatabaseHandler1 handler1=new DatabaseHandler1(context);
+    }catch (Exception ex)
+    {
+
+    }
+    }
+
+    private void showAlertDialog()
+    {
 
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
@@ -485,13 +619,16 @@ public class ClientListSectionedActivity extends BaseActivity {
         alertDialogBuilder
                 .setMessage("Do you want to send your location to server?")
                 .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
                         DoCall();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int id)
+                    {
 
                         dialog.cancel();
                     }
@@ -505,7 +642,8 @@ public class ClientListSectionedActivity extends BaseActivity {
 
     }
 
-    public void DoCall() {
+    public void DoCall()
+    {
         showProgress();
         getLocation(new UniversalDelegate() {
 
@@ -517,18 +655,23 @@ public class ClientListSectionedActivity extends BaseActivity {
             }
 
             @Override
-            public void CallDidSuccess(String lat, String lang) {
-                LoginInfo.Instance().DoUpdatelocations(new ModelDelegates.LoginDelegate() {
+            public void CallDidSuccess(String lat, String lang)
+            {
+                LoginInfo.Instance().DoUpdatelocations(new ModelDelegates.LoginDelegate()
+                {
                     @Override
-                    public void LoginDidSuccess() {
+                    public void LoginDidSuccess()
+                    {
                         hideProgress();
+                        Toast.makeText(ClientListSectionedActivity.this,"Location sent successfully",Toast.LENGTH_LONG).show();
 
                     }
 
                     @Override
-                    public void LoginFailedWithError(String error) {
+                    public void LoginFailedWithError(String error)
+                    {
                         hideProgress();
-
+                        Toast.makeText(ClientListSectionedActivity.this,"Error in sending location",Toast.LENGTH_LONG).show();
                     }
                 }, lang, lat);
 //				Toast.makeText(getApplicationContext(),

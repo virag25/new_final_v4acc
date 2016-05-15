@@ -41,7 +41,8 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
  *
  * @author Cyril Mottier
  */
-public class SectionedListActivityForFilters extends Activity {
+public class SectionedListActivityForFilters extends Activity
+{
 
     //    private AudioFilesAdapter mAdapter;
     private NotifyingAsyncQueryHandler mQueryHandler;
@@ -69,15 +70,22 @@ public class SectionedListActivityForFilters extends Activity {
         setbaseadapter();
         fromactivity = getIntent().getStringExtra("from");
         TextView txtDone = (TextView) findViewById(R.id.txtDone);
-        txtDone.setOnClickListener(new View.OnClickListener() {
+
+        txtDone.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
+            public void onClick(View v)
+            {
+                if (Config.filterfrom.equalsIgnoreCase("Mainmenu"))
+                {
                     Intent in = new Intent(SectionedListActivityForFilters.this, amigoinn.example.v4sales.ClientActivity.class);
                     Config.filterfrom = "abc";
+//                    Constants.client_id=
                     startActivity(in);
                     finish();
-                } else {
+                }
+                else
+                {
 //                    Intent in = new Intent(SectionedListActivityForFilters.this, LeftMenusActivity.class);
 //                    in.putExtra("for", "order");
 //                    startActivity(in);
@@ -95,14 +103,16 @@ public class SectionedListActivityForFilters extends Activity {
 //        mQueryHandler.startQuery(Media.INTERNAL_CONTENT_URI, AudioFilesQuery.PROJECTION, AudioFilesQuery.SORT_ORDER);
     }
 
-    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter, Filterable {
+    public class MyAdapter extends BaseAdapter implements StickyListHeadersAdapter, Filterable
+    {
 
         private List<String> countries;
         private LayoutInflater inflater;
         private List<String> filteredData = null;
         private ItemFilter mFilter = new ItemFilter();
 
-        public MyAdapter(Context context, List<String> countri) {
+        public MyAdapter(Context context, List<String> countri)
+        {
             inflater = LayoutInflater.from(context);
             countries = countri;
             filteredData = countri;
@@ -125,15 +135,19 @@ public class SectionedListActivityForFilters extends Activity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
             ViewHolder holder;
 
-            if (convertView == null) {
+            if (convertView == null)
+            {
                 holder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.sammplelistitem, parent, false);
                 holder.text = (TextView) convertView.findViewById(R.id.tv);
                 convertView.setTag(holder);
-            } else {
+            }
+            else
+            {
                 holder = (ViewHolder) convertView.getTag();
             }
 
@@ -194,7 +208,8 @@ public class SectionedListActivityForFilters extends Activity {
         }
 
         @Override
-        public View getHeaderView(int position, View convertView, ViewGroup parent) {
+        public View getHeaderView(int position, View convertView, ViewGroup parent)
+        {
             HeaderViewHolder holder;
             if (convertView == null) {
                 holder = new HeaderViewHolder();
@@ -211,7 +226,8 @@ public class SectionedListActivityForFilters extends Activity {
         }
 
         @Override
-        public long getHeaderId(int position) {
+        public long getHeaderId(int position)
+        {
             //return the first character of the country as ID because this is what headers are based upon
             return filteredData.get(position).subSequence(0, 1).charAt(0);
         }
@@ -271,7 +287,8 @@ public class SectionedListActivityForFilters extends Activity {
     public void setbaseadapter() {
         final MyAdapter adapter = new MyAdapter(this, countries);
         stickyList.setAdapter(adapter);
-        stickyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        stickyList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedvalue = countries.get(position);
@@ -295,10 +312,12 @@ public class SectionedListActivityForFilters extends Activity {
                     Intent in = new Intent(SectionedListActivityForFilters.this, SectionedListActivityProductAfterFilter.class);
 //            in.putExtra("value",selectedvalue);
                     startActivityForResult(in, 111);
-                } else {
+                } else
+                {
                     AccountApplication.setClient_code(selectedvalue);
                     Intent start = new Intent();
                     setResult(RESULT_OK, start);
+                    Constants.client_id=Constants.clientcode.get(position);
                     finish();
 
                 }

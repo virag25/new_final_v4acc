@@ -81,6 +81,12 @@
             android:label="@string/title_activity_main"
             android:windowSoftInputMode="adjustPan" />
 
+        <activity
+            android:name=".ClientDetails"
+            android:label="Client Details"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
+            />
+
         <service
             android:name=".RegistrationIntentService"
             android:exported="false" />

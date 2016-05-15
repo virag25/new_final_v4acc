@@ -9,6 +9,7 @@ import amigoinn.common.NetworkConnectivity;
 import amigoinn.modelmapper.ModelMapHelper;
 import amigoinn.servicehelper.ServiceHelper;
 import amigoinn.servicehelper.ServiceResponse;
+import amigoinn.walkietalkie.Constants;
 
 /**
  * Created by Virag kuvadia on 28-04-2016.
@@ -107,12 +108,17 @@ public class LoginInfo {
         helper.addParam("oldpassword", oldpass);
         helper.addParam("newpassword", newpass);
 
-        helper.call(new ServiceHelper.ServiceHelperDelegate() {
+        helper.call(new ServiceHelper.ServiceHelperDelegate()
+        {
             @Override
-            public void CallFinish(ServiceResponse res) {
-                if (res.RawResponse != null) {
+            public void CallFinish(ServiceResponse res)
+            {
+                if (res.RawResponse != null)
+                {
                     m_delegate.LoginDidSuccess();
-                } else {
+                }
+                else
+                {
                     m_delegate.LoginFailedWithError("Pleasae try again");
                 }
 
@@ -126,27 +132,34 @@ public class LoginInfo {
     }
 
 
-    public void DoUpdatelocations(ModelDelegates.LoginDelegate delegate, String lang, String lati) {
+    public void DoUpdatelocations(ModelDelegates.LoginDelegate delegate, String lang, String lati)
+    {
         m_delegate = delegate;
         ServiceHelper helper = new ServiceHelper(ServiceHelper.INSERT_LOCATIONS, ServiceHelper.RequestMethod.POST);
-        helper.addParam("userid", UserInfo.getUser().login_id);
+        helper.addParam("clientid", Constants.client_id);
         helper.addParam("long", lang);
         helper.addParam("lat", lati);
-        helper.addParam("type", "m");
+        helper.addParam("type", "C");
 
-        helper.call(new ServiceHelper.ServiceHelperDelegate() {
+        helper.call(new ServiceHelper.ServiceHelperDelegate()
+        {
             @Override
-            public void CallFinish(ServiceResponse res) {
-                if (res.RawResponse != null) {
+            public void CallFinish(ServiceResponse res)
+            {
+                if (res.RawResponse != null)
+                {
                     m_delegate.LoginDidSuccess();
-                } else {
+                }
+                else
+                {
                     m_delegate.LoginFailedWithError("Pleasae try again");
                 }
 
             }
 
             @Override
-            public void CallFailure(String ErrorMessage) {
+            public void CallFailure(String ErrorMessage)
+            {
                 m_delegate.LoginFailedWithError("Pleasae try again");
             }
         });

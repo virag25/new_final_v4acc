@@ -14,9 +14,11 @@ public class Constants
     public static String[] arrTemp2;
     public static  String selectedclient="";
     public static  String selectedproduct="";
+    public static  String client_id="";
     public static List<String> Zonelist=new ArrayList<String>();
     public static List<String> PartyList=new ArrayList<String>();
     public static List<String> countries=new ArrayList<String>();
+    public static List<String> clientcode=new ArrayList<String>();
     public static List<String> Statelist=new ArrayList<String>();
     public static List<String> CityList=new ArrayList<String>();
 

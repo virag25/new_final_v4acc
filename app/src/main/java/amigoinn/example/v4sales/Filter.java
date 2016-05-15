@@ -25,7 +25,8 @@ public class Filter extends Activity {
     DatabaseHandler1 handler1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         try {
             setContentView(R.layout.activity_filter);
@@ -62,10 +63,15 @@ public class Filter extends Activity {
                     String selected = Constants.Zonelist.get(position);
                     ArrayList<ClientInfo> clist = ClientInfo.getClintInfoByZone(selected);
                     ArrayList<String> selectedzone = new ArrayList<String>();
-                    if (clist != null) {
-                        for (int i = 0; i < clist.size(); i++) {
+                    Constants.clientcode.clear();
+                    if (clist != null)
+                    {
+                        for (int i = 0; i < clist.size(); i++)
+                        {
                             ClientInfo ci = clist.get(i);
                             selectedzone.add(ci.name);
+                            Constants.clientcode.add(ci.client_code);
+
                         }
                     }
                     Constants.countries = selectedzone;//Constants.Zonelist;

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="amigoinn.example.v4sales.ClientContactFragment">
 
     <RelativeLayout
@@ -18,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="@color/main_color_500"
-            android:text="Address Details"
+            android:text="Client Details"
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -55,13 +56,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
+
             android:weightSum="100">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 android:layout_weight="30"
                 android:gravity="center"
@@ -72,7 +74,7 @@
             <TextView
                 android:id="@+id/txtuser"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
                 android:layout_weight="70"
                 android:gravity="center|left"
@@ -83,7 +85,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:weightSum="100">
 
@@ -100,7 +102,7 @@
             <TextView
                 android:id="@+id/txtZone"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
                 android:layout_weight="70"
                 android:gravity="center|left"
@@ -111,7 +113,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:weightSum="100">
 
@@ -128,7 +130,7 @@
             <TextView
                 android:id="@+id/txtState"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
                 android:layout_weight="70"
                 android:gravity="center|left"
@@ -139,7 +141,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:weightSum="100">
 
@@ -156,7 +158,7 @@
             <TextView
                 android:id="@+id/txtCity"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
                 android:layout_weight="70"
                 android:gravity="center|left"
@@ -168,7 +170,7 @@
         <LinearLayout
             android:id="@+id/lnrAddress"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:weightSum="100">
 
@@ -185,7 +187,7 @@
             <TextView
                 android:id="@+id/txtAddress"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
                 android:layout_weight="70"
                 android:gravity="center|left"
@@ -213,17 +215,20 @@
             android:background="@color/main_color_500"
             android:gravity="center_horizontal|center_vertical"
             android:text="Call"
+            android:visibility="gone"
             android:textColor="#ffffff" />
 
-        <Button
+        <ImageView
             android:id="@+id/btnlocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
-            android:background="@color/main_color_500"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Location"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/greenmarker"
+
+
+            android:text=""
             android:textColor="#ffffff" />
 
     </LinearLayout>
