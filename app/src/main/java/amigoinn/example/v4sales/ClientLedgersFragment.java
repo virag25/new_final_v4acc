@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 import java.util.ArrayList;
 
 import amigoinn.db_model.ClientDispatchInfo;
@@ -34,7 +33,7 @@ public class ClientLedgersFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.client_ledgers_fragment, container, false);
         listView2 = (ListView) v.findViewById(R.id.listView2);
-        loadData();
+//        loadData();
         v.setFocusableInTouchMode(true);
         v.requestFocus();
 

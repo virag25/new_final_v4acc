@@ -51,6 +51,18 @@ public class ClientInfo extends ActiveRecordBase {
     @ModelMapper(JsonKey = "MobilePhone")
     public String mobile_number = "";
 
+    @ModelMapper(JsonKey = "salesman")
+    public String salesman = "";
+
+    @ModelMapper(JsonKey = "ctype")
+    public String ctype = "";
+
+    @ModelMapper(JsonKey = "lat")
+    public String lat = "";
+
+    @ModelMapper(JsonKey = "long")
+    public String lang = "";
+
 
     public static ArrayList<ClientInfo> getAllClint() {
         ArrayList<ClientInfo> m_list = new ArrayList<ClientInfo>();
@@ -169,7 +181,7 @@ public class ClientInfo extends ActiveRecordBase {
     }
 
 
-    public static  ArrayList<ClientInfo> getClintInfoByState(String client_state) {
+    public static ArrayList<ClientInfo> getClintInfoByState(String client_state) {
         ArrayList<ClientInfo> m_list = new ArrayList<ClientInfo>();
         try {
             List<ClientInfo> lst = AccountApplication.Connection().find(

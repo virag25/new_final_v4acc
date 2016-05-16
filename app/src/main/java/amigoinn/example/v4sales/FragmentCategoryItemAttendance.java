@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 import amigoinn.adapters.Custom_Route_Home;
 import amigoinn.db_model.GenLookInfo;
 import amigoinn.db_model.ModelDelegates;
@@ -34,40 +33,36 @@ import java.util.List;
 /**
  * Created by Manthan on 28/09/2015.
  */
-public class FragmentCategoryItemAttendance extends BaseFragment
-{
+public class FragmentCategoryItemAttendance extends BaseFragment {
     View view;
     ListView lvroute;
     Context context;
     ArrayList<String> labels = new ArrayList<String>();
-//    public static String[] leftline = {"", "",""};
-    List<Datum> routeinfo =new ArrayList<>();
-//    public static String[] rightline = {"","",""};
+    //    public static String[] leftline = {"", "",""};
+    List<Datum> routeinfo = new ArrayList<>();
+    //    public static String[] rightline = {"","",""};
 //    public static String[] leftbox = {"Places", "Places","Places"};
 //    public static String[] rightbox = {"55","78","13"};
 //    public static int [] middot = {R.drawable.tl1middot, R.drawable.tl1middot,R.drawable.tl1middot};
 //    public static int[] leftdot = {R.drawable.tl1dot,R.drawable.tl1dot,R.drawable.tl1dot};
 //    public static int[] rightdot = {R.drawable.tl1dot,R.drawable.tl1dot,R.drawable.tl1dot};
     TextView txtSubmit;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_category_item_attendence, container, false);
-        context=view.getContext();
+        context = view.getContext();
         lvroute = (ListView) view.findViewById(R.id.lvroute);
         txtSubmit = (TextView) view.findViewById(R.id.txtSubmit);
         txtSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                try
-                {
+            public void onClick(View v) {
+                try {
                     Intent in = new Intent(context, GoogleMapActivity.class);
                     context.startActivity(in);
-                }catch (Exception ex)
-                {
+                } catch (Exception ex) {
                     Log.e("Error", ex.toString());
                 }
             }
@@ -79,10 +74,11 @@ public class FragmentCategoryItemAttendance extends BaseFragment
 //            routes.add("Route "+j);
 //        }
 //        lvroute.setAdapter(new Custom_Route_Home(view.getContext(),routes));
-callRouteInfo(UserInfo.getUser().login_id,UserInfo.getUser().login_id);
+        callRouteInfo(UserInfo.getUser().user_code, UserInfo.getUser().login_id);
         return view;
     }
-//    public void loadGENLOOKUPS()
+
+    //    public void loadGENLOOKUPS()
 //    {
 //        //   showProgress();
 //        RouteList.Instance().DoClintOrder(new ModelDelegates.ModelDelegate<RouteInfo>()
@@ -114,8 +110,7 @@ callRouteInfo(UserInfo.getUser().login_id,UserInfo.getUser().login_id);
 //            }
 //        });
 //    }
-private void callRouteInfo(String userid, final String usernAME)
-{
+    private void callRouteInfo(String userid, final String usernAME) {
 //
 //        if (!Utils.checkNetwork(getApplicationContext()))
 //        {
@@ -125,19 +120,16 @@ private void callRouteInfo(String userid, final String usernAME)
 //        }
 //    tasksList.clear();
 //    subtasks.clear();
-    Utils.ShowCustomProgress(context);
-    ApiHandler.getApiService().getRootInfo(userid, new Callback<MyPojoRoute>()
-    {
-        @Override
-        public void success(MyPojoRoute res, Response response)
-        {
+        Utils.ShowCustomProgress(context);
+        ApiHandler.getApiService().getRootInfo(userid, new Callback<MyPojoRoute>() {
+            @Override
+            public void success(MyPojoRoute res, Response response) {
 
-            Utils.dismissDialog();
+                Utils.dismissDialog();
 
 //                loadGENLOOKUPS();
-            try
-            {
-                routeinfo=res.getData();
+                try {
+                    routeinfo = res.getData();
 //                for (int i = 0; i < res.getData().size(); i++)
 //                {
 ////                    routeinfo.add(res.getData())
@@ -147,27 +139,24 @@ private void callRouteInfo(String userid, final String usernAME)
 ////                        tasksList.add(todaystasks.get(i).getVtaskdetail());
 //
 //                }
-                lvroute.setAdapter(new Custom_Route_Home(view.getContext(),routeinfo));
+                    lvroute.setAdapter(new Custom_Route_Home(view.getContext(), routeinfo));
 
+                } catch (Exception ex) {
+
+                }
             }
-            catch (Exception ex)
-            {
 
+            @Override
+            public void failure(RetrofitError error) {
+                //Utils.dismissDialog();
+                Utils.dismissDialog();
+                error.printStackTrace();
+                //error.getMessage();
+                //Utils.toast(ActivityIndividualItem.this, "Something Went Wrong");
             }
-        }
+        });
 
-        @Override
-        public void failure(RetrofitError error) {
-            //Utils.dismissDialog();
-            Utils.dismissDialog();
-            error.printStackTrace();
-            //error.getMessage();
-            //Utils.toast(ActivityIndividualItem.this, "Something Went Wrong");
-        }
-    });
-
-}
-
+    }
 
 
 }

@@ -14,7 +14,9 @@ import amigoinn.common.Const;
 import amigoinn.db_model.ClassCombInfo;
 import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.GenLookInfo;
+import amigoinn.db_model.MarketTypeInfo;
 import amigoinn.db_model.ProductInfo;
+import amigoinn.db_model.SalesmenInfo;
 import amigoinn.db_model.UserInfo;
 import amigoinn.modallist.Combo12;
 
@@ -60,7 +62,8 @@ public class AccountApplication extends Application {
         builder.addClass(UserInfo.class);
         builder.addClass(ClientInfo.class);
         builder.addClass(ProductInfo.class);
-
+        builder.addClass(SalesmenInfo.class);
+        builder.addClass(MarketTypeInfo.class);
         builder.addClass(GenLookInfo.class);
         try {
             builder.addClass(ClassCombInfo.class);

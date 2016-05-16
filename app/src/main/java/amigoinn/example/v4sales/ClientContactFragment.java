@@ -1,27 +1,69 @@
 package amigoinn.example.v4sales;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import org.w3c.dom.Text;
 
-import amigoinn.db_model.ClientInfo;
+import java.util.ArrayList;
 
-public class ClientContactFragment extends Fragment {
+import amigoinn.db_model.ClientInfo;
+import amigoinn.db_model.LoginInfo;
+import amigoinn.db_model.MarketTypeInfo;
+import amigoinn.db_model.ModelDelegates;
+import amigoinn.db_model.SalesmenInfo;
+import amigoinn.modallist.SalesList;
+
+public class ClientContactFragment extends BaseFragment {
     TextView txtuser, txtZone, txtState,
             txtCity, txtAddress;
     TextView txtCall, txtMap;
     ClientInfo cinfo;
-    Button btncall, btnlocation;
+    ImageView btnlocation;
+    Button btncall;
+    Spinner spnData, spnType;
+    ArrayList<String> bnd_list = new ArrayList<>();
+    ArrayList<String> bnd_list_type = new ArrayList<>();
+    String selected_id;
+    String selected_type_id;
+    EditText edtSpin;
+
+    LocationManager lm;
+    Location l;
+    boolean isGPSEnabled;
+    boolean isNetworkEnabled;
+    String Longitude, Latitude;
+    GPSTracker gpsTracker;
+    UniversalDelegate m_delegate;
+
+    TextView txtTempo;
+
+    public interface UniversalDelegate {
+        public void CallDidSuccess(String lat, String lang);
+
+        public void CallFailedWithError(String error);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,11 +74,77 @@ public class ClientContactFragment extends Fragment {
         txtuser = (TextView) v.findViewById(R.id.txtuser);
         txtZone = (TextView) v.findViewById(R.id.txtZone);
         txtState = (TextView) v.findViewById(R.id.txtState);
+        txtTempo = (TextView) v.findViewById(R.id.txtTempo);
         txtCity = (TextView) v.findViewById(R.id.txtCity);
+        edtSpin = (EditText) v.findViewById(R.id.edtSpn);
         txtAddress = (TextView) v.findViewById(R.id.txtAddress);
+        spnData = (Spinner) v.findViewById(R.id.spnData);
+        spnType = (Spinner) v.findViewById(R.id.spnType);
+
+        ArrayList<SalesmenInfo> lst = SalesmenInfo.getAllProduct();
+        if (lst != null && lst.size() > 0) {
+            selected_id = lst.get(0).Code;
+
+            for (int i = 0; i < lst.size(); i++) {
+                SalesmenInfo sale = lst.get(i);
+                bnd_list.add(sale.Nm);
+            }
+
+            ArrayList<MarketTypeInfo> lsttype = MarketTypeInfo.getAllProduct();
+            if (lsttype != null && lsttype.size() > 0) {
+                selected_type_id = lsttype.get(0).Code;
+                for (int i = 0; i < lsttype.size(); i++) {
+                    MarketTypeInfo sale = lsttype.get(i);
+                    bnd_list_type.add(sale.Descr);
+                }
+            }
+
+//            edtSpin.setText(bnd_list.get(0));
+            ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bnd_list);
+            spnData.setAdapter(adapter);
+
+            ArrayAdapter adapter1 = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bnd_list_type);
+            spnType.setAdapter(adapter1);
+        } else {
+            SalesList.Instance().DoSalsApi(new ModelDelegates.ModelDelegate<SalesmenInfo>() {
+                @Override
+                public void ModelLoaded(ArrayList<SalesmenInfo> list) {
+                    ArrayList<SalesmenInfo> lst = SalesmenInfo.getAllProduct();
+                    if (lst != null && lst.size() > 0) {
+                        selected_id = lst.get(0).Code;
+                        for (int i = 0; i < lst.size(); i++) {
+                            SalesmenInfo sale = lst.get(i);
+                            bnd_list.add(sale.Nm);
+                        }
+//                        edtSpin.setText(bnd_list.get(0));
+                    }
+
+
+                    ArrayList<MarketTypeInfo> lsttype = MarketTypeInfo.getAllProduct();
+                    if (lsttype != null && lsttype.size() > 0) {
+                        selected_type_id = lsttype.get(0).Code;
+                        for (int i = 0; i < lsttype.size(); i++) {
+                            MarketTypeInfo sale = lsttype.get(i);
+                            bnd_list_type.add(sale.Descr);
+                        }
+                    }
+                    ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bnd_list);
+                    spnData.setAdapter(adapter);
+
+                    ArrayAdapter adapter1 = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bnd_list_type);
+                    spnType.setAdapter(adapter1);
+                }
+
+                @Override
+                public void ModelLoadFailedWithError(String error) {
+
+                }
+            });
+        }
+
 
         btncall = (Button) v.findViewById(R.id.btncall);
-        btnlocation = (Button) v.findViewById(R.id.btnlocation);
+        btnlocation = (ImageView) v.findViewById(R.id.btnlocation);
 
         btncall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,11 +159,58 @@ public class ClientContactFragment extends Fragment {
             }
         });
 
+        edtSpin.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    spnData.performClick();
+
+                }
+                return true;
+            }
+        });
+
+        spnData.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String str = bnd_list.get(position);
+//                edtSpin.setText(str);
+                SalesmenInfo si = SalesmenInfo.getSalesmenInfoByItemName(str);
+                if (si != null) {
+                    selected_id = si.Code;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        spnType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String str = bnd_list_type.get(position);
+//                edtSpin.setText(str);
+                MarketTypeInfo si = MarketTypeInfo.getMarketTypeInfoByItemName(str);
+                if (si != null) {
+                    selected_type_id = si.Code;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
         btnlocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent start = new Intent(getActivity(), GoogleMapActivity.class);
-                startActivity(start);
+                DoCall();
+
             }
         });
 
@@ -91,10 +246,128 @@ public class ClientContactFragment extends Fragment {
                 txtState.setText(cinfo.client_state);
                 txtCity.setText(cinfo.City);
                 txtAddress.setText(cinfo.client_addr_one + "," + cinfo.client_addr_two + "," + cinfo.client_addr_three + "," + cinfo.client_addr_four);
+
+                String salese = cinfo.salesman;
+                if (salese != null) {
+                    SalesmenInfo si = SalesmenInfo.getSalesmenInfoById(salese);
+                    if (si != null) {
+                        String mi_txt = null;
+                        MarketTypeInfo mi = MarketTypeInfo.getMarketTypeInfoById(cinfo.ctype);
+                        if (mi != null) {
+                            mi_txt = mi.Descr;
+                        }
+                        txtTempo.setText("Selected Saleseman:" + si.Nm + "/nMarket Type: " + mi_txt + "/Lat&Lang: " + cinfo.lat + "," + cinfo.lang);
+                    }
+
+                }
             }
         }
 
 
         return v;
+    }
+
+
+    public void DoCall() {
+        showProgress();
+        getLocation(new UniversalDelegate() {
+
+            @Override
+            public void CallFailedWithError(String error) {
+                hideProgress();
+//                Toast.makeText(getActivity(), error,
+//                        Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void CallDidSuccess(String lat, String lang) {
+                LoginInfo.Instance().DoUpdatelocations(new ModelDelegates.LoginDelegate() {
+                    @Override
+                    public void LoginDidSuccess() {
+                        hideProgress();
+                        Toast.makeText(getActivity(), "Location sent successfully", Toast.LENGTH_LONG).show();
+                        Intent start = new Intent(getActivity(), GoogleMapActivity.class);
+                        startActivity(start);
+
+                    }
+
+                    @Override
+                    public void LoginFailedWithError(String error) {
+                        hideProgress();
+                        Toast.makeText(getActivity(), "Error in sending location", Toast.LENGTH_LONG).show();
+                        Intent start = new Intent(getActivity(), GoogleMapActivity.class);
+                        startActivity(start);
+                    }
+                }, lang, lat, false, selected_id, selected_type_id);
+//				Toast.makeText(getActivity(),
+//						" lat=" + lat + "lang " + lang, Toast.LENGTH_LONG)
+//						.show();
+            }
+        });
+
+    }
+
+    public void getLocation(UniversalDelegate delegate) {
+        m_delegate = delegate;
+
+        gpsTracker = new GPSTracker(getActivity());
+        Location location = null;
+        try {
+            lm = (LocationManager) getActivity().getSystemService(
+                    getActivity().LOCATION_SERVICE);
+            isGPSEnabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            isNetworkEnabled = lm
+                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+            if (isGPSEnabled) {
+                Latitude = String.valueOf(gpsTracker.latitude);
+                Longitude = String.valueOf(gpsTracker.longitude);
+                m_delegate.CallDidSuccess(Latitude, Longitude);
+            } else {
+                showSettingsAlert(getActivity());
+                gpsTracker.showSettingsAlert(getActivity());
+                m_delegate.CallFailedWithError("try again");
+            }
+
+        } catch (Exception e) {
+            m_delegate.CallFailedWithError("try again");
+            e.printStackTrace();
+        }
+    }
+
+
+    public void showSettingsAlert(final Context mContext) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+
+        // Setting Dialog Title
+        alertDialog.setTitle("V4 Account");
+
+        // Setting Dialog Message
+        if (isGPSEnabled) {
+//			alertDialog.setMessage("Would you like to Stop GPS Service.");
+        } else {
+            alertDialog.setMessage("Start your location service");
+        }
+
+        // On Pressing Setting button
+        alertDialog.setPositiveButton("Setting",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(
+                                android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);// ACTION_LOCATION_SOURCE_SETTINGS
+                        mContext.startActivity(intent);
+                    }
+                });
+
+        // On pressing cancel button
+        alertDialog.setNegativeButton("Cancle",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        alertDialog.show();
     }
 }

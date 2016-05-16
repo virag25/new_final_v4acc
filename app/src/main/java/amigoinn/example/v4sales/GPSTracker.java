@@ -99,7 +99,7 @@ public class GPSTracker extends Service implements LocationListener {
 						}
 					}
 				} else {
-					 showSettingsAlert(mContext);
+//					 showSettingsAlert(mContext);
 				}
 			}
 		} catch (Exception e) {

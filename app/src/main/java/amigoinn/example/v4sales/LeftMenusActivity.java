@@ -132,7 +132,7 @@ public class LeftMenusActivity extends ActionBarActivity {
         //GcmMessageHandler.count=0;
         //registerGCM();
 
-//		setAlaram(10);
+        setAlaram(5);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mTitle = mDrawerTitle = getTitle();
@@ -566,8 +566,8 @@ public class LeftMenusActivity extends ActionBarActivity {
 //						Constants.addParty();
 //						Constants.countries=Constants.PartyList;
 //						Config.filterfrom="Mainmenu";
-//                        Fragment fragment1234 = new ClientListSectionedActivity();//.newInstance();
-//                        commitFragment(fragment1234);
+                        Fragment fragment1234 = new ClientListSectionedFragment();//.newInstance();
+                        commitFragment(fragment1234);
 //						Intent in = new Intent(LeftMenusActivity.this, SectionedListBeforeFilter.class);
 //						startActivity(in);
                     } catch (Exception ex) {
@@ -940,7 +940,7 @@ public class LeftMenusActivity extends ActionBarActivity {
         alarmManager = (AlarmManager) getApplicationContext().getSystemService(
                 Context.ALARM_SERVICE);
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, Calendar
-                        .getInstance().getTimeInMillis() + (time * 1000), time * 1000,
+                        .getInstance().getTimeInMillis() + (time * 60 * 1000), time * 60 * 1000,
                 pendingIntent);
 
         // AlarmManager alarmManager = (AlarmManager) getApplicationContext()

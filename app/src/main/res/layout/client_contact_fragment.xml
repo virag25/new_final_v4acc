@@ -196,13 +196,81 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtTempo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/llone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnrtContainer"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_weight="0.7"
+            android:gravity="center_vertical|right"
+            android:text="Select sales : "
+            android:textColor="@color/main_color_grey_700"
+            android:textSize="16dp" />
+
+        <Spinner
+            android:id="@+id/spnData"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"></Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lltwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llone"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_weight="0.7"
+            android:gravity="center_vertical|right"
+            android:text="Select Type : "
+            android:textColor="@color/main_color_grey_700"
+            android:textSize="16dp" />
+
+        <Spinner
+            android:id="@+id/spnType"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"></Spinner>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edtSpn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnrtContainer"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone"></EditText>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lnrtContainer"
+        android:layout_below="@+id/lltwo"
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
@@ -215,19 +283,17 @@
             android:background="@color/main_color_500"
             android:gravity="center_horizontal|center_vertical"
             android:text="Call"
-            android:visibility="gone"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/btnlocation"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/greenmarker"
-
-
             android:text=""
             android:textColor="#ffffff" />
 

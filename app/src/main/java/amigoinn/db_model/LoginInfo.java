@@ -35,8 +35,7 @@ public class LoginInfo {
 
     public void doLogin(final ModelDelegates.LoginDelegate delegate) {
         m_delegate = delegate;
-        if (NetworkConnectivity.isConnected())
-        {
+        if (NetworkConnectivity.isConnected()) {
             ServiceHelper helper = new ServiceHelper(ServiceHelper.LOGIN,
                     ServiceHelper.RequestMethod.POST);
             helper.addParam("username", this.email);
@@ -108,17 +107,12 @@ public class LoginInfo {
         helper.addParam("oldpassword", oldpass);
         helper.addParam("newpassword", newpass);
 
-        helper.call(new ServiceHelper.ServiceHelperDelegate()
-        {
+        helper.call(new ServiceHelper.ServiceHelperDelegate() {
             @Override
-            public void CallFinish(ServiceResponse res)
-            {
-                if (res.RawResponse != null)
-                {
+            public void CallFinish(ServiceResponse res) {
+                if (res.RawResponse != null) {
                     m_delegate.LoginDidSuccess();
-                }
-                else
-                {
+                } else {
                     m_delegate.LoginFailedWithError("Pleasae try again");
                 }
 
@@ -132,34 +126,35 @@ public class LoginInfo {
     }
 
 
-    public void DoUpdatelocations(ModelDelegates.LoginDelegate delegate, String lang, String lati)
-    {
+    public void DoUpdatelocations(ModelDelegates.LoginDelegate delegate, String lang, String lati, boolean isEvery, String s_id, String m_type) {
         m_delegate = delegate;
         ServiceHelper helper = new ServiceHelper(ServiceHelper.INSERT_LOCATIONS, ServiceHelper.RequestMethod.POST);
-        helper.addParam("clientid", Constants.client_id);
+        if (!isEvery) {
+            helper.addParam("type", "C");
+            helper.addParam("clientid", Constants.client_id);
+            helper.addParam("sals_id", s_id);
+            helper.addParam("market_type", m_type);
+        } else {
+            helper.addParam("type", "S");
+            helper.addParam("clientid", UserInfo.getUser().user_code);
+        }
+
         helper.addParam("long", lang);
         helper.addParam("lat", lati);
-        helper.addParam("type", "C");
 
-        helper.call(new ServiceHelper.ServiceHelperDelegate()
-        {
+        helper.call(new ServiceHelper.ServiceHelperDelegate() {
             @Override
-            public void CallFinish(ServiceResponse res)
-            {
-                if (res.RawResponse != null)
-                {
+            public void CallFinish(ServiceResponse res) {
+                if (res.RawResponse != null) {
                     m_delegate.LoginDidSuccess();
-                }
-                else
-                {
+                } else {
                     m_delegate.LoginFailedWithError("Pleasae try again");
                 }
 
             }
 
             @Override
-            public void CallFailure(String ErrorMessage)
-            {
+            public void CallFailure(String ErrorMessage) {
                 m_delegate.LoginFailedWithError("Pleasae try again");
             }
         });

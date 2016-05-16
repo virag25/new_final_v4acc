@@ -31,6 +31,8 @@ import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
+import org.json.JSONObject;
+
 import amigoinn.adapters.SectionedListActivityForFilters;
 import amigoinn.adapters.SectionedListBeforeFilter;
 import amigoinn.db_model.CartInfo;
@@ -389,7 +391,8 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
                 }
             }
         }
-        String data = "{\"userid\":\"%s\",\"client_code\":\"%s\",\"order_date\":\"%s\",\"due_date\":\"%s\",\"devicecode\":\"%s\",\"products\":\"%s\"}";
+
+        String data = "{\"userid\":\"%s\",\"client_code\":\"%s\",\"order_date\":\"%s\",\"due_date\":\"%s\",\"devicecode\":\"%s\",\"products\":%s}";
         String strr = GetJsonForPackage();
         data = String.format(data, UserInfo.getUser().login_id, cid, str1, str2, "0001", strr);
         return data;
@@ -434,17 +437,18 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         String data = makeJson();
         if (data != null && data.length() > 0) {
             ServiceHelper helper = new ServiceHelper(ServiceHelper.ADD_ORDER, ServiceHelper.RequestMethod.POST, data);
+            helper.addParam("json", data);
             helper.call(new ServiceHelper.ServiceHelperDelegate() {
                 @Override
                 public void CallFinish(ServiceResponse res) {
                     hideProgress();
-                    if (res.RawResponse != null) {
+                    if (res.RawResponse != null && res.RawResponse.contains("success")) {
                         Toast.makeText(context, "Order placed successfully!", Toast.LENGTH_LONG).show();
                         Intent start = new Intent(getActivity(), LeftMenusActivity.class);
                         startActivity(start);
                         getActivity().finish();
                     } else {
-
+                        Toast.makeText(context, "Please try again", Toast.LENGTH_LONG).show();
                     }
 
                 }

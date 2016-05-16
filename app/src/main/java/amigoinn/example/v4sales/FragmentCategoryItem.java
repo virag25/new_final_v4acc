@@ -162,7 +162,7 @@ public class FragmentCategoryItem extends Fragment
         try
         {
             //createListview1();
-            callAPI("1");
+            callAPI(UserInfo.getUser().user_code);
         }
         catch (Exception ex)
         {

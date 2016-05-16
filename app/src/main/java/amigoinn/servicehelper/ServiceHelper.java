@@ -68,7 +68,7 @@ public class ServiceHelper {
 
     public static final String SALE_DETAILS = " salesdetails.php";
 
-
+    public static final String SALESMAN = "getsalesman.php";
     public static final String PRODUCT_DETAILS = "productwiseorder.php";
 
 
@@ -212,35 +212,35 @@ public class ServiceHelper {
             request = new HttpPost(getFinalUrl());
             StringEntity se;
             // request.setHeader("Accept", "application/json");
-            if (m_methodName.equalsIgnoreCase(ADD_ORDER)) {
-                request.setHeader("Content-Type",
-                        "application/json");
-                if (my_quesryString != null) {
-                    CommonUtils.LogInfo("REGISTER---->>" + my_quesryString);
-                    try {
-                        se = new StringEntity(my_quesryString);
-                        ((HttpPost) request).setEntity(se);
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
+//            if (m_methodName.equalsIgnoreCase(ADD_ORDER)) {
+//                request.setHeader("Content-Type",
+//                        "application/json");
+//                if (my_quesryString != null) {
+//                    CommonUtils.LogInfo("REGISTER---->>" + my_quesryString);
+//                    try {
+//                        se = new StringEntity(my_quesryString);
+//                        ((HttpPost) request).setEntity(se);
+//                    } catch (UnsupportedEncodingException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }
+//
+//            } else {
+            request.setHeader("Content-Type",
+                    "application/x-www-form-urlencoded");
+            if (m_params.size() > 0) {
+                // JSONObject json = JsonCreator.getJsonObject(m_params);
+                String queryString = CommonUtils.Instance().join(m_params, "&");
+                CommonUtils.LogInfo("REGISTER---->>" + queryString);
 
+                try {
+                    se = new StringEntity(queryString);
+                    ((HttpPost) request).setEntity(se);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
                 }
-
-            } else {
-                request.setHeader("Content-Type",
-                        "application/x-www-form-urlencoded");
-                if (m_params.size() > 0) {
-                    // JSONObject json = JsonCreator.getJsonObject(m_params);
-                    String queryString = CommonUtils.Instance().join(m_params, "&");
-                    CommonUtils.LogInfo("REGISTER---->>" + queryString);
-
-                    try {
-                        se = new StringEntity(queryString);
-                        ((HttpPost) request).setEntity(se);
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-                }
+//                }
             }
 
 
@@ -410,9 +410,7 @@ public class ServiceHelper {
 //                        response.Message = data.getString("message");
 //                        response.RawResponse = strResponse;
                     response.RawResponse = strResponse;
-                }
-                else
-                {
+                } else {
                     //response.isSuccess = data.getBoolean("success");
                     //response.Message = data.getString("message");
                     response.RawResponse = strResponse;
@@ -427,18 +425,13 @@ public class ServiceHelper {
         }
 
         @Override
-        protected void onPostExecute(ServiceResponse result)
-        {
-            if (result != null)
-            {
-                if (m_delegate != null)
-                {
+        protected void onPostExecute(ServiceResponse result) {
+            if (result != null) {
+                if (m_delegate != null) {
                     m_delegate.CallFinish(result);
                 }
-            } else
-            {
-                if (m_delegate != null)
-                {
+            } else {
+                if (m_delegate != null) {
                     m_delegate.CallFailure(ServiceHelper.COMMON_ERROR);
                 }
             }

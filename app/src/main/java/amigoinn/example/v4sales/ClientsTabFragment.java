@@ -23,6 +23,7 @@ import com.astuetz.PagerSlidingTabStrip;
 
 
 import amigoinn.db_model.ClientInfo;
+import amigoinn.modallist.SalesList;
 
 public class ClientsTabFragment extends FragmentActivity {
 
@@ -53,6 +54,9 @@ public class ClientsTabFragment extends FragmentActivity {
         if (code != null) {
             top_title.setText(code_info.name);
         }
+
+        SalesList.Instance().DoSalsApi(null);
+
         viewPager.setAdapter(new ClientsPagerAdapter(
                 getApplicationContext(), getSupportFragmentManager(), Titles, Numboftabs));
         int px = (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, ClientsTabFragment.this.getResources().getDisplayMetrics()));

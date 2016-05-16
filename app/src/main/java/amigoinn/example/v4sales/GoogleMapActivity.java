@@ -53,6 +53,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import amigoinn.db_model.ClientInfo;
+
 
 public class GoogleMapActivity extends Activity
 {
@@ -64,6 +66,8 @@ public class GoogleMapActivity extends Activity
     private static final LatLng WALL_STREET = new LatLng(40.7064, -74.0094);
     private Marker customMarker;
     private LatLng markerLatLng;
+    ClientInfo cinfo;
+    String cname="",c_code="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +77,8 @@ public class GoogleMapActivity extends Activity
         {
             LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             Criteria criteria = new Criteria();
-
+             c_code = AccountApplication.getClient_code();
+             cinfo = ClientInfo.getClintInfoById(c_code);
             Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, true));
             if (location != null)
             {
@@ -110,10 +115,14 @@ try {
     TextView numTxt = (TextView) marker.findViewById(R.id.num_txt);
     numTxt.setText("1");
 
+    if(cinfo!=null){
+         cname = cinfo.name;
+    }
+
     customMarker = mMap.addMarker(new MarkerOptions()
             .position(BROOKLYN_BRIDGE)
-            .title("Title")
-            .snippet("Description")
+            .title(cname)
+            .snippet(c_code)
             .icon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(this, marker))));
 
     final View mapView = getFragmentManager().findFragmentById(R.id.map).getView();
