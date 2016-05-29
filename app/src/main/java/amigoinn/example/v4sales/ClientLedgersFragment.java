@@ -33,7 +33,7 @@ public class ClientLedgersFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.client_ledgers_fragment, container, false);
         listView2 = (ListView) v.findViewById(R.id.listView2);
-//        loadData();
+        loadData();
         v.setFocusableInTouchMode(true);
         v.requestFocus();
 
@@ -64,8 +64,8 @@ public class ClientLedgersFragment extends BaseFragment {
                     adateer = new ListViewCustomAdapter(getActivity(), list);
                     listView2.setAdapter(adateer);
                 } else {
-                    Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
-                    ;
+//                    Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
+//                    ;
                 }
 
             }
@@ -73,8 +73,8 @@ public class ClientLedgersFragment extends BaseFragment {
             @Override
             public void ModelLoadFailedWithError(String error) {
                 hideProgress();
-                Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
-                ;
+//                Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
+//                ;
             }
         });
     }
@@ -139,22 +139,23 @@ public class ClientLedgersFragment extends BaseFragment {
 
             ClientDispatchInfo c_info = m_list.get(arg0);
             if (c_info != null) {
-                String str = "TrnCtrlNo " + c_info.TrnCtrlNo;
+                String str = "Order no.: " + c_info.TrnCtrlNo;
                 hv.textview1.setText(str);
-                String str2 = "NetDocValue " + c_info.NetDocValue;
+                String str2 = "Net Amount: " + c_info.NetDocValue;
                 hv.textview2.setText(str2);
-                String str3 = "VAUid " + c_info.VAUid;
+                String str3 = "Date" + c_info.VAUid;
                 hv.textview3.setText(str3);
             }
+
 
             hv.rlMain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent start = new Intent(getActivity(), ClientOrderDispatchActiviy.class);
                     ClientDispatchInfo c_info = m_list.get(arg0);
-                    start.putExtra("Order no.: ", c_info.TrnCtrlNo);
-                    start.putExtra("Net Amount: ", c_info.DocNoPrefix);
-                    start.putExtra("Date", c_info.DocNoPrefix);
+                    start.putExtra("TrnCtrlNo", c_info.TrnCtrlNo);
+                    start.putExtra("DocNoPrefix", c_info.DocNoPrefix);
+                    start.putExtra("DocNo", c_info.DocNoPrefix);
                     startActivity(start);
                 }
             });

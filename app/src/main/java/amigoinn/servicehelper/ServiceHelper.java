@@ -66,11 +66,16 @@ public class ServiceHelper {
     public static final String INSERT_LOCATIONS = "insertlocation.php";
     public static final String CLIENT_SALE = "clientsales.php";
 
-    public static final String SALE_DETAILS = " salesdetails.php";
+    public static final String SALE_DETAILS = "salesdetails.php";
 
     public static final String SALESMAN = "getsalesman.php";
     public static final String PRODUCT_DETAILS = "productwiseorder.php";
 
+    public static final String FETCH_LOCATION = "fetchlocation.php";
+    public static final String Feedback = "feedbackup.php";
+
+
+//    http://www.v4account.net/v4webservice/fetchlocation.php?clientid=CV00770
 
     String my_quesryString;
 

@@ -48,6 +48,9 @@ public class ProductInfo extends ActiveRecordBase {
     @ModelMapper(JsonKey = "ImagePresent")
     public String ImagePresent = "";
 
+    @ModelMapper(JsonKey = "item_count")
+    public int item_count = 0;
+
     public static ArrayList<ProductInfo> getAllProduct() {
         ArrayList<ProductInfo> m_list = new ArrayList<ProductInfo>();
         try {
@@ -62,6 +65,21 @@ public class ProductInfo extends ActiveRecordBase {
         return m_list;
     }
 
+
+    public static int getAllClintsize() {
+        int size = 0;
+        ArrayList<ProductInfo> m_list = new ArrayList<ProductInfo>();
+        try {
+            List<ProductInfo> lst = AccountApplication.Connection().findAll(
+                    ProductInfo.class);
+            if (lst != null && lst.size() > 0) {
+                size = lst.size();
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return size;
+    }
 
     public static ProductInfo getProductInfoById(String StockNo) {
         try {

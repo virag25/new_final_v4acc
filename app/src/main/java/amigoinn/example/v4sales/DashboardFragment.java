@@ -10,19 +10,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
+import android.widget.TextView;
 
 
 import amigoinn.adapters.SectionedListBeforeFilter;
+import amigoinn.db_model.ClientInfo;
+import amigoinn.db_model.ProductInfo;
 import amigoinn.walkietalkie.Constants;
 
-public class DashboardFragment extends Fragment implements View.OnClickListener
-{
+public class DashboardFragment extends Fragment implements View.OnClickListener {
     RelativeLayout rlAdd, rlRecipts, rlPendingOrder;
     LinearLayout llNew, llPriceList, llItem, llCustomer, llOverDue, llTotal, llRejected, llOpen, llClosed;
     View v;
+    TextView txtCustomerCount, txtProductCount;
 
     @Override
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.dashboard_fragment, container, false);
 
@@ -30,8 +33,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void onStart()
-    {
+    public void onStart() {
         super.onStart();
         rlAdd = (RelativeLayout) v.findViewById(R.id.rlAdd);
 
@@ -39,6 +41,19 @@ public class DashboardFragment extends Fragment implements View.OnClickListener
         rlPendingOrder = (RelativeLayout) v.findViewById(R.id.rlPendingOrder);
 
         llNew = (LinearLayout) v.findViewById(R.id.llNew);
+
+        txtCustomerCount = (TextView) v.findViewById(R.id.txtCustomerCount);
+        txtProductCount = (TextView) v.findViewById(R.id.txtProductCount);
+
+        int csize = ClientInfo.getAllClintsize();
+        if (csize != 0) {
+            txtCustomerCount.setText(csize + "");
+        }
+
+        int psize = ProductInfo.getAllClintsize();
+        if (psize != 0) {
+            txtProductCount.setText(psize + "");
+        }
 
         llPriceList = (LinearLayout) v.findViewById(R.id.llPriceList);
         llItem = (LinearLayout) v.findViewById(R.id.llItem);
@@ -77,14 +92,13 @@ public class DashboardFragment extends Fragment implements View.OnClickListener
 
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         if (v == llCustomer) {
 
             Constants.PartyList.clear();
             Constants.addParty();
-            Constants.countries=Constants.PartyList;
-            Config.filterfrom="Mainmenu";
+            Constants.countries = Constants.PartyList;
+            Config.filterfrom = "Mainmenu";
 
             Fragment fragment = null;
             Bundle args = new Bundle();

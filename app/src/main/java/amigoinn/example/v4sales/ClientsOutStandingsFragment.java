@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 import java.util.ArrayList;
 
 import amigoinn.db_model.ClientDispatchInfo;
@@ -69,8 +68,8 @@ public class ClientsOutStandingsFragment extends BaseFragment {
                     adateer = new ListViewCustomAdapter(getActivity(), list);
                     listView2.setAdapter(adateer);
                 } else {
-                    Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
-                    ;
+//                    Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
+//                    ;
                 }
 
             }
@@ -78,8 +77,8 @@ public class ClientsOutStandingsFragment extends BaseFragment {
             @Override
             public void ModelLoadFailedWithError(String error) {
                 hideProgress();
-                Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
-                ;
+//                Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
+//                ;
             }
         });
     }
@@ -144,22 +143,24 @@ public class ClientsOutStandingsFragment extends BaseFragment {
 
             ClientSaleInfo c_info = m_list.get(arg0);
             if (c_info != null) {
-                String str = "TrnCtrlNo " + c_info.TrnCtrlNo;
+                String str = "Order no.: " + c_info.TrnCtrlNo;
                 hv.textview1.setText(str);
-                String str2 = "NetDocValue " + c_info.NetDocValue;
+                String str2 = "Net Amount: " + c_info.NetDocValue;
                 hv.textview2.setText(str2);
-                String str3 = "VAUid " + c_info.VAUid;
+                String str3 = "Date: " + c_info.VAUid;
                 hv.textview3.setText(str3);
             }
+
 
             hv.rlMain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent start = new Intent(getActivity(), ClientOrderDispatchActiviy.class);
+
+                    Intent start = new Intent(getActivity(), ClientOrderSaleDetail.class);
                     ClientSaleInfo c_info = m_list.get(arg0);
-                    start.putExtra("Order no.: ", c_info.TrnCtrlNo);
-                    start.putExtra("Net Amount: ", c_info.DocNoPrefix);
-                    start.putExtra("Date", c_info.DocNoPrefix);
+                    start.putExtra("TrnCtrlNo", c_info.TrnCtrlNo);
+                    start.putExtra("DocNoPrefix", c_info.DocNoPrefix);
+                    start.putExtra("DocNo", c_info.DocNo);
                     startActivity(start);
 
                 }

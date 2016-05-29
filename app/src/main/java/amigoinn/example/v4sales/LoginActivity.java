@@ -92,8 +92,8 @@ public class LoginActivity extends BaseActivity {
             loginText = (FloatLabeledEditText) findViewById(R.id.user);
             passText = (FloatLabeledEditText) findViewById(R.id.Password);
             btnLogin = (RobotoTextView) findViewById(R.id.login);
-            loginText.setText("1");
-            passText.setText("145628");
+            loginText.setText("nelson");
+            passText.setText("nelson123");
 
             btnLogin.setOnClickListener(new OnClickListener() {
                 @Override
@@ -143,7 +143,18 @@ public class LoginActivity extends BaseActivity {
                                             startActivity(in);
                                             finish();
                                         } else {
-                                            new updateapk().execute("http://prismeduware.com/democlass/amigoinn.example.v4sales.apk");
+                                            SharedPreferences preferences = getSharedPreferences("update", Context.MODE_PRIVATE);
+                                            SharedPreferences.Editor edit = preferences.edit();
+                                            String updateapp = preferences.getString("update", "false");
+
+                                            edit.clear();
+                                            edit.putString("update", "false");
+                                            edit.commit();
+
+                                            Intent in = new Intent(LoginActivity.this, LeftMenusActivity.class);
+                                            startActivity(in);
+                                            finish();
+//                                            new updateapk().execute("http://prismeduware.com/democlass/amigoinn.example.v4sales.apk");
                                         }
                                     } catch (Exception ex)
 

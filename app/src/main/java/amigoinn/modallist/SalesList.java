@@ -116,7 +116,7 @@ public class SalesList implements ServiceHelper.ServiceHelperDelegate {
                     }
 
                     JSONArray list_type = jobj.optJSONArray("Market");
-                    if (list != null) {
+                    if (list_type != null) {
                         for (int i = 0; i < list_type.length(); i++) {
                             JSONObject data = list_type.getJSONObject(i);
                             if (data != null) {

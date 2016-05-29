@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 import java.util.ArrayList;
 
 import amigoinn.db_model.ClientInfo;
@@ -65,8 +64,8 @@ public class ClientBussinessFragments extends BaseFragment {
                     adateer = new ListViewCustomAdapter(getActivity(), list);
                     listView2.setAdapter(adateer);
                 } else {
-                    Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
-                    ;
+//                    Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
+//                    ;
                 }
 
             }
@@ -74,8 +73,8 @@ public class ClientBussinessFragments extends BaseFragment {
             @Override
             public void ModelLoadFailedWithError(String error) {
                 hideProgress();
-                Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
-                ;
+//                Toast.makeText(getActivity(), "There are no any data found", Toast.LENGTH_LONG).show();
+//                ;
             }
         });
     }
@@ -142,20 +141,21 @@ public class ClientBussinessFragments extends BaseFragment {
             if (c_info != null) {
                 String str = "Order number:  " + c_info.TrnCtrlNo;
                 hv.textview1.setText(str);
-                String str2 = "Net Value: " + c_info.NetDocValue;
+                String str2 = "Net Amount: " + c_info.NetDocValue;
                 hv.textview2.setText(str2);
-                String str3 = "VAUid " + c_info.VAUid;
+                String str3 = "Date " + c_info.VAUid;
                 hv.textview3.setText(str3);
             }
+
 
             hv.rlMain.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent start = new Intent(getActivity(), ClientOrderDetalisActivity.class);
                     ClientOrderInfo c_info = m_list.get(arg0);
-                    start.putExtra("Order no.: ", c_info.TrnCtrlNo);
-                    start.putExtra("Net Amount: ", c_info.DocNoPrefix);
-                    start.putExtra("Date", c_info.DocNoPrefix);
+                    start.putExtra("TrnCtrlNo", c_info.TrnCtrlNo);
+                    start.putExtra("DocNoPrefix", c_info.DocNoPrefix);
+                    start.putExtra("DocNo", c_info.DocNoPrefix);
                     startActivity(start);
                 }
             });

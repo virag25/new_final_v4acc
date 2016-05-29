@@ -63,6 +63,9 @@ public class ClientInfo extends ActiveRecordBase {
     @ModelMapper(JsonKey = "long")
     public String lang = "";
 
+    @ModelMapper(JsonKey = "item_count")
+    public int item_count = 0;
+
 
     public static ArrayList<ClientInfo> getAllClint() {
         ArrayList<ClientInfo> m_list = new ArrayList<ClientInfo>();
@@ -76,6 +79,22 @@ public class ClientInfo extends ActiveRecordBase {
             e.printStackTrace();
         }
         return m_list;
+    }
+
+
+    public static int getAllClintsize() {
+        int size = 0;
+        ArrayList<ClientInfo> m_list = new ArrayList<ClientInfo>();
+        try {
+            List<ClientInfo> lst = AccountApplication.Connection().findAll(
+                    ClientInfo.class);
+            if (lst != null && lst.size() > 0) {
+                size = lst.size();
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+        return size;
     }
 
 

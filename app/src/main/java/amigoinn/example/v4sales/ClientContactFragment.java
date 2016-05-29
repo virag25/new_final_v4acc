@@ -19,21 +19,28 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
+import amigoinn.common.NetworkConnectivity;
 import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.LoginInfo;
 import amigoinn.db_model.MarketTypeInfo;
 import amigoinn.db_model.ModelDelegates;
 import amigoinn.db_model.SalesmenInfo;
 import amigoinn.modallist.SalesList;
+import amigoinn.servicehelper.ServiceHelper;
+import amigoinn.servicehelper.ServiceResponse;
 
 public class ClientContactFragment extends BaseFragment {
     TextView txtuser, txtZone, txtState,
@@ -57,7 +64,10 @@ public class ClientContactFragment extends BaseFragment {
     GPSTracker gpsTracker;
     UniversalDelegate m_delegate;
 
-    TextView txtTempo;
+    TextView txtTempo, txtContact;
+    String client_lat = "", client_lang = "";
+    LinearLayout llClintAddr;
+    TextView txtClientLocation;
 
     public interface UniversalDelegate {
         public void CallDidSuccess(String lat, String lang);
@@ -76,15 +86,27 @@ public class ClientContactFragment extends BaseFragment {
         txtState = (TextView) v.findViewById(R.id.txtState);
         txtTempo = (TextView) v.findViewById(R.id.txtTempo);
         txtCity = (TextView) v.findViewById(R.id.txtCity);
+        txtContact = (TextView) v.findViewById(R.id.txtContact);
         edtSpin = (EditText) v.findViewById(R.id.edtSpn);
         txtAddress = (TextView) v.findViewById(R.id.txtAddress);
         spnData = (Spinner) v.findViewById(R.id.spnData);
         spnType = (Spinner) v.findViewById(R.id.spnType);
+        txtClientLocation = (TextView) v.findViewById(R.id.txtClientLocation);
+        llClintAddr = (LinearLayout) v.findViewById(R.id.llClintAddr);
+
+        if ((client_lat.length() > 0 && client_lang.length() > 0)) {
+            llClintAddr.setVisibility(View.VISIBLE);
+            txtClientLocation.setText(client_lat + "," + client_lang);
+        } else {
+            llClintAddr.setVisibility(View.GONE);
+            loadLatLang();
+        }
+
 
         ArrayList<SalesmenInfo> lst = SalesmenInfo.getAllProduct();
         if (lst != null && lst.size() > 0) {
             selected_id = lst.get(0).Code;
-
+            bnd_list = new ArrayList<>();
             for (int i = 0; i < lst.size(); i++) {
                 SalesmenInfo sale = lst.get(i);
                 bnd_list.add(sale.Nm);
@@ -93,6 +115,7 @@ public class ClientContactFragment extends BaseFragment {
             ArrayList<MarketTypeInfo> lsttype = MarketTypeInfo.getAllProduct();
             if (lsttype != null && lsttype.size() > 0) {
                 selected_type_id = lsttype.get(0).Code;
+                bnd_list_type = new ArrayList<>();
                 for (int i = 0; i < lsttype.size(); i++) {
                     MarketTypeInfo sale = lsttype.get(i);
                     bnd_list_type.add(sale.Descr);
@@ -103,6 +126,12 @@ public class ClientContactFragment extends BaseFragment {
             ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bnd_list);
             spnData.setAdapter(adapter);
 
+// add elements to al, including duplicates
+            HashSet hs = new HashSet();
+            hs.addAll(bnd_list_type);
+            bnd_list_type.clear();
+            bnd_list_type.addAll(hs);
+
             ArrayAdapter adapter1 = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bnd_list_type);
             spnType.setAdapter(adapter1);
         } else {
@@ -111,6 +140,7 @@ public class ClientContactFragment extends BaseFragment {
                 public void ModelLoaded(ArrayList<SalesmenInfo> list) {
                     ArrayList<SalesmenInfo> lst = SalesmenInfo.getAllProduct();
                     if (lst != null && lst.size() > 0) {
+                        bnd_list = new ArrayList<String>();
                         selected_id = lst.get(0).Code;
                         for (int i = 0; i < lst.size(); i++) {
                             SalesmenInfo sale = lst.get(i);
@@ -121,6 +151,7 @@ public class ClientContactFragment extends BaseFragment {
 
 
                     ArrayList<MarketTypeInfo> lsttype = MarketTypeInfo.getAllProduct();
+                    bnd_list_type = new ArrayList<String>();
                     if (lsttype != null && lsttype.size() > 0) {
                         selected_type_id = lsttype.get(0).Code;
                         for (int i = 0; i < lsttype.size(); i++) {
@@ -131,6 +162,10 @@ public class ClientContactFragment extends BaseFragment {
                     ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bnd_list);
                     spnData.setAdapter(adapter);
 
+                    HashSet hs = new HashSet();
+                    hs.addAll(bnd_list_type);
+                    bnd_list_type.clear();
+                    bnd_list_type.addAll(hs);
                     ArrayAdapter adapter1 = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, bnd_list_type);
                     spnType.setAdapter(adapter1);
                 }
@@ -209,7 +244,8 @@ public class ClientContactFragment extends BaseFragment {
         btnlocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DoCall();
+//                DoCall();
+                showAlertDialog();
 
             }
         });
@@ -243,6 +279,7 @@ public class ClientContactFragment extends BaseFragment {
             if (cinfo != null) {
                 txtuser.setText(cinfo.name);
                 txtZone.setText(cinfo.Zone);
+                txtContact.setText(cinfo.mobile_number);
                 txtState.setText(cinfo.client_state);
                 txtCity.setText(cinfo.City);
                 txtAddress.setText(cinfo.client_addr_one + "," + cinfo.client_addr_two + "," + cinfo.client_addr_three + "," + cinfo.client_addr_four);
@@ -285,9 +322,9 @@ public class ClientContactFragment extends BaseFragment {
                     @Override
                     public void LoginDidSuccess() {
                         hideProgress();
-                        Toast.makeText(getActivity(), "Location sent successfully", Toast.LENGTH_LONG).show();
-                        Intent start = new Intent(getActivity(), GoogleMapActivity.class);
-                        startActivity(start);
+                        Toast.makeText(getActivity(), "Customer Mapped successfully", Toast.LENGTH_LONG).show();
+//                        Intent start = new Intent(getActivity(), GoogleMapActivity.class);
+//                        startActivity(start);
 
                     }
 
@@ -295,8 +332,8 @@ public class ClientContactFragment extends BaseFragment {
                     public void LoginFailedWithError(String error) {
                         hideProgress();
                         Toast.makeText(getActivity(), "Error in sending location", Toast.LENGTH_LONG).show();
-                        Intent start = new Intent(getActivity(), GoogleMapActivity.class);
-                        startActivity(start);
+//                        Intent start = new Intent(getActivity(), GoogleMapActivity.class);
+//                        startActivity(start);
                     }
                 }, lang, lat, false, selected_id, selected_type_id);
 //				Toast.makeText(getActivity(),
@@ -304,6 +341,38 @@ public class ClientContactFragment extends BaseFragment {
 //						.show();
             }
         });
+
+    }
+
+    private void showAlertDialog() {
+
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+
+        // set title
+        alertDialogBuilder.setTitle("V4 Account");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Do you want to update location for customer?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        DoCall();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
 
     }
 
@@ -370,4 +439,50 @@ public class ClientContactFragment extends BaseFragment {
 
         alertDialog.show();
     }
+
+    public void loadLatLang() {
+        if (NetworkConnectivity.isConnected()) {
+            String c_code = AccountApplication.getClient_code();
+            ServiceHelper helper = new ServiceHelper(ServiceHelper.FETCH_LOCATION, ServiceHelper.RequestMethod.GET);
+            helper.addParam("clientid", c_code);
+            helper.call(new ServiceHelper.ServiceHelperDelegate() {
+                @Override
+                public void CallFinish(ServiceResponse res) {
+                    if (res.RawResponse != null) {
+                        try {
+                            JSONObject jobj = new JSONObject(res.RawResponse);
+                            if (jobj != null) {
+                                JSONArray jdata = jobj.optJSONArray("data");
+                                if (jdata != null) {
+                                    for (int i = 0; i < jdata.length(); i++) {
+                                        JSONObject job = jdata.optJSONObject(i);
+                                        client_lat = job.optString("vlat");
+                                        client_lang = job.optString("vlong");
+                                        if ((client_lat.length() > 0 && client_lang.length() > 0)) {
+                                            llClintAddr.setVisibility(View.VISIBLE);
+                                            txtClientLocation.setText(client_lat + "," + client_lang);
+                                        } else {
+                                            llClintAddr.setVisibility(View.GONE);
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+                @Override
+                public void CallFailure(String ErrorMessage) {
+
+                }
+            });
+
+        } else {
+
+        }
+    }
+
+
 }

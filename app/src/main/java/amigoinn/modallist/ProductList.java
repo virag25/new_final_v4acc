@@ -21,12 +21,10 @@ import amigoinn.servicehelper.ServiceResponse;
 /**
  * Created by Virag kuvadia on 24-04-2016.
  */
-public class ProductList implements ServiceHelper.ServiceHelperDelegate
-{
+public class ProductList implements ServiceHelper.ServiceHelperDelegate {
 
 
-    protected ProductList()
-    {
+    protected ProductList() {
     }
 
     private static volatile ProductList _instance = null;
@@ -42,7 +40,7 @@ public class ProductList implements ServiceHelper.ServiceHelperDelegate
         return _instance;
     }
 
-    public void DoProductCall(ModelDelegates.ModelDelegate<ProductInfo> delegate){
+    public void DoProductCall(ModelDelegates.ModelDelegate<ProductInfo> delegate) {
         m_delegate = delegate;
         loadFromDB();
         if (m_modelList == null || m_modelList.size() == 0) {
@@ -50,12 +48,12 @@ public class ProductList implements ServiceHelper.ServiceHelperDelegate
                 ServiceHelper helper = new ServiceHelper(ServiceHelper.Product_list, ServiceHelper.RequestMethod.POST);
 //                helper.addParam("Code", UserInfo.getUser().Code);
                 helper.call(this);
-            }else {
+            } else {
                 if (m_delegate != null)
                     m_delegate
                             .ModelLoadFailedWithError("Please check Internet Connection");
             }
-        }else{
+        } else {
             if (m_modelList != null && m_modelList.size() > 0
                     && m_delegate != null) {
                 m_delegate.ModelLoaded(m_modelList);
@@ -68,10 +66,8 @@ public class ProductList implements ServiceHelper.ServiceHelperDelegate
 
     }
 
-    public void loadFromDB()
-    {
-        try
-        {
+    public void loadFromDB() {
+        try {
             List<ProductInfo> list = AccountApplication.Connection().findAll(
                     ProductInfo.class);
             if (list != null) {
@@ -94,19 +90,17 @@ public class ProductList implements ServiceHelper.ServiceHelperDelegate
     }
 
 
-
-
     @Override
     public void CallFinish(ServiceResponse res) {
 
         m_modelList = new ArrayList<ProductInfo>();
-        if (res.RawResponse!=null) {
+        if (res.RawResponse != null) {
             try {
                 ClearDB();
                 m_modelList = new ArrayList<ProductInfo>();
                 JSONObject jobj = new JSONObject(res.RawResponse);
-                if(jobj!=null) {
-                    JSONArray list =  jobj.optJSONArray("data");
+                if (jobj != null) {
+                    JSONArray list = jobj.optJSONArray("data");
                     for (int i = 0; i < list.length(); i++) {
                         JSONObject data = list.getJSONObject(i);
                         if (data != null) {
@@ -114,6 +108,7 @@ public class ProductList implements ServiceHelper.ServiceHelperDelegate
                             ProductInfo info = mapper.getObject(
                                     ProductInfo.class, data);
                             if (info != null) {
+                                info.item_count = list.length();
                                 info.save();
                                 m_modelList.add(info);
                             }

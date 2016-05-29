@@ -59,15 +59,17 @@ public class ClientDispatchList implements ServiceHelper.ServiceHelperDelegate {
 
     public void DoClientDispatch(ModelDelegates.ModelDelegate<ClientDispatchInfo> delegate) {
         m_delegate = delegate;
-        m_modelList = new ArrayList<>();
+        String c_codee = AccountApplication.getClient_code();
+        ArrayList<ClientDispatchInfo> lst_sale = loadFromDB(c_codee);
         if (m_modelList == null || m_modelList.size() == 0) {
             if (NetworkConnectivity.isConnected()) {
                 ServiceHelper helper = new ServiceHelper(ServiceHelper.Order_DISPATCH, ServiceHelper.RequestMethod.POST);
-                String c_code = AccountApplication.getClient_code();
+                final String c_code = AccountApplication.getClient_code();
                 helper.addParam("PartyId", c_code);
                 helper.call(new ServiceHelper.ServiceHelperDelegate() {
                     @Override
                     public void CallFinish(ServiceResponse res) {
+                        m_modelList = new ArrayList<>();
                         String date = "";
                         if (res.RawResponse != null) {
                             try {
@@ -87,6 +89,7 @@ public class ClientDispatchList implements ServiceHelper.ServiceHelperDelegate {
                                                         ClientDispatchInfo.class, jobjj);
                                                 if (info != null) {
                                                     info.DocRemarks = date;
+                                                    info.PartyId=c_code;
                                                     m_modelList.add(info);
                                                 }
                                             }
@@ -131,6 +134,20 @@ public class ClientDispatchList implements ServiceHelper.ServiceHelperDelegate {
                             .ModelLoadFailedWithError(ServiceHelper.COMMON_ERROR);
             }
         }
+    }
+
+    public ArrayList<ClientDispatchInfo> loadFromDB(String party_id) {
+        ArrayList<ClientDispatchInfo> sale_list = new ArrayList<>();
+        if (m_modelList != null && m_modelList.size() > 0) {
+            for (int i = 0; i < m_modelList.size(); i++) {
+                ClientDispatchInfo so = m_modelList.get(i);
+                if (so != null && so.PartyId != null && so.PartyId.equalsIgnoreCase(party_id)) {
+                    sale_list.add(so);
+                }
+            }
+
+        }
+        return sale_list;
     }
 
 

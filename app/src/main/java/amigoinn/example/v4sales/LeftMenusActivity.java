@@ -4,6 +4,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +34,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import amigoinn.adapters.CameraActivity;
 
@@ -39,7 +42,12 @@ import amigoinn.adapters.CameraActivity;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import amigoinn.adapters.SectionedListBeforeFilter;
+import amigoinn.db_model.ClientInfo;
+import amigoinn.db_model.ModelDelegates;
+import amigoinn.db_model.ProductInfo;
 import amigoinn.db_model.UserInfo;
+import amigoinn.modallist.ClientList;
+import amigoinn.modallist.ProductList;
 import amigoinn.walkietalkie.Constants;
 import amigoinn.walkietalkie.images.ImageUtil;
 import amigoinn.walkietealkie.drawable.DrawerAdapter;
@@ -59,6 +67,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class LeftMenusActivity extends ActionBarActivity {
@@ -85,6 +95,11 @@ public class LeftMenusActivity extends ActionBarActivity {
 
     AlarmManager alarmManager;
     PendingIntent pendingIntent;
+
+    ProgressDialog m_pd = null;
+    SharedPreferences settings;
+    SharedPreferences.Editor editor;
+    int cust_count, pro_count;
 
     public interface UniversalDelegate {
         public void CallDidSuccess(String lat, String lang);
@@ -129,10 +144,19 @@ public class LeftMenusActivity extends ActionBarActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("V4Account");
+
+        m_pd = new ProgressDialog(LeftMenusActivity.this);
+        m_pd.setMessage(Html.fromHtml("Please wait..."));
+        m_pd.setCancelable(false);
         //GcmMessageHandler.count=0;
         //registerGCM();
 
         setAlaram(5);
+
+
+        if (cust_count == 0 && pro_count == 0) {
+            loadBigData();
+        }
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mTitle = mDrawerTitle = getTitle();
@@ -184,6 +208,54 @@ public class LeftMenusActivity extends ActionBarActivity {
         } catch (Exception ex) {
 
         }
+    }
+
+    public void showProgress() {
+        if (m_pd != null) {
+            m_pd.show();
+        }
+    }
+
+    public void hideProgress() {
+        if (m_pd != null) {
+            m_pd.dismiss();
+        }
+    }
+
+    private void loadBigData() {
+
+        showProgress();
+        ClientList.Instance().DoClint(new ModelDelegates.ModelDelegate<ClientInfo>() {
+            @Override
+            public void ModelLoaded(ArrayList<ClientInfo> list) {
+                hideProgress();
+                loadProduct();
+
+            }
+
+            @Override
+            public void ModelLoadFailedWithError(String error) {
+                hideProgress();
+                loadProduct();
+            }
+        });
+
+    }
+
+
+    public void loadProduct() {
+        showProgress();
+        ProductList.Instance().DoProductCall(new ModelDelegates.ModelDelegate<ProductInfo>() {
+            @Override
+            public void ModelLoaded(ArrayList<ProductInfo> list) {
+                hideProgress();
+            }
+
+            @Override
+            public void ModelLoadFailedWithError(String error) {
+                hideProgress();
+            }
+        });
     }
 
     @Override

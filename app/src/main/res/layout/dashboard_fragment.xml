@@ -563,6 +563,7 @@
                                 android:src="@drawable/group" />
 
                             <TextView
+                                android:id="@+id/txtCustomerCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
@@ -616,6 +617,7 @@
                                 android:src="@drawable/box" />
 
                             <TextView
+                                android:id="@+id/txtProductCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"

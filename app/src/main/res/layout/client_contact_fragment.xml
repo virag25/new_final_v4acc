@@ -95,7 +95,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_weight="30"
                 android:gravity="center"
-                android:text="Zone :"
+                android:text="Route :"
                 android:textColor="@color/main_color_grey_700"
                 android:textSize="16dp" />
 
@@ -123,7 +123,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_weight="30"
                 android:gravity="center"
-                android:text="State :"
+                android:text="City :"
                 android:textColor="@color/main_color_grey_700"
                 android:textSize="16dp" />
 
@@ -151,7 +151,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_weight="30"
                 android:gravity="center"
-                android:text="City :"
+                android:text="Area :"
                 android:textColor="@color/main_color_grey_700"
                 android:textSize="16dp" />
 
@@ -195,6 +195,65 @@
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnrContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="30"
+                android:gravity="center"
+                android:text="Contact :"
+                android:textColor="@color/main_color_grey_700"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtContact"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_weight="70"
+                android:gravity="center|left"
+                android:text=""></TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llClintAddr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="30"
+                android:gravity="center"
+                android:text="Customer Location :"
+                android:textColor="@color/main_color_grey_700"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtClientLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_weight="70"
+                android:gravity="center|left"
+                android:text=""></TextView>
+
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/txtTempo"

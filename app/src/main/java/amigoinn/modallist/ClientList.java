@@ -19,8 +19,7 @@ import amigoinn.servicehelper.ServiceResponse;
 /**
  * Created by Virag kuvadia on 24-04-2016.
  */
-public class ClientList implements ServiceHelper.ServiceHelperDelegate
-{
+public class ClientList implements ServiceHelper.ServiceHelperDelegate {
 
     protected ClientList() {
     }
@@ -38,7 +37,7 @@ public class ClientList implements ServiceHelper.ServiceHelperDelegate
         return _instance;
     }
 
-    public void DoClint(ModelDelegates.ModelDelegate<ClientInfo> delegate){
+    public void DoClint(ModelDelegates.ModelDelegate<ClientInfo> delegate) {
         m_delegate = delegate;
         loadFromDB();
         if (m_modelList == null || m_modelList.size() == 0) {
@@ -46,20 +45,16 @@ public class ClientList implements ServiceHelper.ServiceHelperDelegate
                 ServiceHelper helper = new ServiceHelper(ServiceHelper.CLIENT, ServiceHelper.RequestMethod.POST);
 //                helper.addParam("Code", UserInfo.getUser().Code);
                 helper.call(this);
-            }
-            else
-            {
+            } else {
                 if (m_delegate != null)
                     m_delegate
                             .ModelLoadFailedWithError("Please check Internet Connection");
             }
-        }else{
+        } else {
             if (m_modelList != null && m_modelList.size() > 0
                     && m_delegate != null) {
                 m_delegate.ModelLoaded(m_modelList);
-            }
-            else
-            {
+            } else {
                 if (m_delegate != null)
                     m_delegate
                             .ModelLoadFailedWithError(ServiceHelper.COMMON_ERROR);
@@ -69,8 +64,7 @@ public class ClientList implements ServiceHelper.ServiceHelperDelegate
     }
 
     public void loadFromDB() {
-        try
-        {
+        try {
             List<ClientInfo> list = AccountApplication.Connection().findAll(
                     ClientInfo.class);
             if (list != null) {
@@ -83,33 +77,27 @@ public class ClientList implements ServiceHelper.ServiceHelperDelegate
         }
     }
 
-    public void ClearDB()
-    {
-        try
-        {
+    public void ClearDB() {
+        try {
             AccountApplication.Connection().delete(ClientInfo.class);
             m_modelList = null;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             CommonUtils.LogException(e);
         }
     }
-
-
 
 
     @Override
     public void CallFinish(ServiceResponse res) {
 
         m_modelList = new ArrayList<ClientInfo>();
-        if (res.RawResponse!=null) {
+        if (res.RawResponse != null) {
             try {
                 ClearDB();
                 m_modelList = new ArrayList<ClientInfo>();
                 JSONObject jobj = new JSONObject(res.RawResponse);
-                if(jobj!=null) {
-                    JSONArray list =  jobj.optJSONArray("data");
+                if (jobj != null) {
+                    JSONArray list = jobj.optJSONArray("data");
                     for (int i = 0; i < list.length(); i++) {
                         JSONObject data = list.getJSONObject(i);
                         if (data != null) {
@@ -117,6 +105,7 @@ public class ClientList implements ServiceHelper.ServiceHelperDelegate
                             ClientInfo info = mapper.getObject(
                                     ClientInfo.class, data);
                             if (info != null) {
+                                info.item_count = list.length();
                                 info.save();
                                 m_modelList.add(info);
                             }

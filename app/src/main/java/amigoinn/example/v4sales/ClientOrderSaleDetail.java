@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +36,7 @@ public class ClientOrderSaleDetail extends BaseActivity {
             DocNoPrefix = b.getString("DocNoPrefix");
             DocNo = b.getString("DocNo");
         }
-        lvorder = (ListView) findViewById(R.id.listView2);
+        lvorder = (ListView) findViewById(R.id.lvorder);
         txtClient = (TextView) findViewById(R.id.txtClient);
         loadData();
     }
@@ -102,7 +103,8 @@ public class ClientOrderSaleDetail extends BaseActivity {
         public class Holder {
             TextView name;
             TextView txtPrice;
-            TextView edtcode, edtdate, txtQty, txtRate;
+            EditText txtQty;
+            TextView edtcode, edtdate, txtRate;
         }
 
         @Override
@@ -114,9 +116,9 @@ public class ClientOrderSaleDetail extends BaseActivity {
             if (arg1 == null) {
                 hv = new Holder();
                 arg1 = inflater.inflate(R.layout.custom_order_home, null);
-                hv.edtcode = (TextView) arg1.findViewById(R.id.edtcode);
+//                hv.edtcode = (TextView) arg1.findViewById(R.id.edtcode);
                 hv.edtdate = (TextView) arg1.findViewById(R.id.edtdate);
-                hv.txtQty = (TextView) arg1.findViewById(R.id.txtQty);
+                hv.txtQty = (EditText) arg1.findViewById(R.id.txtQty);
                 hv.txtPrice = (TextView) arg1.findViewById(R.id.txtprice);
                 hv.txtRate = (TextView) arg1.findViewById(R.id.txtRate);
                 arg1.setTag(hv);
@@ -126,12 +128,14 @@ public class ClientOrderSaleDetail extends BaseActivity {
 
 
             ClientOrderDetailInfo info = m_list.get(arg0);
+
             if (info != null) {
-                hv.edtcode.setText(info.StockNo);
+//                hv.edtcode.setText(info.StockNo);
                 ProductInfo pinfo = ProductInfo.getProductInfoById(info.StockNo);
                 hv.edtdate.setText(pinfo.product);
                 hv.txtRate.setText(info.StkUpdtRate);
                 hv.txtQty.setText(String.valueOf(info.DocQty));
+                hv.txtQty.setEnabled(false);
                 hv.txtPrice.setText(info.StkUpdtValueOut);
             }
 

@@ -142,6 +142,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
             public void onClick(View v) {
                 Intent start = new Intent(getActivity(), AddClientActivity.class);
                 startActivityForResult(start, 112);
+
 //                Fragment fragment = null;
 //                Bundle args = new Bundle();
 //                FragmentManager frgManager = getFragmentManager();
@@ -183,7 +184,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         ArrayAdapter<String> ada = new ArrayAdapter<String>(context, R.layout.sammplelistitemabsent, R.id.tv, Constants.PartyList);
         edtOrderDate = (TextView) view.findViewById(R.id.edtorderdate);
         Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
         String formattedDate = df.format(c.getTime());
         edtOrderDate.setText(formattedDate);
         edtOrderDate.setEnabled(false);
@@ -294,7 +295,7 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
                     cid = data.getStringExtra("client_id");
                     ClientInfo c_info = ClientInfo.getClintInfoById(cid);
                     if (c_info != null) {
-                        edtclient.setText(c_info.name);
+                        edtclient.setText("code:" + cid + ",name:" + c_info.name);
                     }
 
                 }
@@ -383,6 +384,14 @@ public class FragmentCategoryItemRank extends BaseFragment implements DatePicker
         String str1 = edtOrderDate.getText().toString();
         String str2 = edtOrderdueDate.getText().toString();
         if (cid != null && cid.length() == 0) {
+            String clientname = edtclient.getText().toString();
+            if (clientname != null && clientname.length() > 0) {
+                ClientInfo cinfoo = ClientInfo.getClintInfoByName(clientname);
+                if (cinfoo != null) {
+                    cid = cinfoo.client_code;
+                }
+            }
+        }else{
             String clientname = edtclient.getText().toString();
             if (clientname != null && clientname.length() > 0) {
                 ClientInfo cinfoo = ClientInfo.getClintInfoByName(clientname);
