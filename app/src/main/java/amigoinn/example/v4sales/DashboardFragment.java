@@ -95,51 +95,62 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         if (v == llCustomer) {
 
-            Constants.PartyList.clear();
-            Constants.addParty();
-            Constants.countries = Constants.PartyList;
-            Config.filterfrom = "Mainmenu";
+//            Constants.PartyList.clear();
+//            Constants.addParty();
+//            Constants.countries = Constants.PartyList;
+//            Config.filterfrom = "Mainmenu";
+//
+//            Fragment fragment = null;
+//            Bundle args = new Bundle();
+//            FragmentManager frgManager = getFragmentManager();
+//            fragment = new SectionedListBeforeFilter();
+//            fragment.setArguments(args);
+//            frgManager.beginTransaction()
+//                    .replace(R.id.content_frame, fragment).commit();
 
-            Fragment fragment = null;
+            Fragment fragment1234 = new ClientListSectionedFragment();//.newInstance();
             Bundle args = new Bundle();
             FragmentManager frgManager = getFragmentManager();
-            fragment = new SectionedListBeforeFilter();
-            fragment.setArguments(args);
-            frgManager.beginTransaction()
-                    .replace(R.id.content_frame, fragment).commit();
+            fragment1234.setArguments(args);
+            frgManager.beginTransaction().replace(R.id.content_frame, fragment1234).commit();
         } else if (v == llItem) {
 
-            Config.filterfrom = "product";
-            Constants.Productlist.clear();
-            Constants.addProducts();
-            Constants.countries = Constants.Productlist;
-            Fragment fragment = null;
+            Fragment fragment1234 = new ProductListSectionedActivity();//.newInstance();
             Bundle args = new Bundle();
             FragmentManager frgManager = getFragmentManager();
-            fragment = new SectionedListBeforeFilter();
-            fragment.setArguments(args);
-            frgManager.beginTransaction()
-                    .replace(R.id.content_frame, fragment).commit();
+            fragment1234.setArguments(args);
+            frgManager.beginTransaction().replace(R.id.content_frame, fragment1234).commit();
+//            Config.filterfrom = "product";
+//            Constants.Productlist.clear();
+//            Constants.addProducts();
+//            Constants.countries = Constants.Productlist;
+//            Fragment fragment = null;
+//            Bundle args = new Bundle();
+//            FragmentManager frgManager = getFragmentManager();
+//            fragment = new SectionedListBeforeFilter();
+//            fragment.setArguments(args);
+//            frgManager.beginTransaction()
+//                    .replace(R.id.content_frame, fragment).commit();
 
         } else if (v == llPriceList) {
 
         } else if (v == llNew) {
-            Intent start = new Intent(getActivity(), NewOrderTabActiviy.class);
-            startActivity(start);
+//            Intent start = new Intent(getActivity(), NewOrderTabActiviy.class);
+//            startActivity(start);
 
         } else if (v == llRejected) {
-            Intent start = new Intent(getActivity(), NewOrderTabActiviy.class);
-            startActivity(start);
+//            Intent start = new Intent(getActivity(), NewOrderTabActiviy.class);
+//            startActivity(start);
 
 
         } else if (v == llOpen) {
-            Intent start = new Intent(getActivity(), NewOrderTabActiviy.class);
-            startActivity(start);
+//            Intent start = new Intent(getActivity(), NewOrderTabActiviy.class);
+//            startActivity(start);
 
 
         } else if (v == llClosed) {
-            Intent start = new Intent(getActivity(), NewOrderTabActiviy.class);
-            startActivity(start);
+//            Intent start = new Intent(getActivity(), NewOrderTabActiviy.class);
+//            startActivity(start);
 
 
         }

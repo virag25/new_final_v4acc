@@ -17,6 +17,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -34,6 +35,7 @@ public class ClientsTabFragment extends FragmentActivity {
     View view;
     public static ViewPager viewPager;
     static PagerSlidingTabStrip tabs;
+    ImageView imageView;
 //    Context activity;
 
 
@@ -54,6 +56,17 @@ public class ClientsTabFragment extends FragmentActivity {
         if (code != null) {
             top_title.setText(code_info.name);
         }
+
+        imageView = (ImageView) findViewById(R.id.imageView);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent start = new Intent(getApplicationContext(), LeftMenusActivity.class);
+                start.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(start);
+            }
+        });
 
         SalesList.Instance().DoSalsApi(null);
 
@@ -186,8 +199,8 @@ public class ClientsTabFragment extends FragmentActivity {
 
                 case 0:
                     try {
-                        ClientBussinessFragments business_fragments = new ClientBussinessFragments();
-                        return business_fragments;
+                        ClientContactFragment contact = new ClientContactFragment();
+                        return contact;
                     } catch (Exception ex) {
                         Log.e("Error", ex.toString());
                     }
@@ -195,8 +208,8 @@ public class ClientsTabFragment extends FragmentActivity {
                 case 1:
 
                     try {
-                        ClientContactFragment contact = new ClientContactFragment();
-                        return contact;
+                        ClientBussinessFragments business_fragments = new ClientBussinessFragments();
+                        return business_fragments;
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

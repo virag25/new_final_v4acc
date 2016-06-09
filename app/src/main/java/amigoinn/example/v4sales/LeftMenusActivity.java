@@ -340,7 +340,9 @@ public class LeftMenusActivity extends ActionBarActivity {
             TextView tv = (TextView) headerView.findViewById(R.id.txtUpdatephoto);
             TextView tvName = (TextView) headerView.findViewById(R.id.name);
 //            ImageUtil.displayRoundImage(iv, url, null);
-            tv.setText("v4acc@gmail.com");
+
+            tvName.setText(UserInfo.getUser().name);
+            tv.setText("User id: " + UserInfo.getUser().user_code);
 
 //            tvName.setText(Name);
             tv.setOnClickListener(new View.OnClickListener() {

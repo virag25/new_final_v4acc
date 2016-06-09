@@ -5,34 +5,51 @@
     android:layout_height="match_parent"
     tools:context="amigoinn.example.v4sales.ClientsTabFragment">
 
+
+    <RelativeLayout
+        android:id="@+id/rlheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color_500"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/txtCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+
+            android:layout_toRightOf="@+id/imageView"
+            android:padding="10dp"
+            android:text="Shoprite Benguela"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:visibility="visible"
+        android:layout_below="@+id/rlheader"
         android:background="@color/white"
-        />
+        android:visibility="visible" />
 
-    <TextView
-        android:id="@+id/txtCompany"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/tabs"
-        android:visibility="visible"
-        android:textColor="@color/white"
-        android:background="@color/main_color_500"
-        android:layout_centerHorizontal="true"
-        android:text="Shoprite Benguela"
-        android:padding="10dp"
-        android:layout_gravity="center"
-        />
     <android.support.v4.view.ViewPager
         android:id="@+id/tabanim_viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtCompany"
-        />
+        android:layout_below="@+id/tabs" />
 
 </RelativeLayout>

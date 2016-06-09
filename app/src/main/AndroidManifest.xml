@@ -84,8 +84,7 @@
         <activity
             android:name=".ClientDetails"
             android:label="Client Details"
-            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"
-            />
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
 
         <service
             android:name=".RegistrationIntentService"
@@ -194,7 +193,9 @@
         <activity
             android:name=".AndroidDatabaseManager"
             android:theme="@style/Theme.AppCompat.Light" />
-        <activity android:name=".ClientsTabFragment" />
+        <activity
+            android:name=".ClientsTabFragment"
+            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
         <activity android:name=".ClientContactFragment" />
         <activity android:name=".ClientAnalyticsFragment" />
         <activity android:name=".ClientLedgersFragment" />

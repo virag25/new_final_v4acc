@@ -38,6 +38,9 @@
     <string name="drawer_icon_product">&#xe819;</string>
     <string name="drawer_icon_client">&#xe811;</string>
     <string name="drawer_icon_report">&#xe812;</string>
+    <string name="drawer_icon_location">0xe806</string>
+
+
 
     <string name="drawer_icon_stocktake">&#xe815;</string>
 

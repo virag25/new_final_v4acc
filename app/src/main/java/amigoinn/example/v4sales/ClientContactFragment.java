@@ -93,10 +93,13 @@ public class ClientContactFragment extends BaseFragment {
         spnType = (Spinner) v.findViewById(R.id.spnType);
         txtClientLocation = (TextView) v.findViewById(R.id.txtClientLocation);
         llClintAddr = (LinearLayout) v.findViewById(R.id.llClintAddr);
+        btnlocation = (ImageView) v.findViewById(R.id.btnlocation);
 
         if ((client_lat.length() > 0 && client_lang.length() > 0)) {
             llClintAddr.setVisibility(View.VISIBLE);
             txtClientLocation.setText(client_lat + "," + client_lang);
+
+
         } else {
             llClintAddr.setVisibility(View.GONE);
             loadLatLang();
@@ -179,7 +182,7 @@ public class ClientContactFragment extends BaseFragment {
 
 
         btncall = (Button) v.findViewById(R.id.btncall);
-        btnlocation = (ImageView) v.findViewById(R.id.btnlocation);
+
 
         btncall.setOnClickListener(new View.OnClickListener() {
             @Override
