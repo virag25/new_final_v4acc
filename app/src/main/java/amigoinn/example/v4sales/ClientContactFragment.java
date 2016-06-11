@@ -32,6 +32,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import amigoinn.adapters.CameraActivity;
 import amigoinn.common.NetworkConnectivity;
 import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.LoginInfo;
@@ -68,6 +69,7 @@ public class ClientContactFragment extends BaseFragment {
     String client_lat = "", client_lang = "";
     LinearLayout llClintAddr;
     TextView txtClientLocation;
+    ImageView btnFeed;
 
     public interface UniversalDelegate {
         public void CallDidSuccess(String lat, String lang);
@@ -94,14 +96,24 @@ public class ClientContactFragment extends BaseFragment {
         txtClientLocation = (TextView) v.findViewById(R.id.txtClientLocation);
         llClintAddr = (LinearLayout) v.findViewById(R.id.llClintAddr);
         btnlocation = (ImageView) v.findViewById(R.id.btnlocation);
+        btnFeed = (ImageView) v.findViewById(R.id.btnFeed);
+
+        btnFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(getActivity(), CameraActivity.class);
+                startActivity(in);
+            }
+        });
+
 
         if ((client_lat.length() > 0 && client_lang.length() > 0)) {
             llClintAddr.setVisibility(View.VISIBLE);
             txtClientLocation.setText(client_lat + "," + client_lang);
-
-
+            btnlocation.setBackgroundResource(R.drawable.loc);
         } else {
             llClintAddr.setVisibility(View.GONE);
+            btnlocation.setBackgroundResource(R.drawable.greenmarker);
             loadLatLang();
         }
 

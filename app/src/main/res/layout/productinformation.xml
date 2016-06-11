@@ -32,7 +32,7 @@
                 android:layout_height="70dp"
                 android:id="@+id/imgproduct"
                 android:scaleType="fitXY"
-                android:src="@drawable/profile"
+                android:src="@drawable/product_place"
                 />
 
 
