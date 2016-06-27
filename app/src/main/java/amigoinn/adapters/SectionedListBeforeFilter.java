@@ -1,7 +1,5 @@
 package amigoinn.adapters;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,15 +7,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Filter;
@@ -32,13 +26,11 @@ import java.util.List;
 
 import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.ModelDelegates;
-import amigoinn.example.v4sales.ClientsTabFragment;
-import amigoinn.example.v4sales.Config;
-import amigoinn.example.v4sales.ProductFilter;
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.Config;
+import amigoinn.example.v4accapp.ProductFilter;
+import amigoinn.example.v4accapp.R;
 import amigoinn.modallist.ClientList;
 import amigoinn.walkietalkie.Constants;
-import retrofit.client.Client;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
@@ -95,11 +87,11 @@ public class SectionedListBeforeFilter extends Fragment
                 }
                 else if (Config.filterfrom.equalsIgnoreCase("Mainmenu"))
                 {
-                    in = new Intent(getActivity(), amigoinn.example.v4sales.Filter.class);
+                    in = new Intent(getActivity(), amigoinn.example.v4accapp.Filter.class);
                 }
                 else
                 {
-                    in = new Intent(getActivity(), amigoinn.example.v4sales.Filter.class);
+                    in = new Intent(getActivity(), amigoinn.example.v4accapp.Filter.class);
                 }
                 try {
                     startActivity(in);
@@ -112,7 +104,7 @@ public class SectionedListBeforeFilter extends Fragment
             @Override
             public void onClick(View v) {
                 if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
-                    Intent in = new Intent(getActivity(), amigoinn.example.v4sales.ClientsTabFragment.class);
+                    Intent in = new Intent(getActivity(), amigoinn.example.v4accapp.ClientsTabFragment.class);
                     startActivity(in);
                     getActivity().finish();
 //                    Fragment newFragment = new ClientsTabFragment();
@@ -122,7 +114,7 @@ public class SectionedListBeforeFilter extends Fragment
 
 
                 } else {
-                    Intent in = new Intent(getActivity(), amigoinn.example.v4sales.AbsentList.class);
+                    Intent in = new Intent(getActivity(), amigoinn.example.v4accapp.AbsentList.class);
                     startActivity(in);
                 }
             }

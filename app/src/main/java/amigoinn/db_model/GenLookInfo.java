@@ -6,7 +6,7 @@ import java.util.List;
 import amigoinn.activerecordbase.ActiveRecordBase;
 import amigoinn.activerecordbase.ActiveRecordException;
 import amigoinn.activerecordbase.CamelNotationHelper;
-import amigoinn.example.v4sales.AccountApplication;
+import amigoinn.example.v4accapp.AccountApplication;
 import amigoinn.modelmapper.ModelMapper;
 
 /**

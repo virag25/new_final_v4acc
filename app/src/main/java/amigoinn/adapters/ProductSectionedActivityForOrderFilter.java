@@ -25,9 +25,9 @@ import java.util.List;
 
 import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.ModelDelegates;
-import amigoinn.example.v4sales.Config;
-import amigoinn.example.v4sales.ProductFilter;
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.Config;
+import amigoinn.example.v4accapp.ProductFilter;
+import amigoinn.example.v4accapp.R;
 import amigoinn.modallist.ClientList;
 import amigoinn.walkietalkie.DatabaseHandler1;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
@@ -85,10 +85,10 @@ public class ProductSectionedActivityForOrderFilter extends Activity
                 }
                 else if (Config.filterfrom.equalsIgnoreCase("Mainmenu"))
                 {
-                    in = new Intent(ProductSectionedActivityForOrderFilter.this, amigoinn.example.v4sales.Filter.class);
+                    in = new Intent(ProductSectionedActivityForOrderFilter.this, amigoinn.example.v4accapp.Filter.class);
                 }
                 else {
-                    in = new Intent(ProductSectionedActivityForOrderFilter.this, amigoinn.example.v4sales.Filter.class);
+                    in = new Intent(ProductSectionedActivityForOrderFilter.this, amigoinn.example.v4accapp.Filter.class);
                 }
                 try
                 {
@@ -284,7 +284,7 @@ public class ProductSectionedActivityForOrderFilter extends Activity
                 @Override
                 public void onClick(View v) {
                     ClientInfo c_info = filteredData.get(position);
-                    Intent in = new Intent(ProductSectionedActivityForOrderFilter.this, amigoinn.example.v4sales.ClientsTabFragment.class);
+                    Intent in = new Intent(ProductSectionedActivityForOrderFilter.this, amigoinn.example.v4accapp.ClientsTabFragment.class);
                     in.putExtra("client_code", c_info.client_code);
                     startActivity(in);
 //                    getActivity().finish();

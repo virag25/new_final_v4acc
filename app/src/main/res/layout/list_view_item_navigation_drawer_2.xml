@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<amigoinn.example.v4sales.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<amigoinn.example.v4accapp.MaterialRippleLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res/com.csform.android.uiapptemplate"
     style="@style/RippleStyle"
     android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:orientation="horizontal"
         android:paddingBottom="4dp"
         android:paddingTop="4dp" >
-      <amigoinn.example.v4sales.RobotoTextView
+      <amigoinn.example.v4accapp.RobotoTextView
             android:id="@+id/title"
             style="@style/TextViewAppearance.Title1"
             android:layout_width="match_parent"
@@ -24,5 +24,5 @@
              />
 
     </LinearLayout>
-</amigoinn.example.v4sales.MaterialRippleLayout>
+</amigoinn.example.v4accapp.MaterialRippleLayout>
 

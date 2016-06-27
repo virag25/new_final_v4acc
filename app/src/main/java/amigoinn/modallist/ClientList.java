@@ -10,8 +10,7 @@ import amigoinn.common.CommonUtils;
 import amigoinn.common.NetworkConnectivity;
 import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.ModelDelegates;
-import amigoinn.db_model.RouteInfo;
-import amigoinn.example.v4sales.AccountApplication;
+import amigoinn.example.v4accapp.AccountApplication;
 import amigoinn.modelmapper.ModelMapHelper;
 import amigoinn.servicehelper.ServiceHelper;
 import amigoinn.servicehelper.ServiceResponse;
@@ -106,6 +105,9 @@ public class ClientList implements ServiceHelper.ServiceHelperDelegate {
                                     ClientInfo.class, data);
                             if (info != null) {
                                 info.item_count = list.length();
+                                String nam = data.optString("name");
+                                String upperString = nam.substring(0, 1).toUpperCase() + nam.substring(1);
+                                info.name = upperString;
                                 info.save();
                                 m_modelList.add(info);
                             }

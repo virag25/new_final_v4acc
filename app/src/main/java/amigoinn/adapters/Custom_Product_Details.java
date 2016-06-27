@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.R;
 
 public class Custom_Product_Details extends BaseAdapter {
     Context context;

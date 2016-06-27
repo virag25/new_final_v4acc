@@ -11,7 +11,7 @@ import org.json.JSONObject;
 import amigoinn.activerecordbase.ActiveRecordBase;
 import amigoinn.activerecordbase.ActiveRecordException;
 import amigoinn.common.CommonUtils;
-import amigoinn.example.v4sales.AccountApplication;
+import amigoinn.example.v4accapp.AccountApplication;
 
 
 public class ModelMapHelper<T extends ActiveRecordBase> {

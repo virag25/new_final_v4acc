@@ -414,10 +414,20 @@ public class ServiceHelper {
 //                        response.isSuccess = data.getBoolean("success");
 //                        response.Message = data.getString("message");
 //                        response.RawResponse = strResponse;
+                    if (strResponse != null && strResponse.length() > 0) {
+                        if (strResponse.contains("hii")) {
+                            strResponse = strResponse.replace("hii", "");
+                        }
+                    }
                     response.RawResponse = strResponse;
                 } else {
                     //response.isSuccess = data.getBoolean("success");
                     //response.Message = data.getString("message");
+                    if (strResponse != null && strResponse.length() > 0) {
+                        if (strResponse.contains("hii")) {
+                            strResponse = strResponse.replace("hii", "");
+                        }
+                    }
                     response.RawResponse = strResponse;
                 }
 

@@ -3,9 +3,9 @@ package amigoinn.walkietalkie.fragments;
 import java.util.ArrayList;
 import java.util.List;
 
-import amigoinn.example.v4sales.LeftMenusActivity;
+import amigoinn.example.v4accapp.LeftMenusActivity;
 
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.R;
 import amigoinn.walkietealkie.drawable.SubcategoryAdapter;
 
 import android.content.Intent;

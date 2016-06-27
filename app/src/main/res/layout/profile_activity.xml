@@ -17,14 +17,14 @@
         android:visibility="gone"
         android:orientation="vertical" >
 
-        <amigoinn.example.v4sales.MaterialRippleLayout
+        <amigoinn.example.v4accapp.MaterialRippleLayout
             style="@style/RippleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:rippleColor1="@color/main_color_grey_400" >
 
 
-        </amigoinn.example.v4sales.MaterialRippleLayout>
+        </amigoinn.example.v4accapp.MaterialRippleLayout>
     </LinearLayout>
 
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical" >
 
-        <amigoinn.example.v4sales.FontelloTextView
+        <amigoinn.example.v4accapp.FontelloTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -42,7 +42,7 @@
             android:textSize="16dp"
             tools:ignore="SpUsage" />
 
-        <amigoinn.example.v4sales.FloatLabeledEditText
+        <amigoinn.example.v4accapp.FloatLabeledEditText
             android:layout_width="0dp"
             android:id="@+id/user"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
         android:layout_marginTop="6dp"
         android:gravity="center_vertical" >
 
-        <amigoinn.example.v4sales.FontelloTextView
+        <amigoinn.example.v4accapp.FontelloTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -70,7 +70,7 @@
             android:textSize="16dp"
             tools:ignore="SpUsage" />
 
-        <amigoinn.example.v4sales.FloatLabeledEditText
+        <amigoinn.example.v4accapp.FloatLabeledEditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -90,7 +90,7 @@
         android:layout_marginTop="6dp"
         android:gravity="center_vertical" >
 
-        <amigoinn.example.v4sales.FontelloTextView
+        <amigoinn.example.v4accapp.FontelloTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -99,7 +99,7 @@
             android:textSize="16dp"
             tools:ignore="SpUsage" />
 
-        <amigoinn.example.v4sales.FloatLabeledEditText
+        <amigoinn.example.v4accapp.FloatLabeledEditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -119,7 +119,7 @@
         android:layout_marginTop="6dp"
         android:gravity="center_vertical" >
 
-        <amigoinn.example.v4sales.FontelloTextView
+        <amigoinn.example.v4accapp.FontelloTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -128,7 +128,7 @@
             android:textSize="16dp"
             tools:ignore="SpUsage" />
 
-        <amigoinn.example.v4sales.FloatLabeledEditText
+        <amigoinn.example.v4accapp.FloatLabeledEditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -148,14 +148,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="54dp" >
 
-        <amigoinn.example.v4sales.MaterialRippleLayout
+        <amigoinn.example.v4accapp.MaterialRippleLayout
             style="@style/RippleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="3dp"
             app:rippleColor1="@color/main_color_grey_400" >
 
-            <amigoinn.example.v4sales.RobotoTextView
+            <amigoinn.example.v4accapp.RobotoTextView
                 android:id="@+id/login"
                 style="@style/ButtonStyle.RaisedEmpty"
                 android:layout_width="wrap_content"
@@ -165,7 +165,7 @@
                 android:minWidth="112dp"
                 android:text="Update Profile"
                 android:textColor="#fff" />
-        </amigoinn.example.v4sales.MaterialRippleLayout>
+        </amigoinn.example.v4accapp.MaterialRippleLayout>
 
         <!--<MaterialRippleLayout-->
             <!--style="@style/RippleStyle"-->

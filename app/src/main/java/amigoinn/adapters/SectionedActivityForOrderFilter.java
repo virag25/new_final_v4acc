@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -16,8 +15,6 @@ import android.widget.EditText;
 import android.widget.Filterable;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 
 import java.util.ArrayList;
@@ -27,13 +24,10 @@ import java.util.List;
 
 import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.ModelDelegates;
-import amigoinn.example.v4sales.BaseFragment;
-import amigoinn.example.v4sales.Config;
-import amigoinn.example.v4sales.ProductFilter;
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.Config;
+import amigoinn.example.v4accapp.ProductFilter;
+import amigoinn.example.v4accapp.R;
 import amigoinn.modallist.ClientList;
-import amigoinn.walkietalkie.Constants;
-import amigoinn.walkietalkie.DatabaseHandler;
 import amigoinn.walkietalkie.DatabaseHandler1;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
@@ -90,10 +84,10 @@ public class SectionedActivityForOrderFilter extends Activity
                 }
                 else if (Config.filterfrom.equalsIgnoreCase("Mainmenu"))
                 {
-                    in = new Intent(SectionedActivityForOrderFilter.this, amigoinn.example.v4sales.Filter.class);
+                    in = new Intent(SectionedActivityForOrderFilter.this, amigoinn.example.v4accapp.Filter.class);
                 }
                 else {
-                    in = new Intent(SectionedActivityForOrderFilter.this, amigoinn.example.v4sales.Filter.class);
+                    in = new Intent(SectionedActivityForOrderFilter.this, amigoinn.example.v4accapp.Filter.class);
                 }
                 try
                 {
@@ -289,7 +283,7 @@ public class SectionedActivityForOrderFilter extends Activity
                 @Override
                 public void onClick(View v) {
                     ClientInfo c_info = filteredData.get(position);
-                    Intent in = new Intent(SectionedActivityForOrderFilter.this, amigoinn.example.v4sales.ClientsTabFragment.class);
+                    Intent in = new Intent(SectionedActivityForOrderFilter.this, amigoinn.example.v4accapp.ClientsTabFragment.class);
                     in.putExtra("client_code", c_info.client_code);
                     startActivity(in);
 //                    getActivity().finish();

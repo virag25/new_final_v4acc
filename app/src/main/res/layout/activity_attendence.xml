@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="amigoinn.example.v4sales.AttendenceActivity">
+    tools:context="amigoinn.example.v4accapp.AttendenceActivity">
 
     <ImageView
         android:layout_width="350dp"
@@ -15,7 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="0dp" />
 
-<amigoinn.example.v4sales.RobotoTextView
+<amigoinn.example.v4accapp.RobotoTextView
     android:layout_width="match_parent"
     android:layout_height="30dp"
     android:layout_marginTop="20dp"

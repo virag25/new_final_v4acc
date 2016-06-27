@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/amigoinn.example.v4sales"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
@@ -17,7 +17,7 @@
 
         android:weightSum="100"
         >
-        <amigoinn.example.v4sales.RobotoTextView
+        <amigoinn.example.v4accapp.RobotoTextView
             android:id="@+id/textTitle"
             style="@style/TextViewAppearance.Title1"
             android:layout_width="0dp"

@@ -20,6 +20,9 @@ public class ClientOrderDetailInfo extends ActiveRecordBase {
     @ModelMapper(JsonKey = "DocNo")
     public String DocNo = "";
 
+    @ModelMapper(JsonKey = "PartyId")
+    public String PartyId = "";
+
     @ModelMapper(JsonKey = "DocDt")
     public String DocDt = "";
 

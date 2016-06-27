@@ -6,16 +6,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import amigoinn.activerecordbase.ActiveRecordException;
+import amigoinn.activerecordbase.CamelNotationHelper;
 import amigoinn.common.CommonUtils;
 import amigoinn.common.NetworkConnectivity;
-import amigoinn.db_model.ClientInfo;
 import amigoinn.db_model.ClientOrderDetailInfo;
 import amigoinn.db_model.ClientOrderInfo;
-import amigoinn.db_model.ClientOrderInfo;
-import amigoinn.db_model.ClientSaleInfo;
 import amigoinn.db_model.ModelDelegates;
 import amigoinn.db_model.UserInfo;
-import amigoinn.example.v4sales.AccountApplication;
+import amigoinn.example.v4accapp.AccountApplication;
 import amigoinn.modelmapper.ModelMapHelper;
 import amigoinn.servicehelper.ServiceHelper;
 import amigoinn.servicehelper.ServiceResponse;
@@ -48,7 +47,7 @@ public class ClientOrderList implements ServiceHelper.ServiceHelperDelegate {
     public void DoClintOrder(ModelDelegates.ModelDelegate<ClientOrderInfo> delegate) {
         m_delegate = delegate;
         String c_codee = AccountApplication.getClient_code();
-        ArrayList<ClientOrderInfo> clist = loadFromDB(c_codee);
+        ArrayList<ClientOrderInfo> clist = loadFromDB(c_codee, true);
         if (clist == null || clist.size() == 0) {
             if (NetworkConnectivity.isConnected()) {
                 ServiceHelper helper = new ServiceHelper(ServiceHelper.CLIENT_ORDERS, ServiceHelper.RequestMethod.POST);
@@ -87,12 +86,71 @@ public class ClientOrderList implements ServiceHelper.ServiceHelperDelegate {
         return sale_list;
     }
 
+
+    public void ClearDbById(String order_id) {
+        try {
+            List<ClientOrderInfo> lst = AccountApplication.Connection().find(
+                    ClientOrderInfo.class,
+                    CamelNotationHelper.toSQLName("PartyId") + "=?",
+                    new String[]{"" + order_id});
+            if (lst != null && lst.size() > 0) {
+                for (ClientOrderInfo qa : lst) {
+                    qa.delete();
+                }
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void ClearDetailDbById(String order_id) {
+        try {
+            List<ClientOrderDetailInfo> lst = AccountApplication.Connection().find(
+                    ClientOrderDetailInfo.class,
+                    CamelNotationHelper.toSQLName("PartyId") + "=?",
+                    new String[]{"" + order_id});
+            if (lst != null && lst.size() > 0) {
+                for (ClientOrderDetailInfo qa : lst) {
+                    qa.delete();
+                }
+            }
+        } catch (ActiveRecordException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<ClientOrderDetailInfo> loadFromDBForDetail(String PartyId, String TrnCtrlNo) {
+        ArrayList<ClientOrderDetailInfo> clist = null;
+        try {
+            List<ClientOrderDetailInfo> lst = AccountApplication.Connection()
+                    .find(ClientOrderDetailInfo.class,
+                            CamelNotationHelper.toSQLName("PartyId")
+                                    + "=? and "
+                                    + CamelNotationHelper.toSQLName("DocNo")
+                                    + " = ?",
+                            new String[]{"" + PartyId,
+                                    String.valueOf(TrnCtrlNo)});
+            clist = new ArrayList<>();
+            if (lst != null) {
+                if (lst.size() > 0) {
+                    clist = new ArrayList<ClientOrderDetailInfo>(lst);
+                }
+            }
+        } catch (Exception e) {
+            CommonUtils.LogException(e);
+        }
+        return clist;
+    }
+
     public void DoClintOrderDetails(ModelDelegates.ModelDelegate<ClientOrderDetailInfo> delegate, String TrnCtrlNo, String DocNoPrefix, String DocNo) {
         my_delegate = delegate;
-        if (my_modelList == null || my_modelList.size() == 0) {
+        final String c_code = AccountApplication.getClient_code();
+
+        ArrayList<ClientOrderDetailInfo> list = loadFromDBForDetail(c_code, DocNo);
+        if (list == null || list.size() == 0) {
             if (NetworkConnectivity.isConnected()) {
                 ServiceHelper helper = new ServiceHelper(ServiceHelper.CLIENT_ORDERS_Details, ServiceHelper.RequestMethod.POST);
-                String c_code = AccountApplication.getClient_code();
                 helper.addParam("PartyId", c_code);
                 helper.addParam("TrnCtrlNo", TrnCtrlNo);
                 helper.addParam("DocNoPrefix", DocNoPrefix);
@@ -117,6 +175,8 @@ public class ClientOrderList implements ServiceHelper.ServiceHelperDelegate {
                                                                     ClientOrderDetailInfo.class, jobjj);
                                                             if (info != null) {
                                                                 my_modelList.add(info);
+                                                                info.PartyId = c_code;
+                                                                info.save();
                                                             }
                                                         }
                                                     }
@@ -353,8 +413,8 @@ public class ClientOrderList implements ServiceHelper.ServiceHelperDelegate {
                                                         ClientOrderDetailInfo info = mapper.getObject(
                                                                 ClientOrderDetailInfo.class, jobjj);
                                                         if (info != null) {
-
                                                             my_modelList.add(info);
+                                                            info.save();
                                                         }
                                                     }
                                                 }
@@ -406,18 +466,23 @@ public class ClientOrderList implements ServiceHelper.ServiceHelperDelegate {
     }
 
 
-    public void loadFromDB() {
+    public ArrayList<ClientOrderInfo> loadFromDB(String PartyId, boolean not) {
+        ArrayList<ClientOrderInfo> clist = null;
         try {
-            List<ClientOrderInfo> list = AccountApplication.Connection().findAll(
-                    ClientOrderInfo.class);
-            if (list != null) {
-                if (list.size() > 0) {
-                    m_modelList = new ArrayList<ClientOrderInfo>(list);
+            List<ClientOrderInfo> lst = AccountApplication.Connection().find(
+                    ClientOrderInfo.class,
+                    CamelNotationHelper.toSQLName("PartyId") + "=?",
+                    new String[]{String.valueOf(PartyId)});
+            clist = new ArrayList<>();
+            if (lst != null) {
+                if (lst.size() > 0) {
+                    clist = new ArrayList<ClientOrderInfo>(lst);
                 }
             }
         } catch (Exception e) {
             CommonUtils.LogException(e);
         }
+        return clist;
     }
 
     public void ClearDB() {
@@ -456,6 +521,7 @@ public class ClientOrderList implements ServiceHelper.ServiceHelperDelegate {
                                 String c_codee = AccountApplication.getClient_code();
                                 info.PartyId = c_codee;
                                 m_modelList.add(info);
+                                info.save();
                             }
 
                         }

@@ -15,11 +15,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import amigoinn.example.v4sales.ClientActivity;
-import amigoinn.example.v4sales.GoogleMapActivity;
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.ClientActivity;
+import amigoinn.example.v4accapp.GoogleMapActivity;
+import amigoinn.example.v4accapp.R;
 import amigoinn.models.Datum1;
-import amigoinn.walkietalkie.Constants;
 
 public class Custom_Route extends BaseAdapter
 {

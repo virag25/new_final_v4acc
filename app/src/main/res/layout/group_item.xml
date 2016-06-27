@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/amigoinn.example.v4sales"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -13,7 +13,7 @@
     android:weightSum="100"
     >
 
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:id="@+id/textDate"
         android:layout_weight="18"
         style="@style/TextViewAppearance.Title1"
@@ -28,7 +28,7 @@
         android:textSize="24dp"
         app:typeface="robotoRegular" />
 
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:id="@+id/textSubject"
         android:layout_weight="35"
         style="@style/TextViewAppearance.Title1"
@@ -44,7 +44,7 @@
         app:typeface="robotoRegular" />
 
 
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:id="@+id/textMarks1"
         android:layout_weight="10"
         style="@style/TextViewAppearance.Title1"
@@ -57,7 +57,7 @@
         android:textColor="@color/main_color_grey_500"
         android:textSize="8dp"
         app:typeface="robotoRegular" />
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:id="@+id/textMarks"
         android:layout_weight="15"
         style="@style/TextViewAppearance.Title1"
@@ -73,7 +73,7 @@
         android:textSize="16dp"
         app:typeface="robotoRegular" />
 
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:id="@+id/textRank1"
         android:layout_weight="8"
         style="@style/TextViewAppearance.Title1"
@@ -89,7 +89,7 @@
         app:typeface="robotoRegular" />
 
 
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:id="@+id/textRank"
         android:layout_weight="14"
         style="@style/TextViewAppearance.Title1"
@@ -122,7 +122,7 @@
         android:orientation="horizontal"
         android:weightSum="100"
         >
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:id="@+id/textMark"
         android:layout_weight="20"
         style="@style/TextViewAppearance.Title1"
@@ -134,7 +134,7 @@
         android:textColor="@color/main_color_grey_500"
         android:textSize="10dp"
         app:typeface="robotoRegular" />
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:id="@+id/textTitle"
         style="@style/TextViewAppearance.Title1"
         android:layout_width="0dp"

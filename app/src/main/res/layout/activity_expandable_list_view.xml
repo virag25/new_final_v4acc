@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     >
-    <amigoinn.example.v4sales.RobotoTextView
+    <amigoinn.example.v4accapp.RobotoTextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/actionbar1"
@@ -20,7 +20,7 @@
 
         />
 
-<amigoinn.example.v4sales.AnimatedExpandableListView
+<amigoinn.example.v4accapp.AnimatedExpandableListView
      xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/list_view"
     android:layout_width="match_parent"

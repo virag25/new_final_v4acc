@@ -21,9 +21,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import amigoinn.example.v4sales.AccountApplication;
-import amigoinn.example.v4sales.Config;
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.AccountApplication;
+import amigoinn.example.v4accapp.Config;
+import amigoinn.example.v4accapp.R;
 import amigoinn.walkietalkie.Constants;
 import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
@@ -65,7 +65,7 @@ public class SectionedListActivityProductAfterFilter extends Activity {
             @Override
             public void onClick(View v) {
                 if (Config.filterfrom.equalsIgnoreCase("Mainmenu")) {
-                    Intent in = new Intent(SectionedListActivityProductAfterFilter.this, amigoinn.example.v4sales.ClientActivity.class);
+                    Intent in = new Intent(SectionedListActivityProductAfterFilter.this, amigoinn.example.v4accapp.ClientActivity.class);
                     Config.filterfrom = "abc";
                     startActivity(in);
                     finish();

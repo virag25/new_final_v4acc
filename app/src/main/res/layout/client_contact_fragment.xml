@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context="amigoinn.example.v4sales.ClientContactFragment">
+    tools:context="amigoinn.example.v4accapp.ClientContactFragment">
 
 
     <ScrollView
@@ -13,10 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
 
             <RelativeLayout
                 android:id="@+id/rltvOrder"
@@ -38,238 +43,264 @@
 
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/llStart"
+                android:background="#000000"></View>
+
             <LinearLayout
                 android:id="@+id/lnrtContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rltvOrder"
+                android:layout_marginTop="5dp"
                 android:background="@color/white"
                 android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:padding="24dp"
+                android:orientation="horizontal"
+                android:padding="4dp"
                 android:visibility="visible">
 
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/profile" />
-
-
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:layout_weight="0.7"
                     android:orientation="vertical">
 
-                    <amigoinn.example.v4sales.MaterialRippleLayout
-                        style="@style/RippleStyle"
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:rippleColor1="@color/main_color_grey_400">
-
-
-                    </amigoinn.example.v4sales.MaterialRippleLayout>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="Name :"
-                        android:textColor="@color/main_color_grey_700"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:id="@+id/txtuser"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:layout_weight="70"
-                        android:gravity="center|left"
-                        android:text="Shoprite Benguela"></TextView>
-
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:src="@drawable/profile" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:weightSum="100">
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.3"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="Route :"
-                        android:textColor="@color/main_color_grey_700"
-                        android:textSize="16dp" />
 
-                    <TextView
-                        android:id="@+id/txtZone"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:layout_weight="70"
-                        android:gravity="center|left"
-                        android:text="South"></TextView>
+                        android:gravity="right"
+                        android:orientation="vertical">
+
+                        <amigoinn.example.v4accapp.MaterialRippleLayout
+                            style="@style/RippleStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:rippleColor1="@color/main_color_grey_400">
 
 
-                </LinearLayout>
+                        </amigoinn.example.v4accapp.MaterialRippleLayout>
+                    </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:weightSum="100">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="City :"
-                        android:textColor="@color/main_color_grey_700"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:id="@+id/txtState"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:layout_weight="70"
-                        android:gravity="center|left"
-                        android:text="Benguela"></TextView>
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:weightSum="100">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:text="Name :"
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/txtuser"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="70"
+                            android:gravity="center|left"
+                            android:text="Shoprite Benguela"></TextView>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="Area :"
-                        android:textColor="@color/main_color_grey_700"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:id="@+id/txtCity"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:layout_weight="70"
-                        android:gravity="center|left"
-                        android:text="Benguela City"></TextView>
+                        android:gravity="center_vertical"
+                        android:weightSum="100">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:text="Route :"
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/txtZone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="70"
+                            android:gravity="center|left"
+                            android:text="South"></TextView>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/lnrAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="Address :"
-                        android:textColor="@color/main_color_grey_700"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:id="@+id/txtAddress"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:layout_weight="70"
-                        android:gravity="center|left"
-                        android:text="Benguela City,Benguela,South."></TextView>
+                        android:gravity="center_vertical"
+                        android:weightSum="100">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:text="City :"
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/txtState"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="70"
+                            android:gravity="center|left"
+                            android:text="Benguela"></TextView>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/lnrContact"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="Contact :"
-                        android:textColor="@color/main_color_grey_700"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:id="@+id/txtContact"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:layout_weight="70"
-                        android:gravity="center|left"
-                        android:text=""></TextView>
+                        android:gravity="center_vertical"
+                        android:weightSum="100">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:text="Area :"
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/txtCity"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="70"
+                            android:gravity="center|left"
+                            android:text="Benguela City"></TextView>
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/llClintAddr"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:weightSum="100">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_weight="30"
-                        android:gravity="center"
-                        android:text="Customer Location :"
-                        android:textColor="@color/main_color_grey_700"
-                        android:textSize="16dp" />
-
-                    <TextView
-                        android:id="@+id/txtClientLocation"
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:id="@+id/lnrAddress"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="0dp"
-                        android:layout_weight="70"
-                        android:gravity="center|left"
-                        android:text=""></TextView>
+                        android:gravity="center_vertical"
+                        android:weightSum="100">
 
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:text="Address :"
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/txtAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="70"
+                            android:gravity="center|left"
+                            android:text="Benguela City,Benguela,South."></TextView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnrContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:weightSum="100">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:text="Contact :"
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/txtContact"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="70"
+                            android:gravity="center|left"
+                            android:text=""></TextView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llClintAddr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:weightSum="100">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_weight="30"
+                            android:gravity="center"
+                            android:text="Customer Location :"
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/txtClientLocation"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0dp"
+                            android:layout_weight="70"
+                            android:gravity="center|left"
+                            android:text=""></TextView>
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -281,77 +312,108 @@
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
+
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/llStart"
+                android:background="#000000"></View>
+
+
             <LinearLayout
-                android:id="@+id/llone"
+                android:id="@+id/llStart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lnrtContainer"
                 android:layout_marginTop="5dp"
-                android:gravity="center_horizontal">
+                android:orientation="vertical"
+                android:padding="5dp">
 
-                <TextView
-                    android:layout_width="fill_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|right"
-                    android:layout_weight="0.7"
-                    android:gravity="center_vertical|right"
-                    android:text="Select sales : "
-                    android:textColor="@color/main_color_grey_700"
-                    android:textSize="16dp" />
+                    android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spnData"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.3"></Spinner>
+                    <LinearLayout
+                        android:id="@+id/llone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:gravity="center_vertical"
+                            android:text="Select sales : "
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <Spinner
+                            android:id="@+id/spnData"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.3"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"></Spinner>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/lltwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llone"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="Select Type : "
+                            android:textColor="@color/main_color_grey_700"
+                            android:textSize="16dp" />
+
+                        <Spinner
+                            android:id="@+id/spnType"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.3"
+                            android:padding="5dp"></Spinner>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/lltwo"
+
+            <View
+                android:id="@+id/div1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/llone"
-                android:layout_marginTop="5dp"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|right"
-                    android:layout_weight="0.7"
-                    android:gravity="center_vertical|right"
-                    android:text="Select Type : "
-                    android:textColor="@color/main_color_grey_700"
-                    android:textSize="16dp" />
-
-                <Spinner
-                    android:id="@+id/spnType"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.3"></Spinner>
-
-            </LinearLayout>
-
-            <EditText
-                android:id="@+id/edtSpn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lnrtContainer"
-                android:layout_margin="5dp"
-                android:layout_marginTop="5dp"
-                android:background="@android:color/transparent"
-                android:visibility="gone"></EditText>
+                android:layout_height="1dp"
+                android:layout_below="@+id/llStart"
+                android:background="#000000"></View>
 
             <LinearLayout
+                android:id="@+id/llEnd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lltwo"
+                android:layout_below="@+id/div1"
                 android:layout_marginTop="5dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="5dp">
 
                 <Button
                     android:id="@+id/btncall"
@@ -364,30 +426,176 @@
                     android:textColor="#ffffff"
                     android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/btnlocation"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/greenmarker"
-                    android:text=""
-                    android:textColor="#ffffff" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/btnFeed"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/feed"
-                    android:text=""
-                    android:textColor="#ffffff" />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.7"
+                        android:gravity="center_vertical"
+                        android:text="Send Client Location: "
+                        android:textColor="@color/main_color_grey_700"
+                        android:textSize="16dp" />
+
+                    <ImageView
+                        android:id="@+id/btnlocation"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/greenmarker"
+                        android:text=""
+                        android:textColor="#ffffff" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.7"
+                        android:gravity="center_vertical"
+                        android:text="Client Feedback"
+                        android:textColor="@color/main_color_grey_700"
+                        android:textSize="16dp" />
+
+                    <ImageView
+                        android:id="@+id/btnFeed"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/feed"
+                        android:text=""
+                        android:textColor="#ffffff" />
+
+                </LinearLayout>
 
 
             </LinearLayout>
+
+            //////////////////////////////////////////////////////////////////////////////////////
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/llone"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/lnrtContainer"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:gravity="center_horizontal">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical|right"-->
+            <!--android:layout_weight="0.7"-->
+            <!--android:gravity="center_vertical|right"-->
+            <!--android:text="Select sales : "-->
+            <!--android:textColor="@color/main_color_grey_700"-->
+            <!--android:textSize="16dp" />-->
+
+            <!--<Spinner-->
+            <!--android:id="@+id/spnData"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="0.3"></Spinner>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/lltwo"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/llone"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:gravity="center_horizontal">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical|right"-->
+            <!--android:layout_weight="0.7"-->
+            <!--android:gravity="center_vertical|right"-->
+            <!--android:text="Select Type : "-->
+            <!--android:textColor="@color/main_color_grey_700"-->
+            <!--android:textSize="16dp" />-->
+
+            <!--<Spinner-->
+            <!--android:id="@+id/spnType"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="0.3"></Spinner>-->
+
+            <!--</LinearLayout>-->
+
+            <EditText
+                android:id="@+id/edtSpn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lnrtContainer"
+                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent"
+                android:visibility="gone"></EditText>
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/lltwo"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<Button-->
+            <!--android:id="@+id/btncall"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal|center_vertical"-->
+            <!--android:background="@color/main_color_500"-->
+            <!--android:gravity="center_horizontal|center_vertical"-->
+            <!--android:text="Call"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:visibility="gone" />-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/btnlocation"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:background="@drawable/greenmarker"-->
+            <!--android:text=""-->
+            <!--android:textColor="#ffffff" />-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/btnFeed"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:background="@drawable/feed"-->
+            <!--android:text=""-->
+            <!--android:textColor="#ffffff" />-->
+
+
+            <!--</LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -434,7 +642,7 @@
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </ScrollView>
 

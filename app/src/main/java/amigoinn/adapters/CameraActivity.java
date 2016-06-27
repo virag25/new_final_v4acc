@@ -1,6 +1,5 @@
 package amigoinn.adapters;
 
-import android.app.Activity;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,7 +9,6 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -24,8 +22,6 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 
-import org.json.JSONArray;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,15 +30,14 @@ import java.util.List;
 import java.util.Locale;
 
 import amigoinn.common.NetworkConnectivity;
-import amigoinn.db_model.LoginInfo;
 import amigoinn.db_model.MarketTypeInfo;
 import amigoinn.db_model.ModelDelegates;
 import amigoinn.db_model.SalesmenInfo;
 import amigoinn.db_model.UserInfo;
-import amigoinn.example.v4sales.BaseActivity;
-import amigoinn.example.v4sales.GPSTracker;
-import amigoinn.example.v4sales.R;
-import amigoinn.example.v4sales.RobotoTextView;
+import amigoinn.example.v4accapp.BaseActivity;
+import amigoinn.example.v4accapp.GPSTracker;
+import amigoinn.example.v4accapp.R;
+import amigoinn.example.v4accapp.RobotoTextView;
 import amigoinn.modallist.SalesList;
 import amigoinn.servicehelper.MultipartUtility;
 import amigoinn.servicehelper.ServiceHelper;

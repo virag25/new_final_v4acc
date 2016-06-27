@@ -10,7 +10,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.widget.Toast;
 
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.R;
 
 
 /**

@@ -3,7 +3,6 @@ package amigoinn.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,11 +18,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-import amigoinn.db_model.ProductInfo;
-import amigoinn.example.v4sales.AccountApplication;
-import amigoinn.example.v4sales.Config;
-import amigoinn.example.v4sales.LeftMenusActivity;
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.AccountApplication;
+import amigoinn.example.v4accapp.Config;
+import amigoinn.example.v4accapp.R;
 import amigoinn.walkietalkie.Constants;
 
 import java.util.ArrayList;
@@ -78,7 +75,7 @@ public class SectionedListActivityForFilters extends Activity
             {
                 if (Config.filterfrom.equalsIgnoreCase("Mainmenu"))
                 {
-                    Intent in = new Intent(SectionedListActivityForFilters.this, amigoinn.example.v4sales.ClientActivity.class);
+                    Intent in = new Intent(SectionedListActivityForFilters.this, amigoinn.example.v4accapp.ClientActivity.class);
                     Config.filterfrom = "abc";
 //                    Constants.client_id=
                     startActivity(in);

@@ -2,12 +2,9 @@ package amigoinn.db_model;
 
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import amigoinn.activerecordbase.ActiveRecordBase;
 import amigoinn.activerecordbase.ActiveRecordException;
-import amigoinn.example.v4sales.AccountApplication;
+import amigoinn.example.v4accapp.AccountApplication;
 import amigoinn.modelmapper.ModelMapper;
 
 public class UserInfo extends ActiveRecordBase {

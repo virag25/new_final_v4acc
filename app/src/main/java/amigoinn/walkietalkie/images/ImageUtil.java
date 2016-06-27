@@ -12,7 +12,7 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.R;
 
 public class ImageUtil {
 	

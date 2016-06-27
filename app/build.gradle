@@ -9,7 +9,7 @@ android
     defaultConfig
             {
 
-                applicationId "amigoinn.example.v4sales"
+                applicationId "amigoinn.example.v4accapp"
                 minSdkVersion 15
                 targetSdkVersion 22
                 multiDexEnabled true
@@ -64,5 +64,7 @@ dependencies
             compile 'com.squareup.picasso:picasso:2.3.2'
             compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
             compile 'com.squareup.okhttp:okhttp:2.0.0'
+            compile 'com.getbase:floatingactionbutton:1.10.1'
+            compile 'com.github.orangegangsters:swipy:1.2.3@aar'
 
         }

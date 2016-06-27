@@ -15,11 +15,11 @@ import android.widget.TextView;
 
 
 
-import amigoinn.example.v4sales.Config;
-import amigoinn.example.v4sales.Filter;
+import amigoinn.example.v4accapp.Config;
+import amigoinn.example.v4accapp.Filter;
 
-import amigoinn.example.v4sales.FragmentCategoryItemRank;
-import amigoinn.example.v4sales.R;
+import amigoinn.example.v4accapp.FragmentCategoryItemRank;
+import amigoinn.example.v4accapp.R;
 import amigoinn.walkietalkie.Constants;
 
 import java.util.ArrayList;

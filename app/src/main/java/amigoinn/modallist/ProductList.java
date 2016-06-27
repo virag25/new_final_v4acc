@@ -6,14 +6,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import amigoinn.activerecordbase.Database;
 import amigoinn.common.CommonUtils;
 import amigoinn.common.NetworkConnectivity;
 import amigoinn.db_model.ProductInfo;
 import amigoinn.db_model.ModelDelegates;
-import amigoinn.db_model.ProductInfo;
-import amigoinn.db_model.TaskInfo;
-import amigoinn.example.v4sales.AccountApplication;
+import amigoinn.example.v4accapp.AccountApplication;
 import amigoinn.modelmapper.ModelMapHelper;
 import amigoinn.servicehelper.ServiceHelper;
 import amigoinn.servicehelper.ServiceResponse;

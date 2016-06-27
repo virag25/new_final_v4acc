@@ -30,14 +30,14 @@
                 android:gravity="right"
                 android:orientation="vertical">
 
-                <amigoinn.example.v4sales.MaterialRippleLayout
+                <amigoinn.example.v4accapp.MaterialRippleLayout
                     style="@style/RippleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:rippleColor1="@color/main_color_grey_400">
 
 
-                </amigoinn.example.v4sales.MaterialRippleLayout>
+                </amigoinn.example.v4accapp.MaterialRippleLayout>
             </LinearLayout>
 
 
